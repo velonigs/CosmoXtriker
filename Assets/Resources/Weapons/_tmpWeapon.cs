@@ -30,9 +30,11 @@ public class _tmpWeapon : MonoBehaviour{
     }
 
     void Update(){
-        if (Input.GetKey(KeyCode.Z) && Time.time - _lastfired > 1 / _tmpfire){
+        Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        transform.rotation = Quaternion.LookRotation(_ray.direction);
+            if (Input.GetKey(KeyCode.Z) && Time.time - _lastfired > 1 / _tmpfire){
             _lastfired = Time.time;
             shot();
-        }
+            }
     }
 }
