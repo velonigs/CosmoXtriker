@@ -102,7 +102,8 @@ public class WeaponSelecter : MonoBehaviour
         // プレビューモデルを作成
         WeaponData weaponData = _weaponData[_currentSelectNum];
         // このゲームオブジェクトを親としてモデルを生成
-        _previewModel = Instantiate(weaponData.PreviewModel, this.transform);
+        _previewModel = Instantiate(weaponData.PreviewModel, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
+        _previewModel.transform.parent = this.transform;
     }
 
 }
