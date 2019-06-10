@@ -20,6 +20,7 @@ public class TutorialButton : MonoBehaviour {
     public void TutorialButtonYes() {
         _tutorialCanvas.SetActive(false);
         _tutorialMovie.SetActive(true);
+
     }
 
     public void TutorialButtonNo() {

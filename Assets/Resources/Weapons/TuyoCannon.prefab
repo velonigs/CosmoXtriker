@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 3371461674236579657}
   - component: {fileID: 5121896552235922307}
   - component: {fileID: 988435023427549180}
+  - component: {fileID: 4315402690426893773}
   m_Layer: 0
   m_Name: RightTuyoCannon
   m_TagString: Untagged
@@ -144,6 +145,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &4315402690426893773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793019539929083814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217477b2fca6228448a6717fee811aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3415082365697908784
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +351,7 @@ GameObject:
   - component: {fileID: 8049013117607432568}
   - component: {fileID: 735602239708652595}
   - component: {fileID: 1251919735492362673}
+  - component: {fileID: 3747059168965730012}
   m_Layer: 0
   m_Name: LeftTuyoCannon
   m_TagString: Untagged
@@ -419,3 +433,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &3747059168965730012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005598701840058263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217477b2fca6228448a6717fee811aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
