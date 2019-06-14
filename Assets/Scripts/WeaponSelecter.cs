@@ -95,6 +95,7 @@ public class WeaponSelecter : MonoBehaviour
     /// プレビューモデルの更新
     /// </summary>
     private void UpdateWeaponPreview() {
+        float oldRotationY = _previewModel?_previewModel.transform.rotation.y:0.0f;
         // プレビューモデルがあればを削除
         if (_previewModel) {
             Destroy(_previewModel);
@@ -102,8 +103,18 @@ public class WeaponSelecter : MonoBehaviour
         // プレビューモデルを作成
         WeaponData weaponData = _weaponData[_currentSelectNum];
         // このゲームオブジェクトを親としてモデルを生成
+<<<<<<< HEAD:Assets/Scripts/WeaponSelecter.cs
         _previewModel = Instantiate(weaponData.PreviewModel, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
         _previewModel.transform.parent = this.transform;
+=======
+        _previewModel = Instantiate(weaponData.PreviewModel, transform.position, Quaternion.Euler(weaponData.PreviewModel.transform.rotation.eulerAngles + Vector3.up * oldRotationY));
+        _previewModel.transform.parent = this.transform;
+        
+    }
+
+    private void OnEnable() {
+        _equipment.SetActive(true);
+>>>>>>> 269631059e91e80b892c67eeae03162747195085:Assets/AL_Title/WeaponSelecter.cs
     }
 
 }
