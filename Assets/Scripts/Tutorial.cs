@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {   
     [SerializeField]
-    private GameObject _TutorialPanel;
+    private GameObject _tutorialPanel;
 
     public void StartTutorial() {
         StartCoroutine(TutorialPanel());
@@ -13,6 +13,6 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator TutorialPanel() {
         yield return new WaitForSeconds(0.5f);
-        _TutorialPanel.SetActive(true);
+        _tutorialPanel.SetActive(true);
     }
 }

@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotation : MonoBehaviour
-{
-    Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+public class Rotation : MonoBehaviour {
+    private int _layermask;
+    private Ray _ray;
     RaycastHit _hit;
-    int layermask = (1 << LayerMask.NameToLayer("TargetArea"));
-
-    void Start()
-    {
-        
+    GameObject sphere = GameObject.Find("Sphere");
+    
+    void Start() {
+        int _layermask = (1 << LayerMask.NameToLayer("TargetArea"));
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Physics.Raycast(_ray, out _hit, Mathf.Infinity, layermask))
-        {
+    void Update() {
+        Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(_ray, out _hit, 1000, _layermask)) {
             Vector3 _pos = _hit.point;
-            transform.rotation = Quaternion.Euler(_pos);
+            transform.localRotation = Quaternion.Euler(_pos);
         }
     }
 }
