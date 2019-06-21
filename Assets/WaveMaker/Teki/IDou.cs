@@ -19,11 +19,6 @@ public class IDou : MonoBehaviour
     //移動を行う秒間
     [SerializeField]
     public float timeout;
-    [SerializeField]
-    //-の時の移動
-    private float Idou_X = 3.0f;
-    [SerializeField]
-    private float Idou_Y = 3.0f;
     //経過時間
     private float timeElapsed;
     //目的地

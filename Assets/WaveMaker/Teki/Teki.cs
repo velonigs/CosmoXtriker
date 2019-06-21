@@ -13,7 +13,7 @@ public class Teki : MonoBehaviour
     // tekikihonコンポーネントを取得
     tekikihon = GetComponent<Tekikihon> ();
 
-    // ローカル座標のY軸のマイナス方向に移動する
-    tekikihon.Move (transform.forward);
+    // ローカル座標のZ軸のマイナス方向に移動する
+    tekikihon.Move (transform.forward * -1);
   }
 }
