@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class _tmpDebris : MonoBehaviour
 {
+    public GameObject Explode;
     [SerializeField] private float DebrisLifeTime = 10.0f;
     [SerializeField] private ushort HP = 20;
     private float _timeElapsed = 0.0f;
@@ -13,8 +14,9 @@ public class _tmpDebris : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider collision){
+    void OnTriggerEnter(Collider collision){
         HP -= 10;
+        Debug.Log(HP);
     }
     void Update()
     {
@@ -25,6 +27,7 @@ public class _tmpDebris : MonoBehaviour
         }
         if(HP <= 0){
             Destroy(this.gameObject);
+            Instantiate (Explode, transform.position, transform.rotation);
         }
     }
 }

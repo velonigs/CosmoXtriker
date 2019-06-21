@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2728130291644293182}
   - component: {fileID: 4699712871335413329}
   - component: {fileID: 2173848733840151728}
+  - component: {fileID: 6879871506867315208}
+  - component: {fileID: 8752369594701053622}
+  - component: {fileID: 5428841558745157957}
   m_Layer: 0
   m_Name: gomi2_prefab
   m_TagString: Untagged
@@ -91,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2ce77dc2bcea8478498cf1ed9522a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebrisLife: 10
+  Explode: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
+  DebrisLifeTime: 10
   HP: 20
 --- !u!114 &2173848733840151728
 MonoBehaviour:
@@ -108,3 +112,46 @@ MonoBehaviour:
   IdouX: 0
   IdouY: 0
   IdouZ: -0.2
+--- !u!54 &6879871506867315208
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728130291642302206}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &8752369594701053622
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728130291642302206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 10901cc65e5bb4d4abb7c77411f0b663, type: 3}
+--- !u!65 &5428841558745157957
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728130291642302206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39, y: 0.17, z: 0.28}
+  m_Center: {x: 0.001993381, y: 0.00120279, z: -0.00133932}

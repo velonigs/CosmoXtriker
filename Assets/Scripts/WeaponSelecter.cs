@@ -30,6 +30,9 @@ public class WeaponSelecter : MonoBehaviour
     [SerializeField]
     private Tutorial _tutorial;
 
+    [SerializeField]
+    private WindowAnimator _animator;
+
     // 1フレーム前に選択していた武器番号
     private int _prevSelectNum = -1;
 
@@ -71,6 +74,7 @@ public class WeaponSelecter : MonoBehaviour
         // 武器が決定されたら選択済みフラグを立てる
         if (Input.GetKeyDown(KeyCode.Return)) {
             _isSelected = true;
+            _animator.FadeOut();
             _equipment.SetActive(false);
             _weaponSelecter.SetActive(false);
             _tutorial.StartTutorial();
@@ -103,10 +107,6 @@ public class WeaponSelecter : MonoBehaviour
         // プレビューモデルを作成
         WeaponData weaponData = _weaponData[_currentSelectNum];
         // このゲームオブジェクトを親としてモデルを生成
-<<<<<<< HEAD:Assets/Scripts/WeaponSelecter.cs
-        _previewModel = Instantiate(weaponData.PreviewModel, transform.position + new Vector3(-2, 0, 0), Quaternion.identity);
-        _previewModel.transform.parent = this.transform;
-=======
         _previewModel = Instantiate(weaponData.PreviewModel, transform.position, Quaternion.Euler(weaponData.PreviewModel.transform.rotation.eulerAngles + Vector3.up * oldRotationY));
         _previewModel.transform.parent = this.transform;
         
@@ -114,7 +114,6 @@ public class WeaponSelecter : MonoBehaviour
 
     private void OnEnable() {
         _equipment.SetActive(true);
->>>>>>> 269631059e91e80b892c67eeae03162747195085:Assets/AL_Title/WeaponSelecter.cs
     }
 
 }
