@@ -229,14 +229,22 @@ RectTransform:
   m_GameObject: {fileID: 2069124976743940716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalScale: {x: 0.83733, y: 0.57456, z: 1}
+>>>>>>> parent of de0452c... 一部アニメーション
   m_Children: []
   m_Father: {fileID: 2069124978287165015}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 11.5, y: 0}
+=======
+  m_AnchoredPosition: {x: 11.5, y: 4.5}
+>>>>>>> parent of de0452c... 一部アニメーション
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2069124976743940714
@@ -462,14 +470,22 @@ RectTransform:
   m_GameObject: {fileID: 2069124977144826658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalScale: {x: 0.91099, y: 0.57405, z: 1}
+>>>>>>> parent of de0452c... 一部アニメーション
   m_Children: []
   m_Father: {fileID: 2069124978287165015}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 62.5, y: 0}
+=======
+  m_AnchoredPosition: {x: 62.5, y: 4.4999995}
+>>>>>>> parent of de0452c... 一部アニメーション
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2069124977144826656
@@ -1876,11 +1892,58 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 2914281922984713896, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.075270675
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914281922984713896, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04285695
+      objectReference: {fileID: 0}
+>>>>>>> parent of de0452c... 一部アニメーション
     - target: {fileID: 2914281922984713897, guid: f237a2a80d9d8b849816ec470fbd4b96,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 2914281923257379891, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0938398
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914281923257379891, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6726197
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914281923257379891, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2721065
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914281923257379891, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914281923153422699, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c1162ce50434254c8a69c3cafac69c4,
+        type: 3}
+    - target: {fileID: 2914281923153422699, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> parent of de0452c... 一部アニメーション
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f237a2a80d9d8b849816ec470fbd4b96, type: 3}
 --- !u!224 &3802896001011140242 stripped
