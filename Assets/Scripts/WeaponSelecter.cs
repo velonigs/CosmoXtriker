@@ -75,13 +75,16 @@ public class WeaponSelecter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)) {
             _isSelected = true;
             _animator.FadeOut();
-            _equipment.SetActive(false);
-            _weaponSelecter.SetActive(false);
-            _tutorial.StartTutorial();
         }
 
         // 今回選択した番号を記録する
         _prevSelectNum = _currentSelectNum;
+    }
+
+    public void AfterFadeOutAnim() {
+        _equipment.SetActive(false);
+        _weaponSelecter.SetActive(false);
+        _tutorial.StartTutorial();
     }
 
     /// <summary>
