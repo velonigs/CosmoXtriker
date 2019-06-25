@@ -75,6 +75,12 @@ public class WeaponSelecter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)) {
             _isSelected = true;
             _animator.FadeOut();
+<<<<<<< HEAD
+=======
+            _equipment.SetActive(false);
+            _weaponSelecter.SetActive(false);
+            _tutorial.StartTutorial();
+>>>>>>> Velonigs
         }
 
         // 今回選択した番号を記録する
