@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody _rb;
-    public float moveSpeed = 10;
+    public float moveSpeed = 11;
     public float moveForceMultiplier;
     public GameObject Camera;
     float _HorizontalInput;

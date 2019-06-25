@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Rigidbody2Dコンポーネントを必須にする
-[RequireComponent(typeof(Rigidbody2D))]
+
 public class Tekikihon : MonoBehaviour
 {
   // 移動スピード
@@ -24,6 +23,6 @@ public class Tekikihon : MonoBehaviour
   // 機体の移動
   public void Move (Vector3 direction)
   {
-    GetComponent<Rigidbody2D>().velocity = direction * speed;
+    GetComponent<Rigidbody>().velocity = direction * speed;
   }
 }

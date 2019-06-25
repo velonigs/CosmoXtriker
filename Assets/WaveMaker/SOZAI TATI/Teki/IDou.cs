@@ -19,11 +19,6 @@ public class IDou : MonoBehaviour
     //移動を行う秒間
     [SerializeField]
     public float timeout;
-    [SerializeField]
-    //-の時の移動
-    private float Idou_X = 3.0f;
-    [SerializeField]
-    private float Idou_Y = 3.0f;
     //経過時間
     private float timeElapsed;
     //目的地
@@ -56,10 +51,10 @@ public class IDou : MonoBehaviour
         Rigidbody Rb = this.GetComponent<Rigidbody> ();
         Vector3 force = new Vector3 (0f, 0f,  Speed * 0.0f);
         Rb.AddForce (force);
-        //
+        //x.yのforceを0に設定
             force.x = 0.0f;
             force.y = 0.0f;
-
+        //xが-、yが-の時にxを+、yを+に動かす
         if(Iti.x <= 0 && Iti.y <= 0 && timeElapsed >= timeout){
             force.x = 0.0f;
             force.y = 0.0f;
@@ -68,7 +63,8 @@ public class IDou : MonoBehaviour
             Rb.AddForce (force);
             timeElapsed = 0.0f;
         }
-        if(Iti.x <= 0 && Iti.y >= 0 && timeElapsed >= timeout){
+        //xが-、yが+の時にxを+、yを-に動かす
+        if (Iti.x <= 0 && Iti.y >= 0 && timeElapsed >= timeout){
             force.x = 0.0f;
             force.y = 0.0f;
             force.x += Speed * Random.Range(150f, 200f);
@@ -76,7 +72,8 @@ public class IDou : MonoBehaviour
             Rb.AddForce (force);
             timeElapsed = 0.0f;
         }
-        if(Iti.x >= 0 && Iti.y <= 0 && timeElapsed >= timeout){
+        //xが+、yが-の時にxを-、yを+に動かす
+        if (Iti.x >= 0 && Iti.y <= 0 && timeElapsed >= timeout){
             force.x = 0.0f;
             force.y = 0.0f;
             force.x += Speed * Random.Range(-150f, -200f );
@@ -84,18 +81,14 @@ public class IDou : MonoBehaviour
             Rb.AddForce (force);
             timeElapsed = 0.0f;
         }
-        if(Iti.x >= 0 && Iti.y >= 0 && timeElapsed >= timeout){
+        //xが+、yが+の時にxを-、yを-に動かす
+        if (Iti.x >= 0 && Iti.y >= 0 && timeElapsed >= timeout){
             force.x = 0.0f;
             force.y = 0.0f;
             force.x += Speed * Random.Range(-150f, -200f );
             force.y += Speed * Random.Range(-150f, -200f );
             Rb.AddForce (force);
             timeElapsed = 0.0f;
-        }
-        //到着したかどうか
-        if(Vector3.Distance(transform.position, destination) < 0.5f){
-            arrived = true;
-            Destroy(gameObject);
         }
     }
 }
