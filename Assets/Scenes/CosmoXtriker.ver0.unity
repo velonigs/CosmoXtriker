@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.45001745, g: 0.50007206, b: 0.575507, a: 1}
+  m_IndirectSpecularColor: {r: 0.45001835, g: 0.5000723, b: 0.57550734, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -491,7 +491,6 @@ GameObject:
   - component: {fileID: 651053814}
   - component: {fileID: 651053813}
   - component: {fileID: 651053812}
-  - component: {fileID: 651053816}
   m_Layer: 0
   m_Name: LeftCapsule
   m_TagString: Untagged
@@ -573,18 +572,6 @@ Transform:
   m_Father: {fileID: 1808163697}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &651053816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651053811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b65310f634871438887c176af13d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &753780005
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +743,6 @@ GameObject:
   - component: {fileID: 928015042}
   - component: {fileID: 928015041}
   - component: {fileID: 928015040}
-  - component: {fileID: 928015043}
   m_Layer: 0
   m_Name: RightCapsule
   m_TagString: Untagged
@@ -838,18 +824,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928015038}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &928015043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928015038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337909a866c6b604787530df715c3b69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1252581428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,7 +1290,6 @@ GameObject:
   - component: {fileID: 1808163698}
   - component: {fileID: 1808163701}
   - component: {fileID: 1808163699}
-  - component: {fileID: 1808163702}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
@@ -1427,7 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb796ce848ccc5d48ab6b21b271242ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9
+  moveSpeed: 1
   moveForceMultiplier: 5
   Camera: {fileID: 1874637717}
 --- !u!114 &1808163701
@@ -1443,21 +1416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 2800000, guid: 9832e5d12dd389747b9a8c23ae6f404d, type: 3}
---- !u!114 &1808163702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808163693}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb796ce848ccc5d48ab6b21b271242ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  moveForceMultiplier: 0
-  Camera: {fileID: 0}
 --- !u!1 &1874637717
 GameObject:
   m_ObjectHideFlags: 0

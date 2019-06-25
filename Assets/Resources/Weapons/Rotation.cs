@@ -6,7 +6,7 @@ public class Rotation : MonoBehaviour {
     private int _layermask;
     private Ray _ray;
     RaycastHit _hit;
-    GameObject sphere = GameObject.Find("Sphere");
+    private GameObject sphere = GameObject.Find("Sphere");
     
     void Start() {
         int _layermask = (1 << LayerMask.NameToLayer("TargetArea"));
