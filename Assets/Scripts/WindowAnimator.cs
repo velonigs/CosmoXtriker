@@ -17,4 +17,9 @@ public class WindowAnimator : MonoBehaviour {
     public void FadeOut() {
         _animator.SetTrigger("FadeOutTrigger");
     }
+
+    public bool IsCompletedFadeOut() {
+        var state = _animator.GetCurrentAnimatorStateInfo(0);
+        return state.normalizedTime < 1.0f ? false : true;
+    }
 }
