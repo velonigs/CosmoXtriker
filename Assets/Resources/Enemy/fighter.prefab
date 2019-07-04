@@ -113,9 +113,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5496219814317577511}
   - component: {fileID: 5496219814307969735}
-  - component: {fileID: 4729125590924126935}
+  - component: {fileID: 2704964646225493523}
   - component: {fileID: 5386820120293225198}
-  - component: {fileID: 1345348976960272633}
+  - component: {fileID: 4729125590924126935}
+  - component: {fileID: 1246849082960945789}
   m_Layer: 0
   m_Name: fighter
   m_TagString: Untagged
@@ -166,20 +167,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!64 &4729125590924126935
-MeshCollider:
+--- !u!114 &2704964646225493523
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5496219814317476103}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526e6cc1a472f4d4a9b3fe02a46b56b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 20
+  Explode: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
+  IdouX: 0
+  IdouY: 0
+  IdouZ: 0
 --- !u!54 &5386820120293225198
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,19 +200,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1345348976960272633
-MonoBehaviour:
+--- !u!64 &4729125590924126935
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5496219814317476103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a3bd308f4947b4e96624cdede05417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 20
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
+--- !u!65 &1246849082960945789
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5496219814317476103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 45, y: 30, z: 40}
+  m_Center: {x: -0, y: 2, z: 0}
 --- !u!1 &5496219814317476105
 GameObject:
   m_ObjectHideFlags: 0

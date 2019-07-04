@@ -13,6 +13,10 @@ public class _tmpDebris : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collision){
+        if(collision.gameObject.tag == "Bullet"){
+            ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
+            HP -= _dmg;
+        }
         if(collision.gameObject.name == "KillZone"){
             Destroy(this.gameObject); //KZ入ったらDestroy
         }

@@ -8,22 +8,27 @@ public class Wave : MonoBehaviour
     public GameObject[] waves;
     //現在のWave
     private int currentWave;
+    GameObject wave;
 
     void Start()
     {
+        StartCoroutine("wavecor");
     }
     void wavemake(){
         //Waveを作成する
-        GameObject wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity);
+        wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity);
         //Waveをこいつの子要素にする
         wave.transform.parent = transform;
     }
+    IEnumerator wavecor(){
+        while(waves.Length > currentWave){
+        wavemake();
+        yield return new WaitForSeconds(3);
+        currentWave++;
+        }
+            yield break;
+    }
     void Update()
     {
-        while (waves.Length > currentWave)
-        {
-            wavemake();
-            currentWave++;
-        }
     }
 }

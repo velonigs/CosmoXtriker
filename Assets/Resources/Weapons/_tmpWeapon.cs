@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class _tmpWeapon : MonoBehaviour{
-    public GameObject Bullet;
+    public GameObject Bullet; //使用する弾丸
     public Transform RightMuzzle; //右の銃口
     public Transform LeftMuzzle; //左の銃口
-    [SerializeField]private ushort Damage = 1; //ダメージ
-    [SerializeField]private ushort RPM = 120; //分間連射速度
-    [SerializeField]private ushort speed = 1000; //弾速
+    public ushort RPM = 120; //分間連射速度
+    public ushort speed = 1000; //弾速
 
     private float _tmpfire = 0;
     private float _lastfired = 0;

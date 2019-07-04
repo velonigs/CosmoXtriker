@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class _tmpBullet : MonoBehaviour{
-    void Start(){
-        
+    public ushort Damage = 1; //ダメージ
+    void Start(){    
     }
     void OnTriggerEnter(Collider collision){
         if(collision.gameObject.name == "KillZone"){
