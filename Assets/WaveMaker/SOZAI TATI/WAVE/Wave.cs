@@ -9,6 +9,7 @@ public class Wave : MonoBehaviour
     //現在のWave
     private int currentWave;
     GameObject wave;
+    private GameObject miniboss;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class Wave : MonoBehaviour
     IEnumerator wavecor(){
         while(waves.Length > currentWave){
         wavemake();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(7);
         currentWave++;
         }
             yield break;

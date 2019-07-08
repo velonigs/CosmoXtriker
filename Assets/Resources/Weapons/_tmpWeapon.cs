@@ -29,7 +29,7 @@ public class _tmpWeapon : MonoBehaviour{
     }
 
     void Update(){
-        if (Input.GetKey(KeyCode.Z) && Time.time - _lastfired > 1 / _tmpfire){
+        if (Input.GetButton("Fire1") && Time.time - _lastfired > 1 / _tmpfire){
             _lastfired = Time.time;
             shot(); //Key取得 -> 最後に発射した時間から数えてRPM分の連射速度でshot()を呼び出す
         }
