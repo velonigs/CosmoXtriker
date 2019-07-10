@@ -32,7 +32,7 @@ public class FollowPlayer : MonoBehaviour
         }
         else
         {　　　//真っ直ぐへ移動
-            transform.Translate(transform.position.x, transform.position.y, -0.2f);
+            transform.Translate(0, 0, -0.2f);
         }
     }
 }
