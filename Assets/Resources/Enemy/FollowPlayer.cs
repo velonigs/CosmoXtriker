@@ -32,6 +32,8 @@ public class FollowPlayer : MonoBehaviour
             {
 
                 this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
+              //  this.transform.LookAt(player.transform, Vector3.up);
+              //  this.transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
             }
             else
             {
