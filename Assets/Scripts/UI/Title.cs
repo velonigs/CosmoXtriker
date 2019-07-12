@@ -18,7 +18,7 @@ public class Title : MonoBehaviour
     void Update(){
         if(Input.anyKeyDown && _equipmentFlg == false){
             Destroy(_titleCanvas);
-            StartCoroutine(EquipmentPanel());
+            // StartCoroutine(EquipmentPanel());
         }
     }
 

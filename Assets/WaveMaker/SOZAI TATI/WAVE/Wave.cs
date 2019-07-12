@@ -8,39 +8,28 @@ public class Wave : MonoBehaviour
     public GameObject[] waves;
     //現在のWave
     private int currentWave;
+    GameObject wave;
+    private GameObject miniboss;
 
     void Start()
     {
-        StartCoroutine(StartWave());
+        StartCoroutine("wavecor");
     }
-
-    IEnumerator StartWave()
-    {
-        while (true)
-        {
-
-            //Waveを作成する
-            GameObject wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity);
-
-            //WaveをEmitterの子要素にする
-            wave.transform.parent = transform;
-
-            //Waveの子要素のEnemyがすべて消去されるまで待機する
-            while (wave.transform.childCount != 0)
-            {
-                yield return new WaitForEndOfFrame();
-            }
-            //Waveの削除
-            Destroy(wave);
-
-            //格納されているWaveをすべて実行したらcurrentWaveを0にする（最初から->ループ）
-            currentWave++;
-            if (waves.Length <= currentWave)
-            {
-                currentWave = 0;
-            }
-
-            yield return null;
+    void wavemake(){
+        //Waveを作成する
+        wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity);
+        //Waveをこいつの子要素にする
+        wave.transform.parent = transform;
+    }
+    IEnumerator wavecor(){
+        while(waves.Length > currentWave){
+        wavemake();
+        yield return new WaitForSeconds(7);
+        currentWave++;
         }
+            yield break;
+    }
+    void Update()
+    {
     }
 }

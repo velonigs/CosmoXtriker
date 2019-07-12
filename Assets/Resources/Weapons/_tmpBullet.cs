@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class _tmpBullet : MonoBehaviour{
-    [SerializeField] private float BulletLifeTime = 3.0f;
-    private float _timeElapsed = 0.0f;
-
-    void Start(){
-        
+    public ushort Damage = 1; //ダメージ
+    void Start(){    
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        _timeElapsed += Time.deltaTime;
-        if(_timeElapsed >= BulletLifeTime){
-            _timeElapsed = 0.0f;
-            Destroy(this.gameObject);
+    void OnTriggerEnter(Collider collision){
+        if(collision.gameObject.name == "BulletKillZone"){
+            Destroy(this.gameObject); //KZ入ったらDestroy
         }
     }
+
+    void Update(){
+        }
 }
