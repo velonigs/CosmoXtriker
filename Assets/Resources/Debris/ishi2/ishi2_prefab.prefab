@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6377176312612426467}
   - component: {fileID: 8987613277903414704}
   m_Layer: 0
-  m_Name: ishi2
+  m_Name: ishi2_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explode: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
+  damage: 10
   HP: 20
 --- !u!114 &7277948740724731801
 MonoBehaviour:
