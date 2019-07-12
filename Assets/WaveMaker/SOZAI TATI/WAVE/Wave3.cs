@@ -11,6 +11,11 @@ public class Wave3 : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    public void startCor()
+    { 
         StartCoroutine(StartWave());
     }
 
@@ -20,7 +25,7 @@ public class Wave3 : MonoBehaviour
         {
 
             //Waveを作成する
-            GameObject wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity);
+            GameObject wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity)as GameObject;
 
             //WaveをEmitterの子要素にする
             wave.transform.parent = transform;
