@@ -6,6 +6,8 @@ using UnityEngine;
 public class _tmpDebris : MonoBehaviour
 {
     public GameObject Explode; //撃破エフェクト
+    [SerializeField]
+    private int damage = 5;
     [SerializeField] private ushort HP = 20;
     void Start()
     {
@@ -19,6 +21,10 @@ public class _tmpDebris : MonoBehaviour
         }
         if(collision.gameObject.name == "KillZone"){
             Destroy(this.gameObject); //KZ入ったらDestroy
+        }
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<HealthManager>().Takedamage(damage);
         }
     }
     void Update()
