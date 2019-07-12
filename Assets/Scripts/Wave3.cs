@@ -42,7 +42,7 @@ public class Wave3 : MonoBehaviour
             currentWave++;
             if (waves.Length <= currentWave)
             {
-                currentWave = 0;
+               currentWave = 0;
             }
 
             yield return null;
