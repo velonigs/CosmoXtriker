@@ -33,7 +33,7 @@ public class wave2 : MonoBehaviour
       }
 
       // Waveの削除
-      //Destroy (wave);
+      Destroy (wave);
 
       // 格納されているWaveを全て実行したらcurrentWaveを0にする（最初から -> ループ）
       if (waves.Length <= ++currentWave) {
