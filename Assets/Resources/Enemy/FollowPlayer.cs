@@ -10,10 +10,11 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField]
     private float attackrange = 100f;
     private PlayerController player;
-    
+    private bool startbattle;
     // Start is called before the first frame update
     void Start()
     {
+        startbattle = false;
         //プレーヤーを探す機能
         player = FindObjectOfType<PlayerController>();   
     }
@@ -22,17 +23,30 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         //プレーヤーと敵の距離
-        var distanceToPlayer = (transform.position-player.transform.position).sqrMagnitude;
-      
-        //レンジを作って、その中でエネミーはプレーヤの場へ向かう
-        if (distanceToPlayer <= followRange&&distanceToPlayer>attackrange)
-        {
+        var distanceToPlayer = (this.transform.position-player.transform.position).sqrMagnitude;
 
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.2f);
+        if (!startbattle)
+        {
+            //レンジを作って、その中でエネミーはプレーヤの場へ向かう
+            if (distanceToPlayer <= followRange )
+            {
+
+                this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
+            }
+            else
+            {
+                this.transform.Translate(0, 0, -0.2f, Space.World);
+            }
+
+            if (distanceToPlayer <= attackrange)
+            {
+                startbattle = true;
+            }
         }
+       
         else
         {　　　//真っ直ぐへ移動
-            transform.Translate(0, 0, -0.2f);
+            this.transform.Translate(0, 0, -0.2f,Space.World);
         }
     }
 }

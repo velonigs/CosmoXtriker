@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Pop : MonoBehaviour
 {
-    
+
+    [SerializeField]
+    float minVal = -5;
+    [SerializeField]
+    float maxVal = 5;
 // 出現させる敵を入れておく
 [SerializeField] GameObject[] enemys;
 // 次に敵が出現するまでの時間
@@ -48,10 +52,10 @@ private float elapsedTime;
 	    //　敵の向きをランダムに決定
 	    var randomRotationY = Random.value * 360f;
             // randomPosition
-            float randomx = Random.Range(-5, 5);
-            float randomy = Random.Range(-5, 5);
-            float randomz = Random.Range(-5, 5);
-            Vector3 randoPos =new Vector3 (transform.position.x + randomx, transform.position.y + randomy, transform.position.z + randomz);
+            float randomx = Random.Range(minVal, maxVal);
+            float randomy = Random.Range(minVal, maxVal);
+            
+            Vector3 randoPos =new Vector3 (transform.position.x + randomx, transform.position.y + randomy, transform.position.z );
             //GameObject.Instantiate (enemys[randomValue], transform.position, Quaternion.Euler (0f, randomRotationY, 0f));
             GameObject.Instantiate(enemys[randomValue], randoPos, Quaternion.Euler(0f, randomRotationY, 0f));
             numberOfEnemys++;
