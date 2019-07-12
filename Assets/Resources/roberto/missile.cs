@@ -43,11 +43,11 @@ public class missile : MonoBehaviour
         this.transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, missileVelocity);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("Hit");
+            Destroy(other.gameObject);
         }
         Destroy(gameObject);
     }
