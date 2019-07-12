@@ -6,6 +6,8 @@ using System.Linq;
 
 public class missile : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject explosion;
     private _tmpEnemys nearestEnemy;
     private _tmpEnemys[] allaEnemyes;
     private IOrderedEnumerable<_tmpEnemys> enemiesbyDistance;
@@ -50,5 +52,7 @@ public class missile : MonoBehaviour
             Destroy(other.gameObject);
         }
         Destroy(gameObject);
+       GameObject newExp= Instantiate(explosion ,transform.position, transform.rotation)as GameObject;
+        Destroy(newExp, 2f);
     }
 }
