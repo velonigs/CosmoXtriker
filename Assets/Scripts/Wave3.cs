@@ -11,12 +11,12 @@ public class Wave3 : MonoBehaviour
 
     void Start()
     {
-        
+        StartCoroutine(StartWave());
     }
 
     public void startCor()
     { 
-        StartCoroutine(StartWave());
+        //StartCoroutine(StartWave());
     }
 
     IEnumerator StartWave()
