@@ -16,6 +16,9 @@ public class TutorialButton : MonoBehaviour {
     [SerializeField]
     private BackWeaponSelecter _backWeaponSelecter;
 
+    [SerializeField]
+    private Wave3 _wave3;
+
     void Update() {
         
     }
@@ -28,6 +31,7 @@ public class TutorialButton : MonoBehaviour {
 
     public void TutorialButtonNo() {
         Destroy(_tutorialCanvas);
+        _wave3.startCor();
     }
 
     public void BackWeaponSelecter() {
