@@ -13,7 +13,7 @@ public class Wave : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("wavecor");
+        
     }
     void wavemake(){
         //Waveを作成する
@@ -21,13 +21,18 @@ public class Wave : MonoBehaviour
         //Waveをこいつの子要素にする
         wave.transform.parent = transform;
     }
-    IEnumerator wavecor(){
+    public IEnumerator wavecor(){
         while(waves.Length > currentWave){
         wavemake();
         yield return new WaitForSeconds(7);
         currentWave++;
         }
             yield break;
+    }
+
+    public void startCor()
+    {
+        StartCoroutine(wavecor());
     }
     void Update()
     {

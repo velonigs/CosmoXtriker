@@ -16,6 +16,9 @@ public class TutorialButton : MonoBehaviour {
     [SerializeField]
     private BackWeaponSelecter _backWeaponSelecter;
 
+    [SerializeField]
+    private Wave _wave;
+
     void Update() {
         
     }
@@ -24,6 +27,7 @@ public class TutorialButton : MonoBehaviour {
         _tutorialCanvas.SetActive(false);
         // チュートリアルムービーの表示
         _tutorialMovie.StartTutorialMovie();
+        _wave.startCor();
     }
 
     public void TutorialButtonNo() {
