@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class Wave3 : MonoBehaviour
 {
+    // Debri収納
+    GameObject Debri;
+    // Corvette Wave3時
+    [SerializeField]
+    GameObject Corvette3;
+    // Corvette Wave6時
+    [SerializeField]
+    GameObject Corvette6;
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
     private int currentWave;
 
+
+
     void Start()
     {
+        this.Debri = GameObject.Find("Debri Sponner");
+
         StartCoroutine(StartWave());
     }
 
     IEnumerator StartWave()
     {
-        while (true)
+        while (waves.Length >= currentWave)
         {
 
             //Waveを作成する
@@ -25,6 +37,24 @@ public class Wave3 : MonoBehaviour
             //WaveをEmitterの子要素にする
             wave.transform.parent = transform;
 
+            //Waveが5になったらDebrisPopをオンに
+            if (currentWave == 4)
+            {
+                this.Debri.GetComponent<DebrisPop>().enabled = true;
+            }
+            //Waveが9になったらDebrisPopをオフに
+            if (currentWave == 8)
+            {
+                this.Debri.GetComponent<DebrisPop>().enabled = false;
+            }
+            if (currentWave == 2)
+            {
+                Corvette3.SetActive(true);
+            }
+            if (currentWave == 5)
+            {
+                Corvette6.SetActive(true);
+            }
             //Waveの子要素のEnemyがすべて消去されるまで待機する
             while (wave.transform.childCount != 0)
             {
@@ -35,10 +65,11 @@ public class Wave3 : MonoBehaviour
 
             //格納されているWaveをすべて実行したらcurrentWaveを0にする（最初から->ループ）
             currentWave++;
+            /*
             if (waves.Length <= currentWave)
             {
                 currentWave = 0;
-            }
+            }*/
 
             yield return null;
         }
