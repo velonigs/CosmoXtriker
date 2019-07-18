@@ -18,12 +18,12 @@ public class _tmpWeapon : MonoBehaviour{
     }
     void shot(){
         GameObject Bullets = Instantiate(Bullet) as GameObject;
-        force = this.gameObject.transform.forward * speed;
+        force = RightMuzzle.transform.forward * speed;
         Bullets.GetComponent<Rigidbody>().AddForce(force);
         Bullets.transform.position = RightMuzzle.position;
 
         Bullets = Instantiate(Bullet) as GameObject;
-        force = this.gameObject.transform.forward * speed;
+        force = LeftMuzzle.transform.forward * speed;
         Bullets.GetComponent<Rigidbody>().AddForce(force);
         Bullets.transform.position = LeftMuzzle.position; //作業中、Muzzleのローカル座標でforwardする必要あり
     }

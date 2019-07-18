@@ -47,7 +47,7 @@ public class _tmpEnemys : MonoBehaviour{
         {
             ///オブジェクト配列の中でinstantiateするゴミを選択する
             int rand_Sel = Random.Range(0, debridsToSpawn.Length);
-            //ランダムポジションを作ろうため
+            //ランダムポジションを作るため
             float randomPos = Random.Range(-2, 2);
             Instantiate(debridsToSpawn[rand_Sel], new Vector3(transform.position.x + randomPos, transform.position.y + randomPos, transform.position.z + randomPos), transform.rotation);
         }
