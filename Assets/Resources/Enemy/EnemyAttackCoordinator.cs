@@ -14,7 +14,11 @@ public class EnemyAttackCoordinator : MonoBehaviour
     [SerializeField]
     private float fireTime;
     private int currentShip;
-   
+    [SerializeField]
+    Transform Leaderfirepoint;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,10 @@ public class EnemyAttackCoordinator : MonoBehaviour
         if (fireRate <= 0)
         {
             fireRate = fireTime;
+            GameObject leaderFire= Instantiate(bulletPrefab, Leaderfirepoint.position, Leaderfirepoint.rotation) as GameObject;
+            
+            
+            
             spawnBullet(currentShip);
             currentShip++;
             if (currentShip >= ships.Length)
@@ -43,9 +51,9 @@ public class EnemyAttackCoordinator : MonoBehaviour
     {
         if (ships[currentShip] != null)
         {
-            GameObject newBullet = Instantiate(bulletPrefab, ships[currentShip].position, ships[currentShip].rotation);
-            Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward *2, ForceMode.VelocityChange);
+            GameObject newBullet = Instantiate(bulletPrefab, ships[currentShip].position, ships[currentShip].rotation) as GameObject;
+            
+           
         }
     }
 

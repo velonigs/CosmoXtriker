@@ -24,6 +24,7 @@ public class HealthManager : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("dead");
+            gameObject.SetActive(false);
         }
     }
 }
