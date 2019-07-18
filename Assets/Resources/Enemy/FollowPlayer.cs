@@ -32,6 +32,7 @@ public class FollowPlayer : MonoBehaviour
             {
 
                 this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
+             
             }
             else
             {
