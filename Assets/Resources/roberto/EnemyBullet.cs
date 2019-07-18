@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    
+    public int damage=5;
     [SerializeField]
     float bulletSpeed= 0.2f;
     private void Start()
@@ -14,8 +16,7 @@ public class EnemyBullet : MonoBehaviour
     {
         transform.Translate(0, 0, bulletSpeed);
     }
-    [SerializeField]
-    int damage;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
