@@ -14,11 +14,6 @@ public class Wave3 : MonoBehaviour
         StartCoroutine(StartWave());
     }
 
-    public void startCor()
-    { 
-        //StartCoroutine(StartWave());
-    }
-
     IEnumerator StartWave()
     {
         while (true)
@@ -42,7 +37,7 @@ public class Wave3 : MonoBehaviour
             currentWave++;
             if (waves.Length <= currentWave)
             {
-               currentWave = 0;
+                currentWave = 0;
             }
 
             yield return null;
