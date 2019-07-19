@@ -16,6 +16,8 @@ public class TutorialMovie : MonoBehaviour {
     [SerializeField]
     private GameObject _tutorialMovieDirecter;
 
+    public bool _departureFlg = false;
+
     public void StartTutorialMovie() {
         StartCoroutine(PlayTutorialMovie());
     }
@@ -25,6 +27,7 @@ public class TutorialMovie : MonoBehaviour {
             // チュートリアルムービーを閉じる
             _tutorialMovie.SetActive(false);
             _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
+            _departureFlg = true;
         }
     }
 
