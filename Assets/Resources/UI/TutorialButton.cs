@@ -27,6 +27,8 @@ public class TutorialButton : MonoBehaviour {
 
     public bool _departureFlg = false;
 
+    public bool _movementFlg = false;
+
     void Update() {
         
     }
@@ -40,9 +42,10 @@ public class TutorialButton : MonoBehaviour {
 
     public void TutorialButtonNo() {  
         // Destroy(_tutorialCanvas);
+        _movementFlg = true;
         _tutorialCanvas.SetActive(false);
-        _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
-        _departureFlg = true;
+        // _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
+        // _departureFlg = true;
     }
 
     public void BackWeaponSelecter() {
