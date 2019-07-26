@@ -5,10 +5,10 @@ using UnityEngine;
 public class fighter : _tmpEnemys
 {
     public bool randomMove;
-    [SerializeField]
-    EnemyBullet bulletPrefab;
-    [SerializeField]
-    Transform[] spawnpoint;
+    
+    public EnemyBullet bulletPrefab;
+    
+    public　Transform[] spawnpoint;
     //最小と最大の値を決める
     [SerializeField] private float minValue=-0.1f;
     [SerializeField] private float MaxValue=0.1f;
@@ -21,8 +21,8 @@ public class fighter : _tmpEnemys
     bool battleAsset = false;
     float attackdelay = 1f;
     private float attackrange = 30;
-    [SerializeField]
-    int damageMultipler=1;
+    
+    public int damageMultipler=1;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,8 +61,7 @@ public class fighter : _tmpEnemys
                     {
 
                         this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
-                       // transform.LookAt(player.transform, Vector3.up);
-                     // transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+                     
                      }
                     if (disstancetoplayer <= attackrange)
                     {
@@ -99,23 +98,16 @@ public class fighter : _tmpEnemys
 
     }
 
-    public void shot()
+    public  override void shot()
     {
-        StartCoroutine(shotCo());
-    }
-    IEnumerator shotCo()
-    {
-       EnemyBullet bullet= Instantiate(bulletPrefab, spawnpoint[0].transform.position, spawnpoint[0].transform.rotation);
+        EnemyBullet bullet = Instantiate(bulletPrefab, spawnpoint[0].transform.position, spawnpoint[0].transform.rotation);
         bullet.GetComponent<EnemyBullet>().damage *= damageMultipler;
-
-        yield return new WaitForSeconds(0.5f);
         if (spawnpoint[1] != null)
         {
             EnemyBullet bulletTwo = Instantiate(bulletPrefab, spawnpoint[1].transform.position, spawnpoint[1].transform.rotation);
             bulletTwo.GetComponent<EnemyBullet>().damage *= damageMultipler;
         }
-       
-
     }
+ 
 
 }
