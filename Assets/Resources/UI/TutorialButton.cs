@@ -25,10 +25,6 @@ public class TutorialButton : MonoBehaviour {
     [SerializeField]
     private GameObject _tutorialMovieDirecter;
 
-    public bool _departureFlg = false;
-
-    public bool _movementFlg = false;
-
     void Update() {
         
     }
@@ -40,12 +36,9 @@ public class TutorialButton : MonoBehaviour {
         _tutorialMovie.StartTutorialMovie();
     }
 
-    public void TutorialButtonNo() {  
-        // Destroy(_tutorialCanvas);
-        _movementFlg = true;
+    public void TutorialButtonNo() {
         _tutorialCanvas.SetActive(false);
         // _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
-        // _departureFlg = true;
     }
 
     public void BackWeaponSelecter() {
