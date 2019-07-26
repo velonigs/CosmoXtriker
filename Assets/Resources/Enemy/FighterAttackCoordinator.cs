@@ -46,13 +46,7 @@ public class FighterAttackCoordinator : MonoBehaviour
             
                 StartCoroutine(FighterFire());
            
-
-
-
-
-
-
-            spawnBullet(currentShip);
+             spawnBullet(currentShip);
             currentShip++;
             if (currentShip >= ships.Length)
             {
@@ -63,14 +57,18 @@ public class FighterAttackCoordinator : MonoBehaviour
     
     IEnumerator FighterFire()
     {
-        GameObject leaderFire = Instantiate(bulletPrefab, Leaderfirepoint[0].position, Leaderfirepoint[0].rotation) as GameObject;
-        GameObject leaderFire2 = Instantiate(bulletPrefab, Leaderfirepoint[1].position, Leaderfirepoint[1].rotation) as GameObject;
+        for(int i=0;i<Leaderfirepoint.Length; i++) {
+            Instantiate(bulletPrefab, Leaderfirepoint[i].position, Leaderfirepoint[i].rotation);
+        }
+        
         yield return new WaitForSeconds(0.5f);
-        GameObject leaderFire3 = Instantiate(bulletPrefab, Leaderfirepoint[0].position, Leaderfirepoint[0].rotation) as GameObject;
-        GameObject leaderFire4 = Instantiate(bulletPrefab, Leaderfirepoint[1].position, Leaderfirepoint[1].rotation) as GameObject;
+        for (int i = 0; i < Leaderfirepoint.Length; i++) {
+            Instantiate(bulletPrefab, Leaderfirepoint[i].position, Leaderfirepoint[i].rotation);
+        }
         yield return new WaitForSeconds(0.5f);
-        GameObject leaderFire5 = Instantiate(bulletPrefab, Leaderfirepoint[0].position, Leaderfirepoint[0].rotation) as GameObject;
-        GameObject leaderFire6 = Instantiate(bulletPrefab, Leaderfirepoint[1].position, Leaderfirepoint[1].rotation) as GameObject;
+        for (int i = 0; i < Leaderfirepoint.Length; i++) {
+            Instantiate(bulletPrefab, Leaderfirepoint[i].position, Leaderfirepoint[i].rotation);
+        }
     }
 
     private void spawnBullet(int currentShip)

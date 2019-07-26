@@ -51,6 +51,7 @@ public class BomberAttackCoordinator : MonoBehaviour
             {
                 for(int i = 0; i < attackPoints.Length; i++)
                 {
+                    
                     var obj = Instantiate(_leadermissile, attackPoints[i].position, attackPoints[i].rotation);
                     obj.GetComponent<LeaderMissile>().Init(DestroyMissile);
                     missilenumbers++;
