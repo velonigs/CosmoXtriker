@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackCoordinator : MonoBehaviour
+public class FighterEnemyAttackCoordinator : MonoBehaviour
 {
-
+    
     [SerializeField]
     GameObject bulletPrefab;
     [SerializeField]
     fighter[] ships;
-    private float fireRate;
+    private float LeaderfireRate=2f;
+    [SerializeField]
+    private float plotonFireRate=1f;
     [SerializeField]
     private float fireTime;
     private int currentShip;
@@ -22,17 +24,18 @@ public class EnemyAttackCoordinator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fireRate = fireTime;
+        LeaderfireRate = fireTime;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        fireRate -= Time.deltaTime;
-        if (fireRate <= 0)
+        //リーダーの攻撃
+        LeaderfireRate -= Time.deltaTime;
+        if (LeaderfireRate <= 0)
         {
-            fireRate = fireTime;
+            LeaderfireRate = fireTime;
             if (rl == 0)
             {
                 GameObject leaderFire = Instantiate(bulletPrefab, Leaderfirepoint[0].position, Leaderfirepoint[0].rotation) as GameObject;
@@ -42,18 +45,24 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
                 GameObject leaderFire = Instantiate(bulletPrefab, Leaderfirepoint[1].position, Leaderfirepoint[1].rotation) as GameObject;
             }
-            
-
-
-
+        }
+        //プロトンの攻撃
+        plotonFireRate -= Time.deltaTime;
+        if (plotonFireRate <= 0)
+        {
+            plotonFireRate = 1f;
             spawnBullet(currentShip);
             currentShip++;
             if (currentShip >= ships.Length)
             {
                 currentShip = 0;
             }
-
         }
+
+
+           
+
+        
     }
 
     private void spawnBullet(int currentShip)

@@ -9,7 +9,12 @@ public class PlayerController : MonoBehaviour
     public float moveForceMultiplier;
     float _HorizontalInput;
     float _VerticalInput;
+    public static PlayerController instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         _rb = GetComponent<Rigidbody>();

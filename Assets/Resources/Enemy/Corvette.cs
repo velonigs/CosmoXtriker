@@ -7,14 +7,17 @@ public class Corvette : MonoBehaviour, ITakeDamage
     [SerializeField] LineRenderer laserLine;
    
     [SerializeField] GameObject explosion;
+    //attackポジション
     [SerializeField] Transform[] missileSpawnpoints;
     [SerializeField] Transform laserSpawnPoint;
     [SerializeField] Transform[] bulletsSpawnPoints;
+    //時間
     [SerializeField] float attackdelay = 2f;
     float laserAttackTime;
     [SerializeField] float laserAttackdelay = 5f;
     float attackTimer;
-    [SerializeField] LeaderMissile missiles;
+    //
+    [SerializeField] EnemyMissile missiles;
     [SerializeField] EnemyBullet bullet;
     [SerializeField]
     private int debritsNumberToSpawn;//ゴミ数
@@ -25,7 +28,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     int health = 300;
 
 
-
+    //attack文字列によって攻撃は違う
     public bool missileAttack
     {
         get { return attack == "missile"; }
@@ -37,20 +40,21 @@ public class Corvette : MonoBehaviour, ITakeDamage
     public bool laserAttack
     {
         get { return attack == "laser"; }
-    }    // Start is called before the first frame update
+    }  
+    // Start is called before the first frame update
     void Start()
     {
         
         laserAttackTime = laserAttackdelay;
         attack = "laser";
-
-        player = FindObjectOfType<PlayerController>();
+        
+        player = FindObjectOfType<PlayerController>();//プレイヤーを探す
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //攻撃タイプはレーサーじゃなければ
         if (attack != "laser")
         {
             laserLine.enabled = false;
@@ -69,6 +73,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 }
             }
         }
+        //レーサーだったら、時間が終わるまでレーサーを使う
         else
         {
             if (!laserLine.enabled)
@@ -96,7 +101,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
         
     }
 
-
+    //バレット攻撃
  public IEnumerator bulletFire() {
 
         for (int i = 0; i < 3; i++)
@@ -110,6 +115,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
 
     }
+    //ミサイル攻撃
     void missileFire() {
         for (int i = 0; i < missileSpawnpoints.Length; i++)
         {
@@ -118,7 +124,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     }
 
 
-
+    //攻撃タイプを変更する
     public void changeFase(string faseTochange)
     {
        
@@ -130,9 +136,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
     public void takeDamage(int damageToTake)
     {
+        
         health -= damageToTake;
         if (health == 200)
         {
+            //レーサー攻撃を使う
             attack = "laser";
         }
         if (health == 100)

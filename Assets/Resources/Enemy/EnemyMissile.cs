@@ -2,36 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeaderMissile : MonoBehaviour
+public class EnemyMissile : MonoBehaviour
 {
-    [SerializeField] float maxDistance=200;
+    
     [SerializeField] GameObject explosion;
     [SerializeField] float velocity = 4f;
     [SerializeField] float lifetime = 5f;
-    PlayerController player;
+   
     System.Action _callback = null;
 
-    private Vector3 startPos;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = FindObjectOfType<PlayerController>();
-        startPos = transform.localPosition;
-    }
-
-    // Update is called once per frame
+   // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        if (PlayerController.instance != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, velocity);
+            //プレイヤーへ動く
+            transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position, velocity);
         }
        
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
+            //時間が経ったら爆発する、callbackで敵シップにメッセージを送る
             if (_callback != null)
                 _callback();
             Destroy(gameObject);
@@ -39,12 +33,13 @@ public class LeaderMissile : MonoBehaviour
         }
     }
 
+    //callback
     public void Init(System.Action callback)
     {
         _callback = callback;
     }
     
-
+    //削除
     private void OnTriggerEnter(Collider other)
     {
         if (_callback != null)

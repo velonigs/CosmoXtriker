@@ -53,8 +53,13 @@ public class fighter : _tmpEnemys
             }
             else
             {
+                if (player != null&&this.gameObject!=null) {
+
+               
                 var disstancetoplayer = (transform.position - player.transform.position).sqrMagnitude;
 
+               
+                 
                 if (!battlequit)
                 {
                     if (disstancetoplayer <= 500 && disstancetoplayer > attackrange)
@@ -66,6 +71,7 @@ public class fighter : _tmpEnemys
                     if (disstancetoplayer <= attackrange)
                     {
                         battlequit = true;
+                    }
                     }
                 }
                 else
