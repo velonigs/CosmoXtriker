@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7189851294258254729}
   - component: {fileID: 7189851294258254734}
   - component: {fileID: 5400171767638994608}
+  - component: {fileID: 4221677315267705626}
   m_Layer: 0
   m_Name: flayr
   m_TagString: Untagged
@@ -104,3 +105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8ced0b47600ad478a98ee3ac23bdb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4221677315267705626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189851294258254732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f0bd1ce3801e7409cabae8c3fbe6bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 3

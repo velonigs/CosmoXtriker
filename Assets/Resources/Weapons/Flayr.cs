@@ -10,19 +10,20 @@ public class Flayr : MonoBehaviour
     void Start()
     {
         missiles = FindObjectsOfType<EnemyMissile>();
-        foreach(var m in missiles)
+        
+        randx = Random.Range(-0.1f, 0.1f);
+        randY = Random.Range(-0.1f, 0.1f);
+    }
+    private void Update()
+    {
+        foreach (var m in missiles)
         {
             if (m != null)
             {
                 m.GetComponent<EnemyMissile>().giveATarget(this.transform.position);
             }
-            
+
         }
-        randx = Random.Range(-0.4f, 0.4f);
-        randY = Random.Range(-0.4f, 0.4f);
-    }
-    private void Update()
-    {
         transform.Translate(randx, randY, 0);
     }
 

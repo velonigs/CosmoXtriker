@@ -15,8 +15,10 @@ public class EnemyBullet : MonoBehaviour
     float playerPoseX;
     float playPoseZ;
     Vector3 target;
+    bool quitBattle;
     private void Start()
     {
+        quitBattle = false;
         Destroy(gameObject, 5f);
         //プレイヤーのポジションを登録する
         playerPoseX = (PlayerController.instance.transform.position.x ) ;
@@ -27,8 +29,21 @@ public class EnemyBullet : MonoBehaviour
     }
     private void Update()
     {
-       // 登録した口座へ移動
-        transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed);
+        if (!quitBattle)
+        {
+            // 登録した口座へ移動
+            transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed);
+            if (transform.position == target)
+            {
+                quitBattle = true;
+            }
+        }
+        else
+        {
+            transform.Translate(0, 0, bulletSpeed);
+        }
+     
+        
         
     }
     
