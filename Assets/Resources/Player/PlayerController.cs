@@ -9,7 +9,13 @@ public class PlayerController : MonoBehaviour
     public float moveForceMultiplier;
     float _HorizontalInput;
     float _VerticalInput;
+    public static PlayerController instance;
+   
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -18,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         _HorizontalInput = Input.GetAxis("Horizontal");
         _VerticalInput = Input.GetAxis("Vertical");
+
     }
     void FixedUpdate()
     {

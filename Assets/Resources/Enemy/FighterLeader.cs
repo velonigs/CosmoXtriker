@@ -2,25 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Leader : _tmpEnemys
+public class FighterLeader : _tmpEnemys
 {
     
     
     fighter[] allEnemyes;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public override void OnTriggerEnter(Collider collision)
     {
-        base.OnTriggerEnter(collision);
+        
         if (collision.gameObject.tag == "Bullet")
         {
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
