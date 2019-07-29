@@ -349,8 +349,7 @@ MonoBehaviour:
   - {fileID: 6389573150045396087}
   - {fileID: 9149060728173156346}
   - {fileID: 1242381389179519742}
-  _leadermissile: {fileID: 910505906903243385, guid: bcce90b877163174eb16b51f2b958760,
-    type: 3}
+  missile: {fileID: 7189851294258254735, guid: e9c8f81f87dbbeb4c8600ede1e9d907b, type: 3}
 --- !u!1 &2604671850280055163
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +684,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7909953358795338543}
     m_Modifications:
+    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
+        type: 3}
+      propertyPath: m_Name
+      value: Bomber (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 82823574138109011, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -755,11 +759,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 12.264744
       objectReference: {fileID: 0}
-    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
-        type: 3}
-      propertyPath: m_Name
-      value: Bomber (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8859488624051917267, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: debridsToSpawn.Array.size
@@ -809,6 +808,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7909953358795338543}
     m_Modifications:
+    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
+        type: 3}
+      propertyPath: m_Name
+      value: Leader
+      objectReference: {fileID: 0}
     - target: {fileID: 82823574138109011, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -879,11 +883,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 12.264744
       objectReference: {fileID: 0}
-    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
-        type: 3}
-      propertyPath: m_Name
-      value: Leader
-      objectReference: {fileID: 0}
     - target: {fileID: 8859488624051917267, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: debridsToSpawn.Array.size
@@ -933,6 +932,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7909953358795338543}
     m_Modifications:
+    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
+        type: 3}
+      propertyPath: m_Name
+      value: Bomber (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 82823574138109011, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1003,11 +1007,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 12.264744
       objectReference: {fileID: 0}
-    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
-        type: 3}
-      propertyPath: m_Name
-      value: Bomber (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 8859488624051917267, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: debridsToSpawn.Array.size
@@ -1057,6 +1056,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7909953358795338543}
     m_Modifications:
+    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
+        type: 3}
+      propertyPath: m_Name
+      value: Bomber (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 82823574138109011, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1127,11 +1131,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 12.264744
       objectReference: {fileID: 0}
-    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
-        type: 3}
-      propertyPath: m_Name
-      value: Bomber (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 8859488624051917267, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: debridsToSpawn.Array.size
@@ -1181,6 +1180,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7909953358795338543}
     m_Modifications:
+    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
+        type: 3}
+      propertyPath: m_Name
+      value: Bomber (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 82823574138109011, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1250,11 +1254,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 12.264744
-      objectReference: {fileID: 0}
-    - target: {fileID: 82823574137610355, guid: 698e2a07d3eee784697613fc24599d95,
-        type: 3}
-      propertyPath: m_Name
-      value: Bomber (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8859488624051917267, guid: 698e2a07d3eee784697613fc24599d95,
         type: 3}

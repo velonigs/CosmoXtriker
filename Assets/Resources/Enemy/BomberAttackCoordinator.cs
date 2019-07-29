@@ -10,7 +10,7 @@ public class BomberAttackCoordinator : MonoBehaviour
     [SerializeField]Transform[] attackPoints;
     [SerializeField] Bomber[] enemyes;
     [SerializeField]
-    EnemyMissile _leadermissile;
+    EnemyMissile missile;
     int missilenumbers = 0;
     int currentship = 0;
     
@@ -61,7 +61,7 @@ public class BomberAttackCoordinator : MonoBehaviour
                 for(int i = 0; i < attackPoints.Length; i++)
                 {
                     
-                    var obj = Instantiate(_leadermissile, attackPoints[i].position, attackPoints[i].rotation);
+                    var obj = Instantiate(missile, attackPoints[i].position, attackPoints[i].rotation);
                     //callbackでミサイルの数量をコントロールする
                     obj.GetComponent<EnemyMissile>().Init(DestroyMissile);
                     missilenumbers++;
