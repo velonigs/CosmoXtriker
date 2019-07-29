@@ -52,7 +52,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            transform.Translate(0, 0, bulletSpeed);
+            transform.Translate(0, 0, -bulletSpeed,Space.World);
         }
      
         
