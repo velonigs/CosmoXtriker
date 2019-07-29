@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     float _HorizontalInput;
     float _VerticalInput;
     public static PlayerController instance;
+    [SerializeField]
+    GameObject flayr;
 
     private void Awake()
     {
@@ -23,6 +25,14 @@ public class PlayerController : MonoBehaviour
     {
         _HorizontalInput = Input.GetAxis("Horizontal");
         _VerticalInput = Input.GetAxis("Vertical");
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            for(int i=0; i < 6; i++)
+            {
+                Instantiate(flayr, transform.position, transform.rotation);
+            }
+        }
     }
     void FixedUpdate()
     {

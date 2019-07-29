@@ -58,14 +58,24 @@ public class BomberAttackCoordinator : MonoBehaviour
             //リーダーの攻撃
             if (canAttack)
             {
-                for(int i = 0; i < attackPoints.Length; i++)
+                if (PlayerController.instance != null)
                 {
-                    
-                    var obj = Instantiate(missile, attackPoints[i].position, attackPoints[i].rotation);
-                    //callbackでミサイルの数量をコントロールする
-                    obj.GetComponent<EnemyMissile>().Init(DestroyMissile);
-                    missilenumbers++;
+                    var distanceToPlayer = Vector3.Distance( transform.position , PlayerController.instance.transform.position);
+                    if (distanceToPlayer <= 100f)
+                    {
+                        missilenumbers = 1;
+                    }
+
+                    for (int i = 0; i < attackPoints.Length; i++)
+                    {
+
+                        var obj = Instantiate(missile, attackPoints[i].position, attackPoints[i].rotation);
+                        //callbackでミサイルの数量をコントロールする
+                        obj.GetComponent<EnemyMissile>().Init(DestroyMissile);
+                        missilenumbers++;
+                    }
                 }
+                
                 
             }
 

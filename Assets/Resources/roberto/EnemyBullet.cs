@@ -33,7 +33,7 @@ public class EnemyBullet : MonoBehaviour
     }
     
     //プレイヤーにダメージをあげる
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
