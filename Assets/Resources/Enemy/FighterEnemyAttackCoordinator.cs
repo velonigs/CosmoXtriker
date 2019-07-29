@@ -36,15 +36,11 @@ public class FighterEnemyAttackCoordinator : MonoBehaviour
         if (LeaderfireRate <= 0)
         {
             LeaderfireRate = fireTime;
-            if (rl == 0)
+            for(int i = 0; i < Leaderfirepoint.Length; i++)
             {
-                GameObject leaderFire = Instantiate(bulletPrefab, Leaderfirepoint[0].position, Leaderfirepoint[0].rotation) as GameObject;
+                Instantiate(bulletPrefab, Leaderfirepoint[i].position, Leaderfirepoint[i].rotation);
             }
-            else
-            {
-
-                GameObject leaderFire = Instantiate(bulletPrefab, Leaderfirepoint[1].position, Leaderfirepoint[1].rotation) as GameObject;
-            }
+           
         }
         //プロトンの攻撃
         plotonFireRate -= Time.deltaTime;

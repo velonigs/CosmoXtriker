@@ -22,7 +22,7 @@ public class fighter : _tmpEnemys
     float attackdelay = 1f;
     private float attackrange = 30;
     
-    public int damageMultipler=1;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -106,12 +106,9 @@ public class fighter : _tmpEnemys
 
     public  override void shot()
     {
-        EnemyBullet bullet = Instantiate(bulletPrefab, spawnpoint[0].transform.position, spawnpoint[0].transform.rotation);
-        bullet.GetComponent<EnemyBullet>().damage *= damageMultipler;
-        if (spawnpoint[1] != null)
+        for(int i = 0; i < spawnpoint.Length; i++)
         {
-            EnemyBullet bulletTwo = Instantiate(bulletPrefab, spawnpoint[1].transform.position, spawnpoint[1].transform.rotation);
-            bulletTwo.GetComponent<EnemyBullet>().damage *= damageMultipler;
+            Instantiate(bulletPrefab, spawnpoint[i].position, Quaternion.identity);
         }
     }
  

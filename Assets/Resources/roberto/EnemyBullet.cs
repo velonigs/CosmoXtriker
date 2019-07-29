@@ -20,6 +20,10 @@ public class EnemyBullet : MonoBehaviour
     {
         quitBattle = false;
         Destroy(gameObject, 5f);
+        if (PlayerController.instance == null)
+        {
+            return;
+        }
         //プレイヤーのポジションを登録する
         playerPoseX = (PlayerController.instance.transform.position.x ) ;
         playerPoseY= (PlayerController.instance.transform.position.y);
@@ -32,11 +36,19 @@ public class EnemyBullet : MonoBehaviour
         if (!quitBattle)
         {
             // 登録した口座へ移動
-            transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed);
-            if (transform.position == target)
+            if (PlayerController.instance != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed);
+                if (transform.position == target)
+                {
+                    quitBattle = true;
+                }
+            }
+            else
             {
                 quitBattle = true;
             }
+            
         }
         else
         {

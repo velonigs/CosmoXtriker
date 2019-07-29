@@ -84,9 +84,16 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
 
             laserAttackTime -= Time.deltaTime;
-
+            RaycastHit laserHit;
+            if(Physics.Raycast(transform.position,transform.forward,out laserHit))
+            {
+                if (laserHit.collider.GetComponent<HealthManager>())
+                {
+                    laserHit.collider.GetComponent<HealthManager>().Takedamage(1);
+                }
+            }
             laserLine.SetPosition(0, laserSpawnPoint.position);
-            laserLine.SetPosition(1, player.transform.position);
+            laserLine.SetPosition(1, transform.forward*5000);
 
             if (laserAttackTime <= 0)
             {
