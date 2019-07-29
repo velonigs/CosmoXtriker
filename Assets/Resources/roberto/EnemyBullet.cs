@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
             if (PlayerController.instance != null)
             {
                 transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed);
-                if (transform.position == target)
+                if (transform.position.z <= target.z)
                 {
                     quitBattle = true;
                 }

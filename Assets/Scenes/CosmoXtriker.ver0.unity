@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 5275254281907221752, guid: 258397b748f66e14e95c6c4c4dde06c8,
         type: 3}
       propertyPath: waves.Array.size
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5275254281907221752, guid: 258397b748f66e14e95c6c4c4dde06c8,
         type: 3}
@@ -407,7 +407,37 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[4]
       value: 
-      objectReference: {fileID: 2159490781166042796, guid: bf3f5078a45c2714192c2cd76e17f3ba,
+      objectReference: {fileID: 771250554036209092, guid: fe9e8d93b2ea81d429bf460f5942fc1f,
+        type: 3}
+    - target: {fileID: 5275254281907221752, guid: 258397b748f66e14e95c6c4c4dde06c8,
+        type: 3}
+      propertyPath: waves.Array.data[5]
+      value: 
+      objectReference: {fileID: 7347331375933512561, guid: df227d0cd9f0a4c439e1583beed792d9,
+        type: 3}
+    - target: {fileID: 5275254281907221752, guid: 258397b748f66e14e95c6c4c4dde06c8,
+        type: 3}
+      propertyPath: waves.Array.data[6]
+      value: 
+      objectReference: {fileID: 890747839540245245, guid: 75d04f59c3103e047bf66f78f61870e1,
+        type: 3}
+    - target: {fileID: 5275254281907221752, guid: 258397b748f66e14e95c6c4c4dde06c8,
+        type: 3}
+      propertyPath: waves.Array.data[7]
+      value: 
+      objectReference: {fileID: 7347331375933512561, guid: df227d0cd9f0a4c439e1583beed792d9,
+        type: 3}
+    - target: {fileID: 5275254281907221752, guid: 258397b748f66e14e95c6c4c4dde06c8,
+        type: 3}
+      propertyPath: waves.Array.data[8]
+      value: 
+      objectReference: {fileID: 890747839540245245, guid: 75d04f59c3103e047bf66f78f61870e1,
+        type: 3}
+    - target: {fileID: 5275254281907221752, guid: 258397b748f66e14e95c6c4c4dde06c8,
+        type: 3}
+      propertyPath: waves.Array.data[9]
+      value: 
+      objectReference: {fileID: 771250554036209092, guid: fe9e8d93b2ea81d429bf460f5942fc1f,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258397b748f66e14e95c6c4c4dde06c8, type: 3}
@@ -1778,7 +1808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 9
   moveForceMultiplier: 5
-  flayr: {fileID: 7189851294258254732, guid: f185df4cbfa5cb243b2c728b3ae7c810, type: 3}
 --- !u!65 &1808163701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1804,6 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb37b6b84b6bb1d45a72634a92585c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   startingHealth: 300
 --- !u!1 &1874637717
 GameObject:
@@ -3239,6 +3269,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3300415862254826726, guid: 117feb118e1ce2f4c8f424db1a514961,
+        type: 3}
+      propertyPath: flayr
+      value: 
+      objectReference: {fileID: 7189851294258254732, guid: f185df4cbfa5cb243b2c728b3ae7c810,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117feb118e1ce2f4c8f424db1a514961, type: 3}
 --- !u!4 &6641799313140465082

@@ -16,7 +16,8 @@ public class Corvette : MonoBehaviour, ITakeDamage
     float laserAttackTime;
     [SerializeField] float laserAttackdelay = 5f;
     float attackTimer;
-    //
+    [SerializeField]
+    float damageMultipler = 0.5f;
     [SerializeField] EnemyMissile missiles;
     [SerializeField] EnemyBullet bullet;
     [SerializeField]
@@ -89,7 +90,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
             {
                 if (laserHit.collider.GetComponent<HealthManager>())
                 {
-                    laserHit.collider.GetComponent<HealthManager>().Takedamage(1);
+                    laserHit.collider.GetComponent<HealthManager>().Takedamage(1*damageMultipler);
                 }
             }
             laserLine.SetPosition(0, laserSpawnPoint.position);

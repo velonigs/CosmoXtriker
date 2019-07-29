@@ -5,8 +5,8 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     [SerializeField]
-    private int health;
-    public int startingHealth = 100;
+    private float health;
+    public float startingHealth = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,7 @@ public class HealthManager : MonoBehaviour
     }
 
     
-    public void Takedamage(int damageToTake)
+    public void Takedamage(float damageToTake)
     {
         health -= damageToTake;
         

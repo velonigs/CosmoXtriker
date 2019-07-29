@@ -16,8 +16,9 @@ public class Wave : MonoBehaviour
         StartCoroutine("wavecor");
     }
     void wavemake(){
-        //Waveを作成する
-        wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity);
+        //Waveを作成する,プレイヤーのポジションｘとｙと同じ講座
+        wave = (GameObject)Instantiate(waves[currentWave], new Vector3(PlayerController.instance.transform.position.x,PlayerController.instance.transform.position.y,transform.position.z)
+            , Quaternion.identity);
         //Waveをこいつの子要素にする
         wave.transform.parent = transform;
     }
