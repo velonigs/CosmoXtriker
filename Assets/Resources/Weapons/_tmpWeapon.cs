@@ -26,15 +26,15 @@ public class _tmpWeapon : MonoBehaviour{
         flayerActive = true;
     }
     void shot(){
-        GameObject Bullets = Instantiate(Bullet) as GameObject;
-        force = this.gameObject.transform.forward * speed;
-        Bullets.GetComponent<Rigidbody>().AddForce(force);
-        Bullets.transform.position = RightMuzzle.position;
+        GameObject Bullets = Instantiate(Bullet) as GameObject; // Bullet呼び出し
+        force = RightMuzzle.transform.forward * speed; // 銃口の正面に対してspeedをかけてforce
+        Bullets.GetComponent<Rigidbody>().AddForce(force); // Addforce
+        Bullets.transform.position = RightMuzzle.position; // 発射位置
 
         Bullets = Instantiate(Bullet) as GameObject;
-        force = this.gameObject.transform.forward * speed;
+        force = LeftMuzzle.transform.forward * speed;
         Bullets.GetComponent<Rigidbody>().AddForce(force);
-        Bullets.transform.position = LeftMuzzle.position; //作業中、Muzzleのローカル座標でforwardする必要あり
+        Bullets.transform.position = LeftMuzzle.position;
     }
 
     void Update(){
