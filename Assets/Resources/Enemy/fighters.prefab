@@ -28,7 +28,6 @@ MonoBehaviour:
   minValue: -0.1
   MaxValue: 0.1
   moveZ: -0.2
-  damageMultipler: 1
 --- !u!1 &681322740263883295
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +176,6 @@ MonoBehaviour:
   minValue: -0.1
   MaxValue: 0.1
   moveZ: -0.2
-  damageMultipler: 1
 --- !u!1 &5331484837171152321
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +294,6 @@ MonoBehaviour:
   minValue: -0.1
   MaxValue: 0.1
   moveZ: -0.2
-  damageMultipler: 1
 --- !u!1 &7347331375933512561
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followRange: 1000
-  attackrange: 30
+  attackrange: 100
 --- !u!1 &7518206513597391408
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +479,6 @@ MonoBehaviour:
   minValue: -0.1
   MaxValue: 0.1
   moveZ: -0.2
-  damageMultipler: 1
 --- !u!114 &738446092604213253
 MonoBehaviour:
   m_ObjectHideFlags: 0

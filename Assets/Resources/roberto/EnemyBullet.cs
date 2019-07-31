@@ -9,7 +9,8 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField]
     float bulletSpeed= 0.4f;
     PlayerController player;
-    
+    [SerializeField]
+    float veloctyTimeFactor = 100f;
     
     float playerPoseY;
     float playerPoseX;
@@ -38,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
             // 登録した口座へ移動
             if (PlayerController.instance != null)
             {
-                transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed * (Time.deltaTime*veloctyTimeFactor));
                 if (transform.position.z <= target.z)
                 {
                     quitBattle = true;
@@ -52,7 +53,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            transform.Translate(0, 0, -bulletSpeed,Space.World);
+            transform.Translate(0, 0, (-bulletSpeed * (Time.deltaTime*veloctyTimeFactor)), Space.World);
         }
      
         
@@ -65,7 +66,12 @@ public class EnemyBullet : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<HealthManager>().Takedamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (other.tag == "KillZone")
+        {
+            Destroy(gameObject);
+        }
+       
     }
 }

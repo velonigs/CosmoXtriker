@@ -9,6 +9,8 @@ public class EnemyMissile : MonoBehaviour
     [SerializeField] float velocity = 4f;
     [SerializeField] float lifetime = 5f;
     [SerializeField] int damage = 10;
+    [SerializeField]
+    float veloctyTimeFactor = 100f;
     System.Action _callback = null;
     bool followPlayer;
     Vector3 newTarget;
@@ -25,16 +27,15 @@ public class EnemyMissile : MonoBehaviour
             if (PlayerController.instance != null)
             {
                 //プレイヤーへ動く
-                transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position, velocity);
+                transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position, velocity*(Time.deltaTime*veloctyTimeFactor));
             }
         }
         else
         {
             //flayrのため
-            transform.position = Vector3.MoveTowards(transform.position, newTarget, velocity);
-        }
         
-
+            transform.position = Vector3.MoveTowards(transform.position, newTarget, velocity * (Time.deltaTime * veloctyTimeFactor));
+        }
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
