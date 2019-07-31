@@ -8,6 +8,7 @@ public class VehicleController : MonoBehaviour {
     public enum VehicleControlStatus {
         Idle,
         Action,
+        Move,
         End
     };
 
@@ -18,19 +19,11 @@ public class VehicleController : MonoBehaviour {
     public VehicleControlStatus IsAction {
         set {
             _isAction = value;
-            if (VehicleControlStatus.Action == _isAction) {
-                _eventAction.StartAction();
-            }
-        }
-        get {
-            return _isAction;
+            _eventAction.StartAction(value);
         }
     }
 
     void Start () {
         _eventAction = GetComponent<EventDirector>();
-    }
-
-    void Update () {
     }
 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ゲーム内のイベントなどを起動させる
+/// </summary>
 public class GameController : MonoBehaviour {
 
     [SerializeField]
