@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707579952384668048}
   - component: {fileID: 1707579952384668049}
+  - component: {fileID: 7031077366855842260}
   m_Layer: 0
   m_Name: WaveCon
   m_TagString: Untagged
@@ -41,6 +42,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ed81927415b49548bb937227e9835df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - {fileID: 7347331375933512561, guid: df227d0cd9f0a4c439e1583beed792d9, type: 3}
+  - {fileID: 890747839540245245, guid: 75d04f59c3103e047bf66f78f61870e1, type: 3}
+  - {fileID: 7347331375933512561, guid: df227d0cd9f0a4c439e1583beed792d9, type: 3}
+  - {fileID: 890747839540245245, guid: 75d04f59c3103e047bf66f78f61870e1, type: 3}
+  - {fileID: 7347331375933512561, guid: df227d0cd9f0a4c439e1583beed792d9, type: 3}
+  - {fileID: 890747839540245245, guid: 75d04f59c3103e047bf66f78f61870e1, type: 3}
+  - {fileID: 7347331375933512561, guid: df227d0cd9f0a4c439e1583beed792d9, type: 3}
+  - {fileID: 890747839540245245, guid: 75d04f59c3103e047bf66f78f61870e1, type: 3}
+  - {fileID: 7347331375933512561, guid: df227d0cd9f0a4c439e1583beed792d9, type: 3}
+  - {fileID: 890747839540245245, guid: 75d04f59c3103e047bf66f78f61870e1, type: 3}
+--- !u!114 &7031077366855842260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707579952384668050}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c7e3701591b1043a99258daafc6ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waves:

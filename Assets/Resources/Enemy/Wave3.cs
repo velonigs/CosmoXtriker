@@ -27,7 +27,7 @@ public class Wave3 : MonoBehaviour
             wave.transform.parent = transform;
 
             //Waveの子要素のEnemyがすべて消去されるまで待機する
-            while (wave.transform.childCount != 0)
+            while (wave.activeSelf == true)
             {
                 yield return new WaitForEndOfFrame();
             }
