@@ -21,11 +21,12 @@ public class fighter : _tmpEnemys
     bool battleAsset = false;
     float attackdelay = 1f;
     private float attackrange = 30;
-    
+    bool canAttack;
    
     // Start is called before the first frame update
     void Start()
     {
+        canAttack = true;
         randomMove = false;
         //ｘとｙ座標をランダムに決める
         movex = Random.Range(minValue, MaxValue);
@@ -71,6 +72,7 @@ public class fighter : _tmpEnemys
                     if (disstancetoplayer <= attackrange)
                     {
                         battlequit = true;
+                        canAttack = false;
                     }
                     }
                 }
@@ -78,11 +80,11 @@ public class fighter : _tmpEnemys
                 {
                     transform.Translate(0, 0, 0.2f);
                 }
-                   
-                    
-                  
-                 
-               
+
+
+
+
+                if (canAttack&&PlayerController.instance!=null) { 
                 attackdelay -= Time.deltaTime;
                 if (attackdelay <= 0)
                 {
@@ -90,6 +92,7 @@ public class fighter : _tmpEnemys
                     shot();
                     
 
+                }
                 }
             }
             

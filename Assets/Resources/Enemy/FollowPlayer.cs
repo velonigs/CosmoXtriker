@@ -57,4 +57,12 @@ public class FollowPlayer : MonoBehaviour
             this.transform.Translate(0, 0, -0.2f,Space.World);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "KillZone")
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

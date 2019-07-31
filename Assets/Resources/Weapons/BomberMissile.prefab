@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7189851294258254729}
   - component: {fileID: 7189851294258254734}
   - component: {fileID: 2494890735911262664}
+  - component: {fileID: 4624023827950334616}
   m_Layer: 9
   m_Name: BomberMissile
   m_TagString: Untagged
@@ -106,4 +107,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   bulletSpeed: 0.4
+  veloctyTimeFactor: 50
   explosion: {fileID: 1036410813808012, guid: d259e158f02233a4aba5f6d49c930ae5, type: 3}
+--- !u!114 &4624023827950334616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189851294258254732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f0bd1ce3801e7409cabae8c3fbe6bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 5

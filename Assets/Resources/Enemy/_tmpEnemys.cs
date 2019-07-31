@@ -30,9 +30,9 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
          
 
         }
-        if(collision.gameObject.name == "KillZone"){
+        /*if(collision.gameObject.name == "KillZone"){
             Destroy(this.gameObject); //KZ入ったらDestroy
-        }
+        }*/
     }
     void Update(){
 
