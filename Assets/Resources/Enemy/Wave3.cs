@@ -19,8 +19,9 @@ public class Wave3 : MonoBehaviour
         while (true)
         {
 
-            //Waveを作成する
-            GameObject wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity)as GameObject;
+        //Waveを作成する,プレイヤーのポジションｘとｙと同じ講座
+        GameObject wave = (GameObject)Instantiate(waves[currentWave], new Vector3(PlayerController.instance.transform.position.x,PlayerController.instance.transform.position.y,transform.position.z)
+            , Quaternion.identity);
 
             //WaveをEmitterの子要素にする
             wave.transform.parent = transform;
