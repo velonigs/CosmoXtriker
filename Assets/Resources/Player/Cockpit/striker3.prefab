@@ -319,7 +319,6 @@ GameObject:
   - component: {fileID: 6089836373314710690}
   - component: {fileID: 6089836373315710562}
   - component: {fileID: 4878217982124056190}
-  - component: {fileID: 8079992747404121686}
   m_Layer: 0
   m_Name: RightJoint
   m_TagString: Untagged
@@ -407,19 +406,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8079992747404121686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6089836373313777828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ae9ccf91aed0364faa81c76e019a1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {x: 0, y: 0, z: 0}
 --- !u!1 &6089836373313777830
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +804,7 @@ GameObject:
   - component: {fileID: 6089836373314710718}
   - component: {fileID: 6089836373315710590}
   - component: {fileID: 3280839909358426087}
-  - component: {fileID: 3998959037514058990}
+  - component: {fileID: 2762763512548924246}
   m_Layer: 0
   m_Name: LeftJoint
   m_TagString: Untagged
@@ -906,7 +892,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3998959037514058990
+--- !u!114 &2762763512548924246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -915,10 +901,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6089836373313777840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ae9ccf91aed0364faa81c76e019a1cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 217477b2fca6228448a6717fee811aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {x: 0, y: 0, z: 0}
+  _xmarzin: 0.06
+  _ymarzin: -0.006
+  RotateSpeed: 10
 --- !u!1 &6089836373313777842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1194,8 @@ MonoBehaviour:
   LeftMuzzle: {fileID: 5787016795447777992}
   RPM: 120
   speed: 1000
+  flayr: {fileID: 0}
+  flayerDealay: 10
 --- !u!1 &6089836373313777850
 GameObject:
   m_ObjectHideFlags: 0
