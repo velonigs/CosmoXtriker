@@ -26,5 +26,6 @@ public class GameController : MonoBehaviour {
         }
 
         _tutorialCanvasFlg = _tutorialCanvas.activeSelf;
+
     }
 }
