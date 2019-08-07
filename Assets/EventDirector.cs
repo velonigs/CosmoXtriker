@@ -16,30 +16,28 @@ public class EventDirector : MonoBehaviour {
     [SerializeField]
     private float _speed = 1.0f;
 
-    private int _selectListNum = 0;
+    private int _selectListNum = 0;  
 
-    private bool _hatchFlg = false;   
-
-    private bool _departureFlg = false;
+    private bool _hatchFlg = false;
 
     void Update() {
-        if (_selectListNum == 5) {
-            _hatchFlg = true;
-        }
-
-        if (_hatchFlg) {
-            StartCoroutine(OpenHatch());
-        }
-
+        
     }
 
     IEnumerator OpenHatch() {
-        _hangerHatchUp.transform.position += new Vector3(0, 0.1f, 0);
-        _hangerHatchDown.transform.position += new Vector3(0, -0.1f, -0);
-        yield return new WaitForSeconds(6.5f);
-        _hangerHatchUp.SetActive(false);
-        _hangerHatchDown.SetActive(false);
-        _departureFlg = true;
+        float departureTime = 5.0f;
+        float elapsedTime = 0.0f;
+        while (departureTime > elapsedTime) {
+            elapsedTime += Time.deltaTime;
+            _hangerHatchUp.transform.position += new Vector3(0, 0.1f, 0);
+            _hangerHatchDown.transform.position += new Vector3(0, -0.1f, 0);
+            yield return null;
+        }
+
+        Destroy(_hangerHatchUp);
+        Destroy(_hangerHatchDown);
+        _hatchFlg = false;
+        StartCoroutine(StartActionCoroutine());
     }
  
     public void StartAction(VehicleController.VehicleControlStatus action) {
@@ -67,8 +65,16 @@ public class EventDirector : MonoBehaviour {
         
         _selectListNum++;
 
+        if (_selectListNum == 5) {
+            _hatchFlg = true;
+        }
+
         if (_selectListNum < _transLists.Count) {
-            StartCoroutine(StartActionCoroutine());
+            if (_hatchFlg) {
+                StartCoroutine(OpenHatch());
+            } else {
+                StartCoroutine(StartActionCoroutine());
+            }
         }
     }
 }
