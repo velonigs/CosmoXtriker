@@ -9,7 +9,7 @@ public class LeftCannonRotation : MonoBehaviour {
     private Ray _ray;
     private Ray _ray2;
     Vector3 _pos;
-    Vector3 _pos2;
+    public Vector3 _pos2;
     Vector3 _pos3;
     Vector3 _pos4;
     float roty;
