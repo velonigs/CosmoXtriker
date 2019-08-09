@@ -34,13 +34,13 @@ public class _tmpWeapon : MonoBehaviour{
     void shot(){
         GameObject Bullets = Instantiate(Bullet) as GameObject; // Bullet呼び出し
         _bulletvec = _poss - RightMuzzle.transform.position;
-        force = _bulletvec * speed; // 銃口の正面に対してspeedをかけてforce
+        force = _bulletvec.normalized * speed; // 銃口の正面に対してspeedをかけてforce
         Bullets.GetComponent<Rigidbody>().AddForce(force); // Addforce
         Bullets.transform.position = RightMuzzle.position; // 発射位置
 
         Bullets = Instantiate(Bullet) as GameObject;
         _bulletvec = _poss - LeftMuzzle.transform.position;
-        force = _bulletvec * speed;
+        force = _bulletvec.normalized * speed;
         Bullets.GetComponent<Rigidbody>().AddForce(force);
         Bullets.transform.position = LeftMuzzle.position;
     }
