@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftCannonRotation : MonoBehaviour {
+public class RightCannonRotation : MonoBehaviour
+{
     GameObject _lmuzz;
     GameObject center;
     GameObject sight;
@@ -15,15 +16,16 @@ public class LeftCannonRotation : MonoBehaviour {
     float roty;
     float rotx;
     [SerializeField]
-    float _xmarzin = 0.06f;
+    float _xmarzin = -0.06f;
     [SerializeField]
     float _ymarzin = 0.006f;
     [SerializeField]
     float RotateSpeed = 10.0f;
-    
-    void Start() {
+
+    void Start()
+    {
         Debug.Log("a");
-        _lmuzz = GameObject.Find("_lmuzzle");
+        _lmuzz = GameObject.Find("_rmuzzle");
         center = GameObject.Find("Crosshair");
         sight = GameObject.Find("Target");
     }
@@ -36,11 +38,10 @@ public class LeftCannonRotation : MonoBehaviour {
             if (_lhit.collider.gameObject.tag == "Enemy")
             {
                 _pos2 = _lhit.point;
-                Debug.Log("Enemyhit");
             }
-            else if(_lhit.collider.gameObject.tag == "Debris"){
+            else if (_lhit.collider.gameObject.tag == "Debris")
+            {
                 _pos2 = _lhit.point;
-                Debug.Log("Enemyhit");
             }
             else if (_lhit.collider.gameObject.name == "CrosSphere")
             {
@@ -67,7 +68,8 @@ public class LeftCannonRotation : MonoBehaviour {
         }
     }
 
-    void Update() {
+    void Update()
+    {
         _target();
         _target2();
         Quaternion newRotation = Quaternion.LookRotation(_pos2 - _pos3);

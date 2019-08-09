@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5428841558745157957}
   m_Layer: 0
   m_Name: gomi2_prefab
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explode: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
+  damage: 5
   HP: 5
 --- !u!114 &2173848733840151728
 MonoBehaviour:
