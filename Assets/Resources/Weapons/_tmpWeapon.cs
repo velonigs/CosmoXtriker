@@ -28,7 +28,7 @@ public class _tmpWeapon : MonoBehaviour{
     void Start(){
         _tmpfire = RPM / 60.0f; //RPM（分間連射速度）に変換
         flayerActive = true;
-        Leftcannon = GameObject.Find("LeftJoint");
+        Leftcannon = GameObject.Find("LeftJointPivot");
         cannonsc = Leftcannon.GetComponent<LeftCannonRotation>();
     }
     void shot(){

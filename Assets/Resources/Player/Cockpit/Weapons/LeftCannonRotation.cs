@@ -23,7 +23,7 @@ public class LeftCannonRotation : MonoBehaviour {
     
     void Start() {
         Debug.Log("a");
-        _lmuzz = GameObject.Find("_lmuzzle");
+        _lmuzz = GameObject.Find("LeftMuzzle");
         center = GameObject.Find("Crosshair");
         sight = GameObject.Find("Target");
     }
