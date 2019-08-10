@@ -11,16 +11,16 @@ public class CorvetteMovement : MonoBehaviour
     float distanceToPlayer;
     //50以上必ず
     [SerializeField] float battleRange=50;
-    [SerializeField] float moveSpeed=0.2f;
+    [SerializeField] float moveSpeed=0.05f;
     [SerializeField] float changeMovementTimer = 3f;
-    //100以上必ず
-    [SerializeField] float maxDistance = 100f;
+    
     float changeMovementCounter;
     [SerializeField]
     int changePhaseLimiter = 10;
+    Vector3 startPosition;
     int phaseLimit;
 
-    bool followPlayer;
+    
     //動きの管理ため
     public enum moveBattlePhases { start=0,phase1,phase2,phase3}
     //現在
@@ -29,13 +29,14 @@ public class CorvetteMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        followPlayer = true;
+        
         currentMovePhase = moveBattlePhases.start;
         //ランダム
         moveX = Random.Range(-Range, Range);
         moveY = Random.Range(-Range, Range);
         changeMovementCounter = changeMovementTimer;
         phaseLimit = changePhaseLimiter;
+        startPosition = transform.position;
 
     }
 
@@ -44,18 +45,21 @@ public class CorvetteMovement : MonoBehaviour
     {
         if (currentMovePhase==moveBattlePhases.start)
         {
-            //プレーヤーへ向かって動く
-            distanceToPlayer = (transform.position - PlayerController.instance.transform.position).sqrMagnitude;
-            if (distanceToPlayer >= battleRange)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position,moveSpeed);
+            
+                //プレーヤーへ向かって動く
+                distanceToPlayer = (transform.position - PlayerController.instance.transform.position).sqrMagnitude;
+                if (distanceToPlayer >= battleRange)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position, moveSpeed);
+                }
+                else
+                {
+                    //近づいたら変更
+                    changePhase();
+                }
             }
-            else
-            {
-                //近づいたら変更
-                changePhase();
-            }
-         }
+           
+         
         if(currentMovePhase == moveBattlePhases.phase1)
         {
             changeMovementCounter -= Time.deltaTime;
@@ -89,29 +93,22 @@ public class CorvetteMovement : MonoBehaviour
         //三回目後ろへ動く、最高の距離までそのあと最初のphaseに戻る
         if (currentMovePhase == moveBattlePhases.phase3)
         {
-            if (moveZ > 0)
-            {
-                moveZ = -moveZ;
-            }
-            
-            distanceToPlayer = (transform.position-PlayerController.instance.transform.position).sqrMagnitude;
-            if (distanceToPlayer <= maxDistance)
-            {
-                transform.Translate(0, 0, moveZ);
-             }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerController.instance.transform.position.x,
-                    PlayerController.instance.transform.position.y, transform.position.z), moveSpeed);
-                //プレーヤーのｘとｙ座標と同じになる
-                if (transform.position.x == PlayerController.instance.transform.position.x || transform.position.y == PlayerController.instance.transform.position.y)
+            transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed);
+                    
+                
+                if (transform.position == startPosition)
                 {
                     changePhase();
                 }
                 
             }
+        
+        if (transform.position.z < PlayerController.instance.transform.position.z)
+        {
+            moveZ *= -1;
         }
-}
+        }
+
   
     public void ChangeMovementManagement()
     {
@@ -124,6 +121,7 @@ public class CorvetteMovement : MonoBehaviour
     }
     public void changePhase()
     {
+       
         currentMovePhase++;
        
         if (currentMovePhase > moveBattlePhases.phase3)
@@ -140,6 +138,6 @@ public class CorvetteMovement : MonoBehaviour
             moveY = Random.Range(-Range, Range);
             moveZ *= -1f;
         }
-        
+       
     }
 }
