@@ -15,5 +15,9 @@ public class _crosshairController : MonoBehaviour
         _angle.x = Input.GetAxis("Mouse Y") * Sensitivity; //後でGetAxisの中身をジョイコンの操作のやつにする
         _angle.y = Input.GetAxis("Mouse X") * Sensitivity;
         this.gameObject.transform.localEulerAngles += _angle; //クロスヘアの角度をジョイコンの入力で += する
+
+        //弾がレティクルの中心に飛ぶようにするにはカメラの位置と、Crosshairの座標が等しい必要がある。
+        //理由は弾道のベクトル計算にメインカメラの座標を用いているためである。
+        //VR化する際は、Updateの中で CameraRig座標 == Crosshair座標 とすればいいと思われる。
     }
 }
