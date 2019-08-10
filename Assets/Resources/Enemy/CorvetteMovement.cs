@@ -126,7 +126,7 @@ public class CorvetteMovement : MonoBehaviour
     {
         currentMovePhase++;
        
-        if (currentMovePhase >= moveBattlePhases.phase3)
+        if (currentMovePhase > moveBattlePhases.phase3)
         {
             //リセット
             currentMovePhase = 0;
