@@ -25,19 +25,23 @@ public class EventDirector : MonoBehaviour {
     }
 
     IEnumerator OpenHatch() {
-        float departureTime = 5.0f;
+        float departureTime = 10.0f;
         float elapsedTime = 0.0f;
         while (departureTime > elapsedTime) {
             elapsedTime += Time.deltaTime;
-            _hangerHatchUp.transform.position += new Vector3(0, 0.1f, 0);
-            _hangerHatchDown.transform.position += new Vector3(0, -0.1f, 0);
+            _hangerHatchUp.transform.position += new Vector3(0, 0.05f, 0);
+            _hangerHatchDown.transform.position += new Vector3(0, -0.05f, 0);
             yield return null;
         }
 
         Destroy(_hangerHatchUp);
         Destroy(_hangerHatchDown);
         _hatchFlg = false;
-        StartCoroutine(StartActionCoroutine());
+
+        if (departureTime < elapsedTime) {
+            StartCoroutine(StartActionCoroutine());
+        }
+        
     }
  
     public void StartAction(VehicleController.VehicleControlStatus action) {
@@ -65,8 +69,20 @@ public class EventDirector : MonoBehaviour {
         
         _selectListNum++;
 
+        if (_selectListNum == 2) {
+            _speed = 7.0f;
+        }
+
+        if (_selectListNum == 3) {
+            _speed = 6.0f;
+        }
+
         if (_selectListNum == 5) {
             _hatchFlg = true;
+        }
+
+        if (_selectListNum == 6) {
+            _speed = 1.5f;
         }
 
         if (_selectListNum < _transLists.Count) {

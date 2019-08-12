@@ -1,102 +1,60 @@
 fileFormatVersion: 2
-guid: 0a7d42b9923f97244aed2435a6576d33
+guid: 1541e44af76241a4090839ebc5c4a5be
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: pasted__pCube2
-    100004: pCube11
-    100006: pCube14
-    100008: pCube15
-    100010: pCube16
-    100012: pCube17
-    100014: pCube18
-    100016: pCube19
-    100018: pCube20
-    100020: pCube21
-    100022: pCube22
-    100024: pCube23
-    100026: pCube24
-    100028: pCube25
-    100030: pCube3
-    100032: pCube4
-    100034: pCylinder1
+    100004: pasted__pCube3
+    100006: pCube15
+    100008: pCube18
+    100010: pCube30
+    100012: pCube31
+    100014: pCube32
+    100016: pCube4
+    100018: pCylinder1
     400000: //RootNode
     400002: pasted__pCube2
-    400004: pCube11
-    400006: pCube14
-    400008: pCube15
-    400010: pCube16
-    400012: pCube17
-    400014: pCube18
-    400016: pCube19
-    400018: pCube20
-    400020: pCube21
-    400022: pCube22
-    400024: pCube23
-    400026: pCube24
-    400028: pCube25
-    400030: pCube3
-    400032: pCube4
-    400034: pCylinder1
-    2100000: lambert1
+    400004: pasted__pCube3
+    400006: pCube15
+    400008: pCube18
+    400010: pCube30
+    400012: pCube31
+    400014: pCube32
+    400016: pCube4
+    400018: pCylinder1
+    2100000: blinn1
+    2100002: lambert1
     2300000: pasted__pCube2
-    2300002: pCube11
-    2300004: pCube14
-    2300006: pCube15
-    2300008: pCube16
-    2300010: pCube17
-    2300012: pCube18
-    2300014: pCube19
-    2300016: pCube20
-    2300018: pCube21
-    2300020: pCube22
-    2300022: pCube23
-    2300024: pCube24
-    2300026: pCube25
-    2300028: pCube3
-    2300030: pCube4
-    2300032: pCylinder1
+    2300002: pasted__pCube3
+    2300004: pCube15
+    2300006: pCube18
+    2300008: pCube30
+    2300010: pCube31
+    2300012: pCube32
+    2300014: pCube4
+    2300016: pCylinder1
     3300000: pasted__pCube2
-    3300002: pCube11
-    3300004: pCube14
-    3300006: pCube15
-    3300008: pCube16
-    3300010: pCube17
-    3300012: pCube18
-    3300014: pCube19
-    3300016: pCube20
-    3300018: pCube21
-    3300020: pCube22
-    3300022: pCube23
-    3300024: pCube24
-    3300026: pCube25
-    3300028: pCube3
-    3300030: pCube4
-    3300032: pCylinder1
-    4300000: pCube3
-    4300002: pCylinder1
-    4300004: pCube17
-    4300006: pCube14
-    4300008: pCube11
-    4300010: pCube16
-    4300012: pCube15
-    4300014: pCube4
-    4300016: pasted__pCube2
-    4300018: pCube18
-    4300020: pCube19
-    4300022: pCube20
-    4300024: pCube21
-    4300026: pCube22
-    4300028: pCube23
-    4300030: pCube24
-    4300032: pCube25
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: dd358a6318d93204294ef30ba16ef7b8, type: 2}
+    3300002: pasted__pCube3
+    3300004: pCube15
+    3300006: pCube18
+    3300008: pCube30
+    3300010: pCube31
+    3300012: pCube32
+    3300014: pCube4
+    3300016: pCylinder1
+    4300000: pCube15
+    4300002: pCube30
+    4300004: pCube31
+    4300006: pCube32
+    4300008: pasted__pCube3
+    4300010: pCylinder1
+    4300012: pCube4
+    4300014: pasted__pCube2
+    4300016: pCube18
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -148,8 +106,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -176,7 +134,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
