@@ -36,11 +36,9 @@ public class LeftCannonRotation : MonoBehaviour {
             if (_lhit.collider.gameObject.tag == "Enemy")
             {
                 _pos2 = _lhit.point;
-                Debug.Log("Enemyhit");
             }
             else if(_lhit.collider.gameObject.tag == "Debris"){
                 _pos2 = _lhit.point;
-                Debug.Log("Enemyhit");
             }
             else if (_lhit.collider.gameObject.name == "CrosSphere")
             {
