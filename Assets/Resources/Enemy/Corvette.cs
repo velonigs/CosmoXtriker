@@ -26,7 +26,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
     string attack = "";
     PlayerController player;
     string currentAttack;
+    
     int health = 300;
+    public int currentHealth;
 
 
     //attack文字列によって攻撃は違う
@@ -45,10 +47,10 @@ public class Corvette : MonoBehaviour, ITakeDamage
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = health;
         laserAttackTime = laserAttackdelay;
         attack = "laser";
-        
+        currentAttack = "";
         player = FindObjectOfType<PlayerController>();//プレイヤーを探す
     }
 
@@ -98,6 +100,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
             if (laserAttackTime <= 0)
             {
+                if (currentAttack == "") { currentAttack = "bullet"; }
                 attack = currentAttack;
                 laserAttackTime = laserAttackdelay;
                 
@@ -145,22 +148,22 @@ public class Corvette : MonoBehaviour, ITakeDamage
     public void takeDamage(int damageToTake)
     {
         
-        health -= damageToTake;
-        if (health == 200)
+        currentHealth -= damageToTake;
+        if (currentHealth == 200)
         {
             //レーサー攻撃を使う
             attack = "laser";
         }
-        if (health == 100)
+        if (currentHealth == 100)
         {
             attack = "laser";
         }
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+           
             Instantiate(explosion, transform.position, transform.rotation);
             spawnDebrids(debritsNumberToSpawn);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     public void spawnDebrids(int num)
@@ -174,4 +177,5 @@ public class Corvette : MonoBehaviour, ITakeDamage
             Instantiate(debridsToSpawn[rand_Sel], new Vector3(transform.position.x + randomPos, transform.position.y + randomPos, transform.position.z + randomPos), transform.rotation);
         }
     }
+
 }

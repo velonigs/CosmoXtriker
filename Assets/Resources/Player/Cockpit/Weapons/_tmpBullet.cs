@@ -10,6 +10,10 @@ public class _tmpBullet : MonoBehaviour{
         if(collision.gameObject.name == "BulletKillZone"){
             Destroy(this.gameObject); //KZ入ったらDestroy
         }
+        if (collision.tag == "Corvette")
+        {
+            collision.GetComponent<ITakeDamage>().takeDamage(Damage);
+        }
     }
 
     void Update(){

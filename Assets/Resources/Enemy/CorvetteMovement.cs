@@ -7,7 +7,8 @@ public class CorvetteMovement : MonoBehaviour
     [SerializeField] float Range = 0.03f;
     [SerializeField] float moveX;
     [SerializeField] float moveY;
-    [SerializeField] float moveZ=-0.02f;
+    [SerializeField] float moveZ=-0.002f;
+    [SerializeField]
     float distanceToPlayer;
     //50以上必ず
     [SerializeField] float battleRange=50;
@@ -19,10 +20,10 @@ public class CorvetteMovement : MonoBehaviour
     int changePhaseLimiter = 10;
     Vector3 startPosition;
     int phaseLimit;
-
+    bool reAsset;
     
     //動きの管理ため
-    public enum moveBattlePhases { start=0,phase1,phase2,phase3}
+    public enum moveBattlePhases { phase1,phase2,phase3}
     //現在
     public moveBattlePhases currentMovePhase;
 
@@ -30,7 +31,7 @@ public class CorvetteMovement : MonoBehaviour
     void Start()
     {
         
-        currentMovePhase = moveBattlePhases.start;
+        currentMovePhase = moveBattlePhases.phase1;
         //ランダム
         moveX = Random.Range(-Range, Range);
         moveY = Random.Range(-Range, Range);
@@ -43,73 +44,88 @@ public class CorvetteMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentMovePhase==moveBattlePhases.start)
+        distanceToPlayer = (transform.position - PlayerController.instance.transform.position).sqrMagnitude;
+        if (distanceToPlayer >= battleRange)
         {
-            
-                //プレーヤーへ向かって動く
-                distanceToPlayer = (transform.position - PlayerController.instance.transform.position).sqrMagnitude;
-                if (distanceToPlayer >= battleRange)
+            reAsset = true;
+
+        }
+        if (!reAsset)
+        {
+
+
+            if (currentMovePhase == moveBattlePhases.phase1)
+            {
+                
+                changeMovementCounter -= Time.deltaTime;
+                //時間がたったら、反対側へ動く、決めた回に繰り返す。カウンターゼロになったらphase変更
+                if (changeMovementCounter <= 0)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position, moveSpeed);
+                    ChangeMovementManagement();
                 }
-                else
+                
+                    transform.Translate(moveX, moveY, moveZ, Space.World);
+                
+
+
+                if (changePhaseLimiter <= 0)
                 {
-                    //近づいたら変更
+
+                    changePhase();
+
+                }
+            }
+            if (currentMovePhase == moveBattlePhases.phase2)
+            {
+                
+                changeMovementCounter -= Time.deltaTime;
+                if (changeMovementCounter <= 0)
+                {
+                    ChangeMovementManagement();
+                }
+               
+                    transform.Translate(moveX, moveY, moveZ, Space.World);
+                
+
+                if (changePhaseLimiter <= 0)
+                {
                     changePhase();
                 }
             }
-           
-         
-        if(currentMovePhase == moveBattlePhases.phase1)
-        {
-            changeMovementCounter -= Time.deltaTime;
-            //時間がたったら、反対側へ動く、決めた回に繰り返す。カウンターゼロになったらphase変更
-            if (changeMovementCounter <= 0)
+            //三回目後ろへ動く、最高の距離までそのあと最初のphaseに戻る
+            if (currentMovePhase == moveBattlePhases.phase3)
             {
-                ChangeMovementManagement();
-            }
-            
-            transform.Translate(moveX, moveY,moveZ);
-            if (changePhaseLimiter <= 0)
-            {
-                
-                changePhase();
-               
-            }
-        }
-        if(currentMovePhase == moveBattlePhases.phase2)
-        {
-            changeMovementCounter -= Time.deltaTime;
-            if (changeMovementCounter <= 0)
-            {
-                ChangeMovementManagement();
-            }
-            transform.Translate(moveX, moveY, moveZ);
-            if (changePhaseLimiter <= 0)
-            {
-                changePhase();
-            }
-        }
-        //三回目後ろへ動く、最高の距離までそのあと最初のphaseに戻る
-        if (currentMovePhase == moveBattlePhases.phase3)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed);
-                    
-                
+
+                transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed);
+
+
                 if (transform.position == startPosition)
                 {
                     changePhase();
                 }
-                
-            }
-        
-        if (transform.position.z < PlayerController.instance.transform.position.z)
-        {
-            moveZ *= -1;
-        }
-        }
 
-  
+            }
+
+            if (transform.position.z < PlayerController.instance.transform.position.z)
+            {
+                moveZ *= -1;
+            }
+           
+        }
+        else
+        {
+            Vector3 newPos = new Vector3(PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y, PlayerController.instance.transform.position.z + battleRange / 2);
+            transform.position = Vector3.MoveTowards(transform.position,newPos, moveSpeed);
+            if (transform.position == newPos)
+            {
+                reAsset = false;
+            }
+        }
+        transform.LookAt(PlayerController.instance.transform);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.eulerAngles.y, transform.rotation.z);
+    }
+
+
     public void ChangeMovementManagement()
     {
         changeMovementCounter = changeMovementTimer;

@@ -17,17 +17,10 @@ public class _tmpWeapon : MonoBehaviour{
     Vector3 _poss;
     Vector3 _bulletvec;
 
-    [SerializeField]
-    GameObject flayr;
-
-    [SerializeField]
-    float flayerDealay = 10f;
-
-    float flayerTimer = 10f;
-    bool flayerActive;
+    
     void Start(){
         _tmpfire = RPM / 60.0f; //RPM（分間連射速度）に変換
-        flayerActive = true;
+        
         Leftcannon = GameObject.Find("LeftJointPivot");
         cannonsc = Leftcannon.GetComponent<LeftCannonRotation>();
     }
@@ -54,30 +47,7 @@ public class _tmpWeapon : MonoBehaviour{
 
         }
 
-            if (!flayerActive)
-            {
-                flayerDealay -= Time.deltaTime;
-                if (flayerDealay <= 0)
-                {
-                    flayerActive = true;
-                    flayerDealay = flayerTimer;
-                }
-            }
-            else
-            {
-                
-                    if (Input.GetButtonDown("Fire2"))
-                    {
-                        for (int i = 0; i < 6; i++)
-                        {
-                            Instantiate(flayr, transform.position, transform.rotation);
-                        }
-                    flayerActive = false;
-                }
-
-                   
-                
-            }
+           
         }
 
 }
