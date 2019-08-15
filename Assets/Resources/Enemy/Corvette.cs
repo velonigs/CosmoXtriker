@@ -5,7 +5,11 @@ using UnityEngine;
 public class Corvette : MonoBehaviour, ITakeDamage
 {
     [SerializeField] LineRenderer laserLine;
-   
+    [SerializeField] Transform Cannon;
+    [SerializeField] Transform CannonXMobile;
+    [SerializeField] float cannonRotation=5f;
+    [SerializeField] float cannonLoadingTime = 3f;
+    float cannonShotCounter;
     [SerializeField] GameObject explosion;
     //attackポジション
     [SerializeField] Transform[] missileSpawnpoints;
@@ -24,12 +28,12 @@ public class Corvette : MonoBehaviour, ITakeDamage
     private int debritsNumberToSpawn;//ゴミ数
     public GameObject[] debridsToSpawn;//ゴミprefab
     string attack = "";
-    PlayerController player;
+   Transform player;
     string currentAttack;
-    
+    Quaternion cannonStartRotation;
     int health = 300;
     public int currentHealth;
-
+    Vector3 cannonStartPos;
 
     //attack文字列によって攻撃は違う
     public bool missileAttack
@@ -47,11 +51,14 @@ public class Corvette : MonoBehaviour, ITakeDamage
     // Start is called before the first frame update
     void Start()
     {
+        cannonShotCounter = cannonLoadingTime;
+        cannonStartPos = Cannon.position;
         currentHealth = health;
         laserAttackTime = laserAttackdelay;
         attack = "laser";
         currentAttack = "";
-        player = FindObjectOfType<PlayerController>();//プレイヤーを探す
+        player = PlayerController.instance.transform;
+        cannonStartRotation = Cannon.transform.rotation;
     }
 
     // Update is called once per frame
@@ -60,6 +67,15 @@ public class Corvette : MonoBehaviour, ITakeDamage
         //攻撃タイプはレーサーじゃなければ
         if (attack != "laser")
         {
+            if (Cannon.transform.rotation != cannonStartRotation)
+            {
+                
+                 Vector3 direction =  -cannonStartPos;
+                 Quaternion rotation = Quaternion.LookRotation(direction);
+                 Cannon.rotation = Quaternion.Lerp(Cannon.rotation, rotation, cannonRotation * Time.deltaTime);
+                CannonXMobile.rotation = Quaternion.Lerp(Cannon.rotation, rotation, cannonRotation * Time.deltaTime);
+
+            }
             laserLine.enabled = false;
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
@@ -79,6 +95,12 @@ public class Corvette : MonoBehaviour, ITakeDamage
         //レーサーだったら、時間が終わるまでレーサーを使う
         else
         {
+            cannonShotCounter -= Time.deltaTime;
+          
+            if (cannonShotCounter <= 0)
+            {
+
+           
             if (!laserLine.enabled)
             {
 
@@ -88,7 +110,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
             laserAttackTime -= Time.deltaTime;
             RaycastHit laserHit;
-            if(Physics.Raycast(transform.position,transform.forward,out laserHit))
+            if(Physics.Raycast(laserSpawnPoint.position,laserSpawnPoint.forward,out laserHit))
             {
                 if (laserHit.collider.GetComponent<HealthManager>())
                 {
@@ -96,16 +118,27 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 }
             }
             laserLine.SetPosition(0, laserSpawnPoint.position);
-            laserLine.SetPosition(1, transform.forward * 5000);
+            laserLine.SetPosition(1, laserSpawnPoint.forward * 5000);
             
             if (laserAttackTime <= 0)
             {
                 if (currentAttack == "") { currentAttack = "bullet"; }
                 attack = currentAttack;
                 laserAttackTime = laserAttackdelay;
-                
+                   
             }
 
+            }
+            else {
+                Vector3 direction = player.position - Cannon.position;
+                Quaternion rotation = Quaternion.LookRotation(direction);
+                Cannon.rotation = Quaternion.Lerp(Cannon.rotation, rotation, cannonRotation * Time.deltaTime);
+                CannonXMobile.LookAt(player,Vector3.up);
+                CannonXMobile.rotation = Quaternion.Slerp(Cannon.rotation, rotation, (cannonRotation * Time.deltaTime));
+            }
+            
+               
+            
         }
 
 
@@ -153,10 +186,12 @@ public class Corvette : MonoBehaviour, ITakeDamage
         {
             //レーサー攻撃を使う
             attack = "laser";
+            cannonShotCounter = cannonLoadingTime;
         }
         if (currentHealth == 100)
         {
             attack = "laser";
+            cannonShotCounter = cannonLoadingTime;
         }
         if (currentHealth <= 0)
         {
