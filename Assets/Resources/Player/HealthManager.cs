@@ -5,6 +5,8 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject gameover;
+    [SerializeField]
     private float health;
     public float startingHealth = 100;
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class HealthManager : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("dead");
+            gameover.SetActive(true);
             gameObject.SetActive(false);
         }
     }
