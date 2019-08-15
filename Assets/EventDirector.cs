@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EventDirector : MonoBehaviour {
+
+    [SerializeField]
+    private GameObject _striker;
     
     [SerializeField]
     private GameObject _hangerHatchUp;
@@ -19,6 +22,10 @@ public class EventDirector : MonoBehaviour {
     private int _selectListNum = 0;  
 
     private bool _hatchFlg = false;
+
+    void Start() {
+        
+    }
 
     void Update() {
         
@@ -82,7 +89,11 @@ public class EventDirector : MonoBehaviour {
         }
 
         if (_selectListNum == 6) {
-            _speed = 1.5f;
+            _speed = 2.0f;
+        }
+
+        if (_selectListNum == 7) {
+            _striker.GetComponent<PlayerController>().enabled = true;
         }
 
         if (_selectListNum < _transLists.Count) {
