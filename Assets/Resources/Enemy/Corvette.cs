@@ -96,8 +96,8 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 }
             }
             laserLine.SetPosition(0, laserSpawnPoint.position);
-            laserLine.SetPosition(1, transform.forward*5000);
-
+            laserLine.SetPosition(1, transform.forward * 5000);
+            
             if (laserAttackTime <= 0)
             {
                 if (currentAttack == "") { currentAttack = "bullet"; }
@@ -175,6 +175,14 @@ public class Corvette : MonoBehaviour, ITakeDamage
             //ランダムポジションを作るため
             float randomPos = Random.Range(-2, 2);
             Instantiate(debridsToSpawn[rand_Sel], new Vector3(transform.position.x + randomPos, transform.position.y + randomPos, transform.position.z + randomPos), transform.rotation);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            ushort _dmg = other.gameObject.GetComponent<_tmpBullet>().Damage;
+            takeDamage(_dmg);
         }
     }
 

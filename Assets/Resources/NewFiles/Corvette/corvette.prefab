@@ -1019,8 +1019,7 @@ GameObject:
   - component: {fileID: 4249758232869545209}
   - component: {fileID: 7293640712201792758}
   - component: {fileID: 4193704797999021199}
-  - component: {fileID: 7502362467397667825}
-  - component: {fileID: 2127628687896175035}
+  - component: {fileID: 6731040062000495967}
   m_Layer: 0
   m_Name: corvette
   m_TagString: Corvette
@@ -1141,20 +1140,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7502362467397667825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7439885450377124430}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 8, z: 22}
-  m_Center: {x: -0.06, y: 0, z: 2.96}
---- !u!65 &2127628687896175035
+--- !u!65 &6731040062000495967
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1165,8 +1151,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 4, z: 18.87}
-  m_Center: {x: 0, y: 0, z: 3.36}
+  m_Size: {x: 5, y: 4, z: 20}
+  m_Center: {x: 0, y: 1.05, z: 4.97}
 --- !u!1 &7439885450377124432
 GameObject:
   m_ObjectHideFlags: 0

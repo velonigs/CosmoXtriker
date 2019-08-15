@@ -7,13 +7,11 @@ public class _tmpBullet : MonoBehaviour{
     void Start(){    
     }
     void OnTriggerEnter(Collider collision){
-        if(collision.gameObject.name == "BulletKillZone"){
+        if(collision.gameObject.name == "BulletKillZone")
+        {
             Destroy(this.gameObject); //KZ入ったらDestroy
         }
-        if (collision.tag == "Corvette")
-        {
-            collision.GetComponent<ITakeDamage>().takeDamage(Damage);
-        }
+       
     }
 
     void Update(){
