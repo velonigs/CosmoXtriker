@@ -19,9 +19,6 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
 
     public int HP = 20;
 
-    void Start(){
-        
-    }
     public virtual void OnTriggerEnter(Collider collision){
             if(collision.gameObject.tag == "Bullet"){
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;

@@ -1091,8 +1091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserLine: {fileID: 5737372400568536618}
   Cannon: {fileID: 7439885450377217632}
-  CannonXMobile: {fileID: 7439885450377217640}
-  cannonRotation: 15
+  CannonXMobile: {fileID: 7439885450377217614}
+  RotationSpeed: 5
   cannonLoadingTime: 5
   explosion: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
   missileSpawnpoints:
@@ -1887,11 +1887,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7439885450377217662}
     m_Modifications:
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Name
-      value: laserBeamSample
-      objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1961,6 +1956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.37533304
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Name
+      value: laserBeamSample
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e197dcbb5929b04ebe281c3c2593cc8, type: 3}

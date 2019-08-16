@@ -7,7 +7,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     [SerializeField] LineRenderer laserLine;
     [SerializeField] Transform Cannon;
     [SerializeField] Transform CannonXMobile;
-    [SerializeField] float cannonRotation=5f;
+    [SerializeField] float RotationSpeed=5f;
     [SerializeField] float cannonLoadingTime = 3f;
     float cannonShotCounter;
     [SerializeField] GameObject explosion;
@@ -72,8 +72,8 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 
                  Vector3 direction =  -cannonStartPos;
                  Quaternion rotation = Quaternion.LookRotation(direction);
-                 Cannon.rotation = Quaternion.Lerp(Cannon.rotation, rotation, cannonRotation * Time.deltaTime);
-                CannonXMobile.rotation = Quaternion.Lerp(Cannon.rotation, rotation, cannonRotation * Time.deltaTime);
+                 Cannon.rotation = Quaternion.Lerp(Cannon.rotation, rotation, RotationSpeed * Time.deltaTime);
+                CannonXMobile.rotation = Quaternion.Lerp(Cannon.rotation, rotation, RotationSpeed * Time.deltaTime);
 
             }
             laserLine.enabled = false;
@@ -132,9 +132,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
             else {
                 Vector3 direction = player.position - Cannon.position;
                 Quaternion rotation = Quaternion.LookRotation(direction);
-                Cannon.rotation = Quaternion.Lerp(Cannon.rotation, rotation, cannonRotation * Time.deltaTime);
+                Cannon.rotation = Quaternion.Lerp(Cannon.rotation, rotation, RotationSpeed * Time.deltaTime);
                 CannonXMobile.LookAt(player,Vector3.up);
-                CannonXMobile.rotation = Quaternion.Slerp(Cannon.rotation, rotation, (cannonRotation * Time.deltaTime));
+                CannonXMobile.rotation = Quaternion.Slerp(Cannon.rotation, rotation, (RotationSpeed * Time.deltaTime));
             }
             
                
