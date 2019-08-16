@@ -9,7 +9,18 @@ public class bomberMissile : EnemyBullet
 
     public override void OnTriggerEnter(Collider other)
     {
-        Instantiate(explosion, transform.position, transform.rotation);
-        base.OnTriggerEnter(other);
+
+        if (other.tag == "Player")
+        {
+            other.GetComponent<HealthManager>().Takedamage(damage);
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        if (other.tag == "KillZone")
+        {
+            Destroy(gameObject);
+        }
+        
+       
     }
 }
