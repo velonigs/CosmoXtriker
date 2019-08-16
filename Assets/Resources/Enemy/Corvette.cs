@@ -219,6 +219,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
             ushort _dmg = other.gameObject.GetComponent<_tmpBullet>().Damage;
             takeDamage(_dmg);
         }
+        if (other.tag == "Player")
+        {
+            takeDamage(10);
+            other.GetComponent<HealthManager>().Takedamage(10);
+        }
     }
 
 }

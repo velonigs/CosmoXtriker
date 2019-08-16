@@ -61,9 +61,10 @@ public class EnemyMissile : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<HealthManager>().Takedamage(damage);
+            Destroy(gameObject);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
-        Destroy(gameObject);
-        Instantiate(explosion, transform.position, transform.rotation);
+       
 
     }
     //新しいtargetを作る
