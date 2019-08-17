@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float moveForceMultiplier;
     float _HorizontalInput;
     float _VerticalInput;
+    //そとから呼び出すため
+    public static float verticalFactor;
     public static PlayerController instance;
     [SerializeField]
     GameObject flayr;
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
         moveVector.x = moveSpeed * _HorizontalInput;
         moveVector.y = moveSpeed * _VerticalInput;
         _rb.AddForce(moveForceMultiplier * (moveVector - _rb.velocity));
+        verticalFactor = moveVector.y;
 
     }
 }
