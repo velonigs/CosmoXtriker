@@ -36,9 +36,9 @@ public class TutorialButton : MonoBehaviour {
         _tutorialMovie.StartTutorialMovie();
     }
 
-    public void TutorialButtonNo() {  
-        Destroy(_tutorialCanvas);
-        _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
+    public void TutorialButtonNo() {
+        _tutorialCanvas.SetActive(false);
+        // _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
     }
 
     public void BackWeaponSelecter() {
