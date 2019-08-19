@@ -22,6 +22,9 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player != null) {
+
+        
         //プレーヤーと敵の距離
         var distanceToPlayer = (this.transform.position-player.transform.position).sqrMagnitude;
 
@@ -44,10 +47,22 @@ public class FollowPlayer : MonoBehaviour
                 startbattle = true;
             }
         }
-       
+            else {   //真っ直ぐへ移動
+                this.transform.Translate(0, 0, -0.2f, Space.World);
+            }
+        }
+
         else
         {　　　//真っ直ぐへ移動
             this.transform.Translate(0, 0, -0.2f,Space.World);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "KillZone")
+        {
+            gameObject.SetActive(false);
         }
     }
 }

@@ -1,40 +1,39 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 //基本敵クラス　これを継承して各敵クラスを作成する
-public class _tmpEnemys : MonoBehaviour{
-    public ushort HP = 20; //これがなくなったらDestroy
+public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
+    
     public GameObject Explode; //撃破エフェクト
 
     [SerializeField]
     private int debritsNumberToSpawn;//ゴミ数
     public GameObject[] debridsToSpawn;//ゴミprefab
     //移動方向
-    [SerializeField] private float IdouX;
-    [SerializeField] private float IdouY;
-    [SerializeField] private float IdouZ;
+   private float IdouX;
+     private float IdouY;
+    private float IdouZ;
 
-    void Start(){
-        
-    }
+
+    public int HP = 20;
+
     public virtual void OnTriggerEnter(Collider collision){
             if(collision.gameObject.tag == "Bullet"){
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
-            HP -= _dmg;
+            takeDamage(_dmg);
 
-            if (HP <= 0)
+
+            if (collision.tag == "Player")
             {
-                Destroy(this.gameObject); //HP無くなったらDestroy
-                Instantiate(Explode, transform.position, transform.rotation); //現在位置にエフェクト生成
-                                                                              //ゴミを作る
-                spawnDebrids(debritsNumberToSpawn);
+                takeDamage(10);
+                collision.GetComponent<HealthManager>().Takedamage(10);
             }
-
         }
-        if(collision.gameObject.name == "KillZone"){
+        /*if(collision.gameObject.name == "KillZone"){
             Destroy(this.gameObject); //KZ入ったらDestroy
-        }
+        }*/
     }
     void Update(){
 
@@ -55,10 +54,28 @@ public class _tmpEnemys : MonoBehaviour{
         }
     }
 
+    public virtual void shot()
+    {
+
+    }
     public virtual  void Movement()
     {
         Transform myTransform = this.transform; //Transformの設定？
         myTransform.Translate(IdouX, IdouY, IdouZ, Space.World); //World座標での移動*/
 
 }
+
+    public void takeDamage(int damage)
+    {
+        HP -= damage;
+
+        if (HP <= 0)
+        {
+           
+            Instantiate(Explode, transform.position, transform.rotation); //現在位置にエフェクト生成
+                                                                          //ゴミを作る
+            spawnDebrids(debritsNumberToSpawn);
+            gameObject.SetActive(false); //HP無くなったらDestroyの代わり、処理的にのうほうが安い
+        }
+    }
 }

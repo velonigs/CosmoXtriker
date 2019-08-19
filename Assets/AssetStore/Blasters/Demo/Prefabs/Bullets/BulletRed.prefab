@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 108563856247409952}
   - component: {fileID: 199484769932815430}
   - component: {fileID: 198523175385329784}
+  - component: {fileID: 8904907399526193943}
   m_Layer: 0
   m_Name: BulletRed
   m_TagString: Untagged
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452043023141516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfc46b469ca32e641aecc271c1eb9b3b, type: 3}
   m_Name: 
@@ -4760,3 +4761,17 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &8904907399526193943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452043023141516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57a2421fb25ade498a1c25b99e85e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  bulletSpeed: 0.2

@@ -5,10 +5,10 @@ using UnityEngine;
 public class fighter : _tmpEnemys
 {
     public bool randomMove;
+    
+    public EnemyBullet bulletPrefab;
     [SerializeField]
-    GameObject bulletPrefab;
-    [SerializeField]
-    Transform spawnpoint;
+    private　Transform[] spawnpoint;
     //最小と最大の値を決める
     [SerializeField] private float minValue=-0.1f;
     [SerializeField] private float MaxValue=0.1f;
@@ -21,9 +21,12 @@ public class fighter : _tmpEnemys
     bool battleAsset = false;
     float attackdelay = 1f;
     private float attackrange = 30;
+    bool canAttack;
+   
     // Start is called before the first frame update
     void Start()
     {
+        canAttack = true;
         randomMove = false;
         //ｘとｙ座標をランダムに決める
         movex = Random.Range(minValue, MaxValue);
@@ -51,37 +54,45 @@ public class fighter : _tmpEnemys
             }
             else
             {
+                if (player != null&&this.gameObject!=null) {
+
+               
                 var disstancetoplayer = (transform.position - player.transform.position).sqrMagnitude;
 
+               
+                 
                 if (!battlequit)
                 {
                     if (disstancetoplayer <= 500 && disstancetoplayer > attackrange)
                     {
 
                         this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
-                        transform.LookAt(player.transform, Vector3.up);
-                      transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+                     
                      }
                     if (disstancetoplayer <= attackrange)
                     {
                         battlequit = true;
+                        canAttack = false;
+                    }
                     }
                 }
                 else
                 {
                     transform.Translate(0, 0, 0.2f);
                 }
-                   
-                    
-                  
-                 
-               
+
+
+
+
+                if (canAttack&&PlayerController.instance!=null) { 
                 attackdelay -= Time.deltaTime;
                 if (attackdelay <= 0)
                 {
                     attackdelay = 1f;
-                    Instantiate(bulletPrefab, spawnpoint.transform.position, spawnpoint.transform.rotation);
+                    shot();
+                    
 
+                }
                 }
             }
             
@@ -95,5 +106,17 @@ public class fighter : _tmpEnemys
         battleAsset = true;
 
     }
+
+    public  override void shot()
+    {
+        
+            for (int i = 0; i < spawnpoint.Length; i++)
+            {
+                Instantiate(bulletPrefab, spawnpoint[i].position, transform.rotation);
+            }
+        
+        
+    }
+ 
 
 }
