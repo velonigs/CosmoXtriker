@@ -7,9 +7,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody _rb;
     public float moveSpeed = 11;
     public float moveForceMultiplier;
+    public float boostCT;
+    [SerializeField]
+    float boostForceMultiplier;
     float _HorizontalInput;
     float _VerticalInput;
     public static PlayerController instance;
+    private float _time;
+    Vector3 moveVector = Vector3.zero;
     [SerializeField]
     GameObject flayr;
 
@@ -25,13 +30,25 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        _time = boostCT;
         _rb = GetComponent<Rigidbody>();
         flayerActive = true;
     }
     void Update()
     {
+        _time += Time.deltaTime;
         _HorizontalInput = Input.GetAxis("Horizontal");
         _VerticalInput = Input.GetAxis("Vertical");
+        moveVector = Vector3.zero;
+        moveVector.x = moveSpeed * _HorizontalInput;
+        moveVector.y = moveSpeed * _VerticalInput;
+        _rb.AddForce(moveForceMultiplier * (moveVector - _rb.velocity));
+
+        if(Input.GetButtonDown("Boost") && _time >= boostCT){
+            _time = 0.0f;
+            _rb.AddForce(boostForceMultiplier * moveVector, ForceMode.Impulse);
+        }
+
 
         if (!flayerActive)
         {
@@ -57,15 +74,6 @@ public class PlayerController : MonoBehaviour
 
 
         }
-
-    }
-    void FixedUpdate()
-    {
-        Vector3 moveVector = Vector3.zero;
-
-        moveVector.x = moveSpeed * _HorizontalInput;
-        moveVector.y = moveSpeed * _VerticalInput;
-        _rb.AddForce(moveForceMultiplier * (moveVector - _rb.velocity));
 
     }
 }
