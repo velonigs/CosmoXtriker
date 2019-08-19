@@ -115,7 +115,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
             {
                 if (currentAttack == "") { currentAttack = "bullet"; }
                 attack = currentAttack;
-                laserAttackTime = laserAttackdelay;
+                    laserCannon.reassetting = true;
+                    laserAttackTime = laserAttackdelay;
+                
                    
             } } }  }
 

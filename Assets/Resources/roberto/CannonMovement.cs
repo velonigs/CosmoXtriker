@@ -14,6 +14,7 @@ public class CannonMovement : MonoBehaviour
     [SerializeField] float RotationSpeed = 10;
     [SerializeField] float UpElementOffset;
     public bool canMove;
+    public bool reassetting;
     Transform player;
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class CannonMovement : MonoBehaviour
                 Torret.rotation = Quaternion.Euler(0, Torret.eulerAngles.y, 0);
                 
                 //最高のリミットを作りました
-                if (player.position.y >= (UPElement[0].position.y+ UpElementOffset)|| player.position.y <= (DownElement[0].position.y))
+                if (cannon[0].rotation.x<-90|| cannon[0].rotation.x >0)
                 {
                     limitIsReaced();
                 }
@@ -47,22 +48,28 @@ public class CannonMovement : MonoBehaviour
                 }
             }
         }
+        if (reassetting)
+        {
+            reasset();
+            
+        }
     }
-
+    
     public void findPlayer()
     {
        
             for (int i = 0; i < cannon.Length; i++)
             {
-            
-                Quaternion targetRot = Quaternion.LookRotation(player.position - cannon[i].position);
-                cannon[i].rotation = Quaternion.Lerp(cannon[i].rotation, targetRot, RotationSpeed*Time.deltaTime);
+
+            Quaternion targetRot = Quaternion.LookRotation(player.position - cannon[i].position);
+            cannon[i].rotation = Quaternion.Lerp(cannon[i].rotation, targetRot, RotationSpeed*Time.deltaTime);
+          
            }
     }
     
     void limitIsReaced()
     {
-        if(player.position.y >= (UPElement[0].position.y + UpElementOffset))
+        if(cannon[0].rotation.x<=-90)
         {
             //rotationだけじゃなくてポジションも変更しなきやいけない
             Vector3 upPos = new Vector3(UPElement[0].position.x + cannon1Offset, UPElement[0].position.y, UPElement[0].position.z);
@@ -80,19 +87,28 @@ public class CannonMovement : MonoBehaviour
         }
         else 
         {
-            for(int i = 0; i < cannon.Length; i++)
-            {
-                //下へ行かないのにまたリミットをつくりました
-                if (cannon[i].rotation != DownElement[i].rotation)
-                {
-                    Vector3 downPos = new Vector3(DownElement[i].position.x + cannon1Offset, DownElement[i].position.y, DownElement[i].position.z);
-                    cannon[i].position = Vector3.MoveTowards(cannon[i].position, downPos, RotationSpeed * Time.deltaTime);
-                    cannon[i].rotation = Quaternion.Lerp(cannon[i].rotation, DownElement[i].rotation, RotationSpeed * Time.deltaTime);
-                    
-                }
-            }
+            reasset();
            
         }
         
     }
-}
+
+    public void reasset()
+    {
+        for (int i = 0; i < cannon.Length; i++)
+        {
+            //下へ行かないのにまたリミットをつくりました
+            
+                Vector3 downPos = new Vector3(DownElement[i].position.x + cannon1Offset, DownElement[i].position.y, DownElement[i].position.z);
+                cannon[i].position = Vector3.MoveTowards(cannon[i].position, downPos, RotationSpeed * Time.deltaTime);
+                cannon[i].rotation = Quaternion.Lerp(cannon[i].rotation, DownElement[i].rotation, RotationSpeed * Time.deltaTime);
+                
+                if(cannon[cannon.Length-1].rotation == DownElement[cannon.Length-1].rotation)
+                {
+                    reassetting = false;
+                }
+              }
+        }
+       
+    }
+

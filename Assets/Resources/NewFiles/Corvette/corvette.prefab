@@ -1041,6 +1041,7 @@ MonoBehaviour:
   RotationSpeed: 20
   UpElementOffset: 0
   canMove: 0
+  reassetting: 0
 --- !u!1 &6932947666800803573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1224,7 @@ MonoBehaviour:
   RotationSpeed: 20
   UpElementOffset: 0
   canMove: 0
+  reassetting: 0
 --- !u!1 &6932947666968260943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,7 +2024,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6932947668003957390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.008726465, y: 0, z: 0, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0.13223708, z: 2.0966773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2030,7 +2032,7 @@ Transform:
   - {fileID: 6932947667665652854}
   m_Father: {fileID: 7439885450377217640}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1, y: 0, z: 0}
 --- !u!33 &6932947668003957389
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2758,6 +2760,7 @@ MonoBehaviour:
   RotationSpeed: 10
   UpElementOffset: 0
   canMove: 0
+  reassetting: 0
 --- !u!1 &7439885450377124426
 GameObject:
   m_ObjectHideFlags: 0
