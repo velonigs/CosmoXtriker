@@ -17,15 +17,26 @@ public class Title : MonoBehaviour
 
     private bool _equipmentFlg = false;
 
-    void Update(){
+    private bool _spawnPanel = false;
 
-        if (Input.anyKeyDown && _equipmentFlg == false) {
+    void Start() {
+        StartCoroutine(WaitAction());
+    }
+    void Update() {
+
+        if (_spawnPanel && _equipmentFlg == false) {
             Destroy(_titleCanvas);
             StartCoroutine(EquipmentPanel());
         }
     }
 
-    IEnumerator EquipmentPanel(){
+    IEnumerator WaitAction() {
+        yield return new WaitForSeconds(4.0f);
+        _spawnPanel = true;
+
+    }
+
+    IEnumerator EquipmentPanel() {
         _equipmentFlg = true;
         yield return new WaitForSeconds(0.5f);
         _equipment.SetActive(true);

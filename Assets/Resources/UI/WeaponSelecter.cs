@@ -88,7 +88,7 @@ public class WeaponSelecter : MonoBehaviour
         WeaponData currentWeapon = _weaponData[_currentSelectNum];
         // 表示テキストをに武器データで更新
         _weaponNameText.text = currentWeapon.Name;
-        _weaponImpactText.text = "威力 : " + currentWeapon.Impact;
+        //_weaponImpactText.text = "威力 : " + currentWeapon.Impact;
     }
 
     /// <summary>

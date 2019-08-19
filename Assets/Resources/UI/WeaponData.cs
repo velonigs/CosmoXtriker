@@ -7,8 +7,8 @@ public class WeaponData : ScriptableObject
 {
     public string Name;
 
-    [Range(0, 100)]
-    public int Impact;
+    //[Range(0, 100)]
+    //public int Impact;
 
     public float FireRate;
 
