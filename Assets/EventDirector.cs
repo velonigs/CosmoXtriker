@@ -23,6 +23,15 @@ public class EventDirector : MonoBehaviour {
 
     private bool _hatchFlg = false;
 
+    [SerializeField]
+    private GameObject _waveController;
+
+    [SerializeField]
+    private GameObject _waveSpawn;
+
+    [SerializeField]
+    private GameObject _hanger;
+
     void Start() {
         
     }
@@ -86,6 +95,7 @@ public class EventDirector : MonoBehaviour {
 
         if (_selectListNum == 5) {
             _hatchFlg = true;
+            yield return new WaitForSeconds(3.0f);
         }
 
         if (_selectListNum == 6) {
@@ -94,6 +104,12 @@ public class EventDirector : MonoBehaviour {
 
         if (_selectListNum == 7) {
             _striker.GetComponent<PlayerController>().enabled = true;
+            _striker.GetComponentInChildren<TuyoCannon>().enabled = true;
+        }
+
+        if (_selectListNum == 8) {
+            _waveSpawn = Instantiate(_waveController, _waveSpawn.transform.position, Quaternion.identity);
+            Destroy(_hanger);
         }
 
         if (_selectListNum < _transLists.Count) {
@@ -104,4 +120,12 @@ public class EventDirector : MonoBehaviour {
             }
         }
     }
+
+   /*void EquipWeapon() {
+        if (BeamWeapon) {
+
+        } else if (MissilePod) {
+
+        }
+    }*/
 }

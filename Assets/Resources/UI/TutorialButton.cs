@@ -17,12 +17,6 @@ public class TutorialButton : MonoBehaviour {
     private BackWeaponSelecter _backWeaponSelecter;
 
     [SerializeField]
-    private GameObject _callWave;
-
-    [SerializeField]
-    private GameObject _waveobj;
-
-    [SerializeField]
     private GameObject _tutorialMovieDirecter;
 
     void Update() {
@@ -38,7 +32,6 @@ public class TutorialButton : MonoBehaviour {
 
     public void TutorialButtonNo() {
         _tutorialCanvas.SetActive(false);
-        // _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
     }
 
     public void BackWeaponSelecter() {
@@ -46,10 +39,4 @@ public class TutorialButton : MonoBehaviour {
         // 装備画面の再表示
         _backWeaponSelecter.BackToEquipment();
     }
-
-    // IEnumerator WaveSpawn() {
-        
-    //     yield return new WaitForSeconds(3.0f);
-    //     yield break;
-    // }
 }

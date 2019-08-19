@@ -8,15 +8,7 @@ public class TutorialMovie : MonoBehaviour {
     private GameObject _tutorialMovie;
 
     [SerializeField]
-    private GameObject _callWave;
-
-    [SerializeField]
-    private GameObject _waveobj;
-
-    [SerializeField]
     private GameObject _tutorialMovieDirecter;
-
-    public bool _departureFlg = false;
 
     public bool _movementFlg = false;
 
@@ -28,8 +20,6 @@ public class TutorialMovie : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Return)) {
             // チュートリアルムービーを閉じる
             _tutorialMovie.SetActive(false);
-            // _waveobj = Instantiate(_callWave, _waveobj.transform.position, Quaternion.identity);
-            // _departureFlg = true;
             _movementFlg = true;
         }
     }
