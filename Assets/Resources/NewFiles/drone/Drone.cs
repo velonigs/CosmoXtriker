@@ -25,6 +25,12 @@ public class Drone : CorvetteMovement
             fireCounter = fireDelay;
             Instantiate(bullet, spawnpoint.position, spawnpoint.rotation);
         }
+        if (PlayerController.instance != null)
+        {
+            transform.LookAt(PlayerController.instance.transform, Vector3.up);
+            transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, 0);
+        }
+        
     }
 
 }
