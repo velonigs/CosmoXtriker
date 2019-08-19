@@ -19,16 +19,17 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
 
     public int HP = 20;
 
-    void Start(){
-        
-    }
     public virtual void OnTriggerEnter(Collider collision){
             if(collision.gameObject.tag == "Bullet"){
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
             takeDamage(_dmg);
 
-         
 
+            if (collision.tag == "Player")
+            {
+                takeDamage(10);
+                collision.GetComponent<HealthManager>().Takedamage(10);
+            }
         }
         /*if(collision.gameObject.name == "KillZone"){
             Destroy(this.gameObject); //KZ入ったらDestroy
@@ -70,10 +71,11 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
 
         if (HP <= 0)
         {
-            Destroy(this.gameObject); //HP無くなったらDestroy
+           
             Instantiate(Explode, transform.position, transform.rotation); //現在位置にエフェクト生成
                                                                           //ゴミを作る
             spawnDebrids(debritsNumberToSpawn);
+            gameObject.SetActive(false); //HP無くなったらDestroyの代わり、処理的にのうほうが安い
         }
     }
 }

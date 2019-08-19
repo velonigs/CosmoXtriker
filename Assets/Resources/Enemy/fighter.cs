@@ -7,8 +7,8 @@ public class fighter : _tmpEnemys
     public bool randomMove;
     
     public EnemyBullet bulletPrefab;
-    
-    public　Transform[] spawnpoint;
+    [SerializeField]
+    private　Transform[] spawnpoint;
     //最小と最大の値を決める
     [SerializeField] private float minValue=-0.1f;
     [SerializeField] private float MaxValue=0.1f;
@@ -109,10 +109,13 @@ public class fighter : _tmpEnemys
 
     public  override void shot()
     {
-        for(int i = 0; i < spawnpoint.Length; i++)
-        {
-            Instantiate(bulletPrefab, spawnpoint[i].position, Quaternion.identity);
-        }
+        
+            for (int i = 0; i < spawnpoint.Length; i++)
+            {
+                Instantiate(bulletPrefab, spawnpoint[i].position, transform.rotation);
+            }
+        
+        
     }
  
 

@@ -58,12 +58,17 @@ public class EnemyMissile : MonoBehaviour
     {
         if (_callback != null)
             _callback();
-        if (other.tag == "Player")
+        if (other.tag == "Player"|| other.name == "KillZone")
         {
             other.GetComponent<HealthManager>().Takedamage(damage);
+            
+            if (other.tag == "Player")
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
-        Instantiate(explosion, transform.position, transform.rotation);
+       
 
     }
     //新しいtargetを作る

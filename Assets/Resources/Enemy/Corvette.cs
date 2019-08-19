@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Corvette : MonoBehaviour, ITakeDamage
 {
+    [SerializeField] CannonMovement laserCannon;
     [SerializeField] LineRenderer laserLine;
-   
+   [SerializeField] float RotationSpeed=5f;
+    [SerializeField] float cannonLoadingTime = 3f;
+    float cannonShotCounter;
     [SerializeField] GameObject explosion;
     //attackポジション
     [SerializeField] Transform[] missileSpawnpoints;
@@ -24,12 +27,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
     private int debritsNumberToSpawn;//ゴミ数
     public GameObject[] debridsToSpawn;//ゴミprefab
     string attack = "";
-    PlayerController player;
+   Transform player;
     string currentAttack;
-    
-    int health = 300;
+     int health = 300;
     public int currentHealth;
-
+    
 
     //attack文字列によって攻撃は違う
     public bool missileAttack
@@ -47,11 +49,14 @@ public class Corvette : MonoBehaviour, ITakeDamage
     // Start is called before the first frame update
     void Start()
     {
+        cannonShotCounter = cannonLoadingTime;
+        laserCannon = GameObject.Find("mobileCannoX").GetComponent<CannonMovement>();
         currentHealth = health;
         laserAttackTime = laserAttackdelay;
         attack = "laser";
         currentAttack = "";
-        player = FindObjectOfType<PlayerController>();//プレイヤーを探す
+        player = PlayerController.instance.transform;
+        
     }
 
     // Update is called once per frame
@@ -60,6 +65,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
         //攻撃タイプはレーサーじゃなければ
         if (attack != "laser")
         {
+            laserCannon.canMove = false;
             laserLine.enabled = false;
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
@@ -79,6 +85,13 @@ public class Corvette : MonoBehaviour, ITakeDamage
         //レーサーだったら、時間が終わるまでレーサーを使う
         else
         {
+            laserCannon.canMove = true;
+            cannonShotCounter -= Time.deltaTime;
+          
+            if (cannonShotCounter <= 0)
+            {
+
+                laserCannon.canMove = false;
             if (!laserLine.enabled)
             {
 
@@ -88,7 +101,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
             laserAttackTime -= Time.deltaTime;
             RaycastHit laserHit;
-            if(Physics.Raycast(transform.position,transform.forward,out laserHit))
+            if(Physics.Raycast(laserSpawnPoint.position,laserSpawnPoint.forward,out laserHit))
             {
                 if (laserHit.collider.GetComponent<HealthManager>())
                 {
@@ -96,21 +109,15 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 }
             }
             laserLine.SetPosition(0, laserSpawnPoint.position);
-            laserLine.SetPosition(1, transform.forward * 5000);
+            laserLine.SetPosition(1, laserSpawnPoint.forward * 5000);
             
             if (laserAttackTime <= 0)
             {
                 if (currentAttack == "") { currentAttack = "bullet"; }
                 attack = currentAttack;
                 laserAttackTime = laserAttackdelay;
-                
-            }
-
-        }
-
-
-        
-    }
+                   
+            } } }  }
 
     //バレット攻撃
  public IEnumerator bulletFire() {
@@ -153,10 +160,12 @@ public class Corvette : MonoBehaviour, ITakeDamage
         {
             //レーサー攻撃を使う
             attack = "laser";
+            cannonShotCounter = cannonLoadingTime;
         }
         if (currentHealth == 100)
         {
             attack = "laser";
+            cannonShotCounter = cannonLoadingTime;
         }
         if (currentHealth <= 0)
         {
@@ -183,6 +192,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
         {
             ushort _dmg = other.gameObject.GetComponent<_tmpBullet>().Damage;
             takeDamage(_dmg);
+        }
+        if (other.tag == "Player")
+        {
+            takeDamage(10);
+            other.GetComponent<HealthManager>().Takedamage(10);
         }
     }
 

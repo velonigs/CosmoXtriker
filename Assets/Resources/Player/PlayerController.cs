@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     float _HorizontalInput;
     float _VerticalInput;
     public static PlayerController instance;
+    public static float verticalFactor;
     private float _time;
     Vector3 moveVector = Vector3.zero;
     [SerializeField]
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         moveVector.x = moveSpeed * _HorizontalInput;
         moveVector.y = moveSpeed * _VerticalInput;
         _rb.AddForce(moveForceMultiplier * (moveVector - _rb.velocity));
+        verticalFactor = moveVector.y;
 
         if(Input.GetButtonDown("Boost") && _time >= boostCT){
             _time = 0.0f;

@@ -21,7 +21,7 @@ public class CorvetteMovement : MonoBehaviour
     Vector3 startPosition;
     int phaseLimit;
     bool reAsset;
-    
+   
     //動きの管理ため
     public enum moveBattlePhases { phase1,phase2,phase3}
     //現在
@@ -38,6 +38,7 @@ public class CorvetteMovement : MonoBehaviour
         changeMovementCounter = changeMovementTimer;
         phaseLimit = changePhaseLimiter;
         startPosition = transform.position;
+        transform.LookAt(PlayerController.instance.transform);
 
     }
 
@@ -121,8 +122,8 @@ public class CorvetteMovement : MonoBehaviour
                 reAsset = false;
             }
         }
-        transform.LookAt(PlayerController.instance.transform);
-        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.eulerAngles.y, transform.rotation.z);
+       /* transform.LookAt(PlayerController.instance.transform);
+        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y , 0);*/
     }
 
 
