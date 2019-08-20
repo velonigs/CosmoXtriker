@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyHealthManager))]
 public class Drone : CorvetteMovement
 {
 
@@ -10,7 +11,7 @@ public class Drone : CorvetteMovement
     [SerializeField] float fireDelay=2f;
     float fireCounter;
     [SerializeField] Transform spawnpoint;
-
+   
     private void Start()
     {
         Initialize();
@@ -28,7 +29,8 @@ public class Drone : CorvetteMovement
         if (PlayerController.instance != null)
         {
             transform.LookAt(PlayerController.instance.transform, Vector3.up);
-            transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, 0);
+            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+           
         }
         
     }
