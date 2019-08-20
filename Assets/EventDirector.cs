@@ -32,6 +32,18 @@ public class EventDirector : MonoBehaviour {
     [SerializeField]
     private GameObject _hanger;
 
+    [SerializeField]
+    private GameObject _DummyLeftCannon;
+
+    [SerializeField]
+    private GameObject _DummyRightCannon;
+
+    [SerializeField]
+    private GameObject _dlCannonPos;
+
+    [SerializeField]
+    private GameObject _drCannonPos;
+
     void Start() {
         
     }
@@ -94,8 +106,13 @@ public class EventDirector : MonoBehaviour {
         }
 
         if (_selectListNum == 5) {
+            _DummyLeftCannon.SetActive(true);
+            _DummyRightCannon.SetActive(true);
+            float moveSpeed = 10.0f;
+            float step = moveSpeed * Time.deltaTime;
+            _DummyLeftCannon.transform.position = Vector3.MoveTowards(_DummyLeftCannon.transform.position, _dlCannonPos.transform.position, step);
+            _DummyRightCannon.transform.position = Vector3.MoveTowards(_DummyRightCannon.transform.position, _drCannonPos.transform.position, step);
             _hatchFlg = true;
-            yield return new WaitForSeconds(3.0f);
         }
 
         if (_selectListNum == 6) {
