@@ -385,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122492111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1, y: 0.525, z: 0.07}
+  m_LocalPosition: {x: 1.6, y: 0.525, z: 1.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1192,7 +1192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490905766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.58, y: 0.525, z: 0.08}
+  m_LocalPosition: {x: -1.9, y: 0.525, z: 1.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1842,7 +1842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836742827}
   m_Layer: 0
-  m_Name: DummyLeftCannon
+  m_Name: DummyRightCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2330,6 +2330,12 @@ Transform:
   m_Father: {fileID: 308575181}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1113714007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7922658247707486642, guid: 317837956b5a9764a80ad83f3e1c0b09,
+    type: 3}
+  m_PrefabInstance: {fileID: 1747878380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114483675
 GameObject:
   m_ObjectHideFlags: 0
@@ -4206,6 +4212,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0.12, y: 1.22}
   m_SizeDelta: {x: 799.99994, y: 445.0704}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1719303051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
+    type: 3}
+  m_PrefabInstance: {fileID: 1747878380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1741042427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4424,7 +4436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1766837065}
   m_Layer: 0
-  m_Name: DummyRightCannon
+  m_Name: DummyLeftCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4712,10 +4724,12 @@ MonoBehaviour:
     type: 3}
   _waveSpawn: {fileID: 1568519050}
   _hanger: {fileID: 1371053174}
-  _DummyLeftCannon: {fileID: 836742826}
-  _DummyRightCannon: {fileID: 1766837064}
+  _DummyLeftCannon: {fileID: 1766837064}
+  _DummyRightCannon: {fileID: 836742826}
   _dlCannonPos: {fileID: 122492111}
   _drCannonPos: {fileID: 490905766}
+  _LeftCannon: {fileID: 1719303051}
+  _RightCannon: {fileID: 1113714007}
 --- !u!114 &1808163702
 MonoBehaviour:
   m_ObjectHideFlags: 0

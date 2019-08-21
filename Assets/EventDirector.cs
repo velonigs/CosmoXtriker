@@ -14,7 +14,7 @@ public class EventDirector : MonoBehaviour {
     private GameObject _hangerHatchDown;
 
     [SerializeField]
-    private List<Transform> _transLists = new List<Transform>();
+    private List<Transform> _transLists = new List<Transform>(); 
 
     [SerializeField]
     private float _speed = 1.0f;
@@ -44,12 +44,35 @@ public class EventDirector : MonoBehaviour {
     [SerializeField]
     private GameObject _drCannonPos;
 
+    [SerializeField]
+    private GameObject _LeftCannon;
+
+    [SerializeField]
+    private GameObject _RightCannon;
+
     void Start() {
         
     }
 
     void Update() {
-        
+        if (_selectListNum == 5)
+        {
+            _DummyLeftCannon.SetActive(true);
+            _DummyRightCannon.SetActive(true);
+            float moveSpeed = 10.0f;
+            float step = moveSpeed * Time.deltaTime;
+            _DummyLeftCannon.transform.position = Vector3.MoveTowards(_DummyLeftCannon.transform.position, _dlCannonPos.transform.position, step);
+            _DummyRightCannon.transform.position = Vector3.MoveTowards(_DummyRightCannon.transform.position, _drCannonPos.transform.position, step);
+            _hatchFlg = true;
+        }
+
+        if (_DummyLeftCannon == _dlCannonPos && _DummyRightCannon == _drCannonPos) {
+            _DummyLeftCannon.SetActive(false);
+            _DummyRightCannon.SetActive(false);
+            _LeftCannon.SetActive(true);
+            _RightCannon.SetActive(true);
+            Debug.Log("aaa");
+        }
     }
 
     IEnumerator OpenHatch() {
@@ -103,16 +126,6 @@ public class EventDirector : MonoBehaviour {
 
         if (_selectListNum == 3) {
             _speed = 6.0f;
-        }
-
-        if (_selectListNum == 5) {
-            _DummyLeftCannon.SetActive(true);
-            _DummyRightCannon.SetActive(true);
-            float moveSpeed = 10.0f;
-            float step = moveSpeed * Time.deltaTime;
-            _DummyLeftCannon.transform.position = Vector3.MoveTowards(_DummyLeftCannon.transform.position, _dlCannonPos.transform.position, step);
-            _DummyRightCannon.transform.position = Vector3.MoveTowards(_DummyRightCannon.transform.position, _drCannonPos.transform.position, step);
-            _hatchFlg = true;
         }
 
         if (_selectListNum == 6) {
