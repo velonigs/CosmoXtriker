@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LastBossAttack : MonoBehaviour
 {
+    
     [SerializeField] Transform ShotgunSpawnPoint;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] Transform[] cannonSpawnPoints;
@@ -14,7 +15,7 @@ public class LastBossAttack : MonoBehaviour
     [SerializeField]
     float cannonAttackDelay = 15;
     
-    float bulletAttackDelay = 1f;
+    float bulletAttackDelay = 2f;
 
     float bulletspawnDelay = 0.12f;
     
@@ -22,26 +23,51 @@ public class LastBossAttack : MonoBehaviour
     float passValue;
     [SerializeField]
     int changeAttackCounter;
+    
+    //攻撃の間の待つ時間
+    [SerializeField]
+    float waiting=0.75f;
+    float waitForNewAttack;
+    /// <summary>
+    /// enumクラスでボースの攻撃を変更する
+    /// </summary>
     public enum attackType { bullet, shotGun, cannon};
+    //現在の攻撃
     public attackType currentAttack;
+
     bool canAttack;
     int bulletSpawned;
+    //cannonを使わないように
+    public bool thirdPhaseActive;
+    public bool timeStop;
     // Start is called before the first frame update
     void Start()
     {
+        thirdPhaseActive = false;
         attackDelay = bulletAttackDelay;
         currentAttack = attackType.bullet;
+
+        //何回目同じ攻撃の繰り返し値
         changeAttackCounter = 3;
+
         bulletSpawned = 0;
+        timeStop = false;
+        //イベントに関数を追加する
+        LastBossHealth.instance.healthIsLess += activeThirdPhase;
+        waitForNewAttack = waiting;
     }
 
     // Update is called once per frame
     void Update()
     {
-        attackDelay -= Time.deltaTime;
+        if (!timeStop)
+        {
+            attackDelay -= Time.deltaTime;
+        }
+        
         if (attackDelay <= 0)
         {
-            
+            timeStop = true;
             canAttack = true;
         }
        if (changeAttackCounter <= 0)
@@ -60,7 +86,12 @@ public class LastBossAttack : MonoBehaviour
 
     private void changeAttack()
     {
+        //攻撃タイプを変更する
         currentAttack++;
+
+        if (!thirdPhaseActive) { if (currentAttack > attackType.shotGun)
+                currentAttack = attackType.bullet;
+        }
         if (currentAttack > attackType.cannon)
         {
             currentAttack = attackType.bullet;
@@ -89,34 +120,50 @@ public class LastBossAttack : MonoBehaviour
 
         if (canAttack)
         {
-            bulletspawnDelay -= Time.deltaTime;
+            //3回攻撃ができるようにこのタイマーを入れた
+            waitForNewAttack -= Time.deltaTime;
+            if (waitForNewAttack <= 0)
+            {
+                bulletspawnDelay -= Time.deltaTime;
+            }
+           
             
             if (bulletspawnDelay<= 0)
             {
                 Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation);
-                bulletspawnDelay = 0.12f;
+                bulletspawnDelay = 0.125f;
                 bulletSpawned++;
+                //バレット10以上になったら、タイマーリセットする
                 if (bulletSpawned >= 10)
                 {
-                    canAttack = false;
+                    
                     changeAttackCounter--;
+                    timeStop = false;
+                    bulletSpawned = 0;
+                    waitForNewAttack= waiting ;
                 }
             }
         }
-       
-
-    }
+      }
     
 
 
     public void shotgunAttack()
     {
+       
         if (canAttack)
         {
-            Instantiate(shotGunBulletPrefab, ShotgunSpawnPoint.position, ShotgunSpawnPoint.rotation);
-            canAttack = false;
-            attackDelay = ShotGunAttackDelay;
-            changeAttackCounter--;
+            waitForNewAttack -= Time.deltaTime;
+            if (waitForNewAttack <= 0)
+            {
+                waitForNewAttack= waiting ;
+                Instantiate(shotGunBulletPrefab, ShotgunSpawnPoint.position, ShotgunSpawnPoint.rotation);
+                canAttack = false;
+                attackDelay = ShotGunAttackDelay;
+                changeAttackCounter--;
+                timeStop = false;
+            }
+           
         }
        
        
@@ -124,22 +171,41 @@ public class LastBossAttack : MonoBehaviour
 
     public void cannonAttack()
     {
+
+        
+        
         if (canAttack)
         {
-            for (int i = 0; i < cannonSpawnPoints.Length; i++)
+            waitForNewAttack -= Time.deltaTime;
+            if (waitForNewAttack <= 0)
             {
-                Instantiate(cannonbulletPrefab, cannonSpawnPoints[i].position, transform.rotation);
+                LastBossMove.instance.loockPlayer = false;
+                waitForNewAttack = waiting;
+                for (int i = 0; i < cannonSpawnPoints.Length; i++)
+                {
+                    Instantiate(cannonbulletPrefab, cannonSpawnPoints[i].position, transform.rotation);
+                    
+                }
                 canAttack = false;
                 attackDelay = cannonAttackDelay;
                 changeAttackCounter--;
+                LastBossMove.instance.loockPlayer = true;
+                timeStop = false;
             }
-        }
-     
-        
-      
-    }
+           }
+  }
   
     
+    public void activeThirdPhase()
+    {
+        thirdPhaseActive = true;
+        currentAttack = attackType.cannon;
+        timeStop = false;
+    }
 
-
+    private void OnDisable()
+    {
+        //イベントに関数を引く
+        LastBossHealth.instance.healthIsLess -= activeThirdPhase;
+    }
 }

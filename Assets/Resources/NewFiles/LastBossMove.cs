@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class LastBossMove : MonoBehaviour
 {
-    
+    public static LastBossMove instance;
     Transform player;
     [SerializeField] float rotatespeed = 2;
-     public bool loockPlayer;
+    public bool loockPlayer;
+
+    private void Awake()
+    {
+        instance = this; 
+    }
     // Start is called before the first frame update
     void Start()
     {
         loockPlayer = true;
         player = PlayerController.instance.transform;
-        
+        LastBossHealth.instance.healthIsLess += dontLoockPlayer;
     }
 
     // Update is called once per frame
@@ -22,9 +27,17 @@ public class LastBossMove : MonoBehaviour
         if (loockPlayer)
         {
             transform.LookAt(player, Vector3.up);
-            Quaternion newRot = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newRot, rotatespeed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         }
      
+    }
+
+    public void dontLoockPlayer()
+    {
+        loockPlayer = false;
+    }
+    private void OnDisable()
+    {
+        LastBossHealth.instance.healthIsLess -= dontLoockPlayer;
     }
 }
