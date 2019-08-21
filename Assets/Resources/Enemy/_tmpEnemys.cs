@@ -20,11 +20,14 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
     public int HP = 20;
 
     public virtual void OnTriggerEnter(Collider collision){
-            if(collision.gameObject.tag == "Bullet"){
+
+
+        if (collision.gameObject.tag == "Bullet")
+        {
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
             takeDamage(_dmg);
 
-
+        }
             if (collision.tag == "Player")
             {
                 takeDamage(10);
@@ -34,7 +37,7 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
         /*if(collision.gameObject.name == "KillZone"){
             Destroy(this.gameObject); //KZ入ったらDestroy
         }*/
-    }
+    
     void Update(){
 
         Movement();
