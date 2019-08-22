@@ -7,8 +7,8 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
 {
     //そとから呼び出すため
     public static LastBossHealth instance;
-    public event Action healthIsLess;
-    
+    public event Action<int> healthIsLess;
+    [SerializeField] GameObject deathEffect;
     [SerializeField] GameObject drone;
     [SerializeField] Transform spawnPoint;
     
@@ -34,16 +34,18 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
         switch (health)
         {
             case 2500: DroneInvoke(5); break;
-            case 1500:DroneInvoke(10); break;
-                //eventSystem
-            case 1000:if (healthIsLess != null) healthIsLess();
+            //eventSystem
+            case 1500:DroneInvoke(10); if (healthIsLess != null) healthIsLess(1); break;
+            case 1000:
                 DroneInvoke(15);
                 break;
+            case 500: if (healthIsLess != null) healthIsLess(2); break;
             default:break;
         }
         if (health <= 0)
         {
             gameObject.SetActive(false);
+            Instantiate(deathEffect, transform.position, transform.rotation);
         }
       
     }

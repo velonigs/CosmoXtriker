@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class LastBossAttack : MonoBehaviour
 {
-    
+    [SerializeField] Transform []missilesSpawnPoint;//4 を作ってください
     [SerializeField] Transform ShotgunSpawnPoint;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] Transform[] cannonSpawnPoints;
-    [SerializeField] GameObject bulletPrefab, shotGunBulletPrefab;
+    [SerializeField] GameObject bulletPrefab, shotGunBulletPrefab,missilePrefab;
     [SerializeField] GameObject cannonbulletPrefab;
     [SerializeField] float attackDelay;
     [SerializeField]
-    float cannonAttackDelay = 15;
-    
+    float missilesAttackDelay = 15;
+    float cannonAttackDelay = 2f;
     float bulletAttackDelay = 2f;
 
     float bulletspawnDelay = 0.12f;
@@ -23,7 +23,7 @@ public class LastBossAttack : MonoBehaviour
     float passValue;
     [SerializeField]
     int changeAttackCounter;
-    
+    bool missileActive;
     //攻撃の間の待つ時間
     [SerializeField]
     float waiting=0.75f;
@@ -31,19 +31,20 @@ public class LastBossAttack : MonoBehaviour
     /// <summary>
     /// enumクラスでボースの攻撃を変更する
     /// </summary>
-    public enum attackType { bullet, shotGun, cannon};
+    public enum attackType { bullet, shotGun,missiles,cannon };
     //現在の攻撃
     public attackType currentAttack;
 
     bool canAttack;
     int bulletSpawned;
     //cannonを使わないように
-    public bool thirdPhaseActive;
+    bool cannonActive;
     public bool timeStop;
     // Start is called before the first frame update
     void Start()
     {
-        thirdPhaseActive = false;
+        missileActive = false;
+        cannonActive = false;
         attackDelay = bulletAttackDelay;
         currentAttack = attackType.bullet;
 
@@ -53,7 +54,7 @@ public class LastBossAttack : MonoBehaviour
         bulletSpawned = 0;
         timeStop = false;
         //イベントに関数を追加する
-        LastBossHealth.instance.healthIsLess += activeThirdPhase;
+        LastBossHealth.instance.healthIsLess += healthIsLess;
         waitForNewAttack = waiting;
     }
 
@@ -80,40 +81,68 @@ public class LastBossAttack : MonoBehaviour
         {
             case attackType.bullet:bulletAttack(); break;
             case attackType.shotGun:shotgunAttack(); break;
+            case attackType.missiles:missilesAttack();break;
             case attackType.cannon:cannonAttack();  break;
         }
     }
+
+    
 
     private void changeAttack()
     {
         //攻撃タイプを変更する
         currentAttack++;
 
-        if (!thirdPhaseActive) { if (currentAttack > attackType.shotGun)
-                currentAttack = attackType.bullet;
-        }
-        if (currentAttack > attackType.cannon)
+        //cannonActiveの場合、いつも同じ攻撃を繰り返す
+        if (cannonActive)
         {
-            currentAttack = attackType.bullet;
+            if (currentAttack == attackType.cannon)
+            {
+                changeAttackCounter = 4;
+                attackDelay = cannonAttackDelay;
+
+            }
+            else
+            {
+                currentAttack = attackType.cannon;
+                changeAttackCounter = 4;
+                attackDelay = cannonAttackDelay;
+            }
         }
-        if (currentAttack == attackType.shotGun) 
+
+        else
         {
-            changeAttackCounter = 3;
-            attackDelay = ShotGunAttackDelay;
-        }
-        else if(currentAttack == attackType.bullet)
-        {
-            changeAttackCounter = 3;
-            attackDelay = bulletAttackDelay;
-        }
-        else if (currentAttack == attackType.cannon)
-        {
-            changeAttackCounter = 4;
-            attackDelay = cannonAttackDelay;
+            //ミサイルはアクティブじゃない場合、最初の二つ攻撃パターンで戦う
+            if (!missileActive)
+            {
+                if (currentAttack > attackType.shotGun)
+                    currentAttack = attackType.bullet;
+            }
+            else
+            {
+                //そうではなければ、cannonまで行かないように
+                if (currentAttack > attackType.missiles)
+                {
+                    currentAttack = attackType.bullet;
+                }
+            }
+            //攻撃タイプのチェック
+            switch (currentAttack)
+            {
+                case attackType.bullet:
+                    changeAttackCounter = 3;
+                    attackDelay = bulletAttackDelay; break;
+                case attackType.shotGun:
+                    changeAttackCounter = 3;
+                    attackDelay = ShotGunAttackDelay; break;
+                case attackType.missiles: changeAttackCounter = 3;
+                    attackDelay = missilesAttackDelay; break;
+            }
+               
+         }
             
-        }
+   }
         
-    }
 
     public void bulletAttack()
     {
@@ -165,9 +194,7 @@ public class LastBossAttack : MonoBehaviour
             }
            
         }
-       
-       
-     }
+   }
 
     public void cannonAttack()
     {
@@ -194,18 +221,57 @@ public class LastBossAttack : MonoBehaviour
             }
            }
   }
-  
-    
-    public void activeThirdPhase()
+    private void missilesAttack()
     {
-        thirdPhaseActive = true;
-        currentAttack = attackType.cannon;
-        timeStop = false;
+        if (canAttack)
+        {
+            waitForNewAttack -= Time.deltaTime;
+            if (waitForNewAttack <= 0)
+            {
+                waitForNewAttack = waiting;
+                for(int i = 0; i < 2; i++)
+                {
+                    for (int x = 0; x < missilesSpawnPoint.Length; x++)
+                    {
+                        Instantiate(missilePrefab, missilesSpawnPoint[x].position, missilesSpawnPoint[x].rotation);
+                    }
+                }
+               
+               
+                canAttack = false;
+                attackDelay = ShotGunAttackDelay;
+                changeAttackCounter--;
+                timeStop = false;
+            }
+
+        }
+    }
+
+    public void healthIsLess(int num)
+    {
+        if (num == 1)
+        {
+            cannonActive = true;
+            currentAttack = attackType.cannon;
+            changeAttackCounter = 4;
+            attackDelay = cannonAttackDelay;
+            timeStop = false;
+        }
+        else if (num == 2)
+        {
+            cannonActive = false;
+            missileActive = true;
+            changeAttackCounter = 3;
+            currentAttack = attackType.missiles;
+            attackDelay = missilesAttackDelay;
+            timeStop = false;
+        }
+        
     }
 
     private void OnDisable()
     {
         //イベントに関数を引く
-        LastBossHealth.instance.healthIsLess -= activeThirdPhase;
+        LastBossHealth.instance.healthIsLess -= healthIsLess;
     }
 }

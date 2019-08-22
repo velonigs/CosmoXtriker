@@ -32,9 +32,13 @@ public class LastBossMove : MonoBehaviour
      
     }
 
-    public void dontLoockPlayer()
+    public void dontLoockPlayer(int num)
     {
-        loockPlayer = false;
+        if (num == 1)
+        {
+            loockPlayer = false;
+        }
+        
     }
     private void OnDisable()
     {
