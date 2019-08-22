@@ -29,6 +29,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     string attack = "";
    Transform player;
     string currentAttack;
+    [SerializeField]
      int health = 300;
     public int currentHealth;
     

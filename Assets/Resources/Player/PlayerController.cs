@@ -16,6 +16,14 @@ public class PlayerController : MonoBehaviour
     public static float verticalFactor;
     private float _time;
     Vector3 moveVector = Vector3.zero;
+    /// <summary>
+    /// missile no tame
+    /// </summary>
+    [SerializeField]
+    TargetMissile missile;
+    [SerializeField]
+    Transform missileSpawnPoint;
+
     [SerializeField]
     GameObject flayr;
 
@@ -77,5 +85,23 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray,out hit, Mathf.Infinity))
+            {
+                Transform target = hit.transform;
+                ITakeDamage targetdmg = hit.transform.GetComponent<ITakeDamage>();
+               
+                if (targetdmg != null)
+                {
+                    TargetMissile newMissile = Instantiate(missile, missileSpawnPoint.position, missileSpawnPoint.rotation)as TargetMissile;
+                    newMissile.GetComponent<TargetMissile>().giveTarget(target);
+                }
+            }
+           
+
+        }
     }
 }
