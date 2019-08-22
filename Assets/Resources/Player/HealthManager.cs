@@ -6,16 +6,31 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject gameover;
+
     [SerializeField]
-    private float health;
-    public float startingHealth = 100;
-    // Start is called before the first frame update
+    private GameObject _strikerHologram;
+
+    public float health;
+    public float startingHealth = 500;
+
     void Start()
     {
+        _strikerHologram.GetComponent<Renderer>();
         health = startingHealth;
     }
 
-    
+    void Update()
+    {
+        if (health > startingHealth / 2)
+        {
+            _strikerHologram.mater
+        }
+        else
+        {
+
+        }
+    }
+
     public void Takedamage(float damageToTake)
     {
         health -= damageToTake;
