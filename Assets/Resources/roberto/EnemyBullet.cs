@@ -65,7 +65,11 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<HealthManager>().Takedamage(damage);
+            HealthManager health = other.GetComponent<HealthManager>();
+            if (health != null)
+            {
+                health.Takedamage(damage);
+            }
             Destroy(gameObject);
         }
         if (other.tag == "KillZone")
