@@ -7,15 +7,14 @@ public class HealthManager : MonoBehaviour
     [SerializeField]
     private GameObject gameover;
 
-    [SerializeField]
-    private GameObject _strikerHologram;
+    // [SerializeField]
+    // private GameObject _strikerHologram;
 
     public float health;
     public float startingHealth = 500;
 
     void Start()
     {
-        _strikerHologram.GetComponent<Renderer>();
         health = startingHealth;
     }
 
@@ -23,7 +22,7 @@ public class HealthManager : MonoBehaviour
     {
         if (health > startingHealth / 2)
         {
-            _strikerHologram.mater
+
         }
         else
         {

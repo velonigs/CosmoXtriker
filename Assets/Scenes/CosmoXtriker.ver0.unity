@@ -1237,12 +1237,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa6ba15a070ccba498e2d0b1a8b86418, type: 3}
---- !u!1 &467264813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: fa6ba15a070ccba498e2d0b1a8b86418,
-    type: 3}
-  m_PrefabInstance: {fileID: 467166093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &467564813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: fa6ba15a070ccba498e2d0b1a8b86418,
@@ -1822,27 +1816,6 @@ Transform:
   m_Father: {fileID: 1808163697}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &812337384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467264813}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e267337c0578cf344860a581618172d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPaused: 0
-  appearEffectType: 2
-  appearTime: 2
-  disappearEffectType: 2
-  disappearTime: 2
-  flashIntervalTime: 0.2
-  state: 1
-  dontOverrideShaders: 0
-  transparentShader: {fileID: 0}
 --- !u!1 &813303388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,7 +4525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766837064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 0.51, z: 1.38}
+  m_LocalPosition: {x: 9.52, y: 0.51, z: 1.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 15554421}
@@ -4846,7 +4819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameover: {fileID: 0}
-  _strikerHologram: {fileID: 467264813}
   health: 0
   startingHealth: 500
 --- !u!65 &1808163703

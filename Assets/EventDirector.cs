@@ -66,7 +66,7 @@ public class EventDirector : MonoBehaviour {
             _hatchFlg = true;
         }
 
-        if (_DummyLeftCannon == _dlCannonPos && _DummyRightCannon == _drCannonPos) {
+        if (_DummyLeftCannon.transform.position == _dlCannonPos.transform.position && _DummyRightCannon.transform.position == _drCannonPos.transform.position) {
             _DummyLeftCannon.SetActive(false);
             _DummyRightCannon.SetActive(false);
             _LeftCannon.SetActive(true);
