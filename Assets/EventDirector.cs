@@ -50,6 +50,9 @@ public class EventDirector : MonoBehaviour {
     [SerializeField]
     private GameObject _RightCannon;
 
+    [SerializeField]
+    private GameObject _strikerHorogram;
+
     void Start() {
         
     }
@@ -71,7 +74,7 @@ public class EventDirector : MonoBehaviour {
             _DummyRightCannon.SetActive(false);
             _LeftCannon.SetActive(true);
             _RightCannon.SetActive(true);
-            Debug.Log("aaa");
+            _strikerHorogram.SetActive(true);
         }
     }
 

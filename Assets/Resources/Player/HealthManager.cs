@@ -18,6 +18,7 @@ public class HealthManager : MonoBehaviour
         health = startingHealth;
     }
 
+    // TODO:体力の残量によって自機ホログラムの色を変更されるようにする
     void Update()
     {
         if (health > startingHealth / 2)
