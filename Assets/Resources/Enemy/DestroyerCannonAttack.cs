@@ -6,7 +6,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CannonMovement))]
 
-public class DestroyerCannon : MonoBehaviour,ITakeDamage
+public class DestroyerCannonAttack : MonoBehaviour,ITakeDamage
 {
     [SerializeField] float Health=100;
     [SerializeField] int power = 10;
