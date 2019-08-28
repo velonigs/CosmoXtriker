@@ -7,35 +7,23 @@ public class HealthManager : MonoBehaviour
     [SerializeField]
     private GameObject gameover;
 
-    // [SerializeField]
-    // private GameObject _strikerHologram;
-
-    public float health;
+    public float currentHealth;
     public float startingHealth = 500;
 
     void Start()
     {
-        health = startingHealth;
+        currentHealth = startingHealth;
     }
-
-    // TODO:体力の残量によって自機ホログラムの色を変更されるようにする
     void Update()
     {
-        if (health > startingHealth / 2)
-        {
 
-        }
-        else
-        {
-
-        }
     }
 
     public void Takedamage(float damageToTake)
     {
-        health -= damageToTake;
+        currentHealth -= damageToTake;
         
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Debug.Log("dead");
             gameover.SetActive(true);
