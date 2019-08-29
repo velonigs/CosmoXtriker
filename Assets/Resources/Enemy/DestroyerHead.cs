@@ -13,7 +13,7 @@ public class DestroyerHead :_tmpEnemys
     [SerializeField]
     Transform[] missileSpawnPoints;
     [SerializeField]
-    DestroyerCannon[] cannons;
+    DestroyerCannonAttack[] cannons;
     int currentAttack;
     float fireCounter;
     string attackType = "";
@@ -29,7 +29,7 @@ public class DestroyerHead :_tmpEnemys
     private void Start()
     {
         fireCounter = fireRate;
-        cannons = FindObjectsOfType<DestroyerCannon>();
+        cannons = FindObjectsOfType<DestroyerCannonAttack>();
     }
     private void Update()
     {
