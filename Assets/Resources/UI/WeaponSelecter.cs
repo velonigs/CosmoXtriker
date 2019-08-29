@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponSelecter : MonoBehaviour
-{
+public class WeaponSelecter : MonoBehaviour {
+
+    public AudioClip _beamCannonAudioClip;
+    public AudioClip _missileAudioClip;
+
+    private AudioSource _operatorVoice;
+
     // 武器名を表示するテキスト
     [SerializeField]
     private Text _weaponNameText;
@@ -41,6 +46,10 @@ public class WeaponSelecter : MonoBehaviour
     public bool IsSelected {
         get { return _isSelected; }
     }
+
+    void Start() {
+        _operatorVoice = gameObject.GetComponent<AudioSource>();
+    }
     void Update() {
         // Wで次の装備、Sで前の装備に進める
         // TODO: WとSをトラックパッドの入力に切り替える
@@ -57,6 +66,14 @@ public class WeaponSelecter : MonoBehaviour
             // 数値がマイナスの値の場合は武器総数-1番目の武器に変更する
         } else if (_currentSelectNum < 0) {
             _currentSelectNum = _weaponData.Length - 1;
+        }
+
+        if (_currentSelectNum == 0) {
+            _operatorVoice.clip = _beamCannonAudioClip;
+            _operatorVoice.Play();
+        } else if (_currentSelectNum == 1) {
+            _operatorVoice.clip = _missileAudioClip;
+            _operatorVoice.Play();
         }
 
         // 選択している武器が変わっていたら
