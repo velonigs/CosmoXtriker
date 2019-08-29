@@ -204,6 +204,61 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 6.634
       objectReference: {fileID: 0}
+    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: velocity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: impactImpulseForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: life
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 96046009712919600, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
       propertyPath: m_Parameters.numCapVertices
@@ -234,59 +289,19 @@ PrefabInstance:
       propertyPath: m_Parameters.alignment
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+    - target: {fileID: 82455929951958654, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
-      propertyPath: velocity
+      propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+    - target: {fileID: 82455929951958654, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
-      propertyPath: impactImpulseForce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: life
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_Mesh
+      propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+      objectReference: {fileID: 8300000, guid: cf8c009860bcdd142becdf652bd0f9fe, type: 3}
+    - target: {fileID: 82455929951958654, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
-      propertyPath: ShapeModule.type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: ShapeModule.radiusThickness
+      propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
