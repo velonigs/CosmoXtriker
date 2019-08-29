@@ -69,9 +69,11 @@ public class WeaponSelecter : MonoBehaviour {
         }
 
         if (_currentSelectNum == 0) {
+            _operatorVoice.Stop();
             _operatorVoice.clip = _beamCannonAudioClip;
             _operatorVoice.Play();
         } else if (_currentSelectNum == 1) {
+            _operatorVoice.Stop();
             _operatorVoice.clip = _missileAudioClip;
             _operatorVoice.Play();
         }
