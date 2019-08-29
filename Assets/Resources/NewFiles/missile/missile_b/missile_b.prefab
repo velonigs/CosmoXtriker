@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4676836303837528301}
   - component: {fileID: 5107167020904043361}
   - component: {fileID: 2683847140748326692}
+  - component: {fileID: 5976884555071775830}
   - component: {fileID: 3277202146091901985}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: missile_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +114,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5976884555071775830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4676836303835340333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.02, z: 0.058534894}
+  m_Center: {x: 0, y: 0.000048386864, z: 0}
 --- !u!114 &3277202146091901985
 MonoBehaviour:
   m_ObjectHideFlags: 0

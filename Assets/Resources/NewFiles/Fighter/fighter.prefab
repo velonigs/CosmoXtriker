@@ -15,10 +15,9 @@ GameObject:
   - component: {fileID: 5612167495393276932}
   - component: {fileID: 2751967370343694839}
   - component: {fileID: 1463386238161622748}
-  - component: {fileID: 6771640049092851430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fighter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +88,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6257401004069770931}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 526e6cc1a472f4d4a9b3fe02a46b56b5, type: 3}
   m_Name: 
@@ -144,29 +143,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 45, y: 30, z: 40}
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &6771640049092851430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6257401004069770931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a3bd308f4947b4e96624cdede05417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Explode: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
-  debritsNumberToSpawn: 1
-  debridsToSpawn:
-  - {fileID: 6688642594866224271, guid: a2bbce967c7abcf4bba5741ece1c8a3b, type: 3}
-  - {fileID: 2728130291642302206, guid: 8949986726f4c89429dadb1d14e75f90, type: 3}
-  - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
-  HP: 20
-  randomMove: 0
-  bulletPrefab: {fileID: 6374925589035353829, guid: 1f03ab74c8bd6a24ba254bcbae250441,
-    type: 3}
-  spawnpoint: []
-  minValue: -0.1
-  MaxValue: 0.1
-  moveZ: -0.2
