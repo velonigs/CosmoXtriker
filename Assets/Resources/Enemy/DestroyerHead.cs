@@ -4,40 +4,76 @@ using UnityEngine;
 
 public class DestroyerHead :_tmpEnemys
 {
+    [SerializeField] float chageAttackTimer = 10f;
+    [SerializeField]
+    float changeAttackCounte;
     [SerializeField] float fireRate = 2f;
     public static DestroyerHead instance;
     [SerializeField]
-    DestroyerCannon[] cannons;
-    int currentAttack;
+    bomberMissile missiles;
+    [SerializeField]
+    Transform[] missileSpawnPoints;
+    [SerializeField]
+    DestroyerCannonAttack[] cannons;
+    int bulletCount,missileCount;
     float fireCounter;
+    
+
+    public enum attackType { bullet,missile}
+    public attackType Type;
+
     private void Awake()
     {
         instance = this;
+        Type = attackType.bullet;
     }
 
     private void Start()
     {
         fireCounter = fireRate;
-        cannons = FindObjectsOfType<DestroyerCannon>();
+        cannons = FindObjectsOfType<DestroyerCannonAttack>();
     }
     private void Update()
     {
+        changeAttackCounte -= Time.deltaTime;
+        if (changeAttackCounte <= 0)
+        {
+            changeAttackCounte = chageAttackTimer;
+            switch (Type)
+            {
+                case attackType.bullet:Type = attackType.missile; break;
+                case attackType.missile:Type = attackType.bullet; break;
+            }
+        }
         fireCounter -= Time.deltaTime;
         if (fireCounter <= 0)
         {
             fireCounter = fireRate;
-            
-            for(; ; )
+            if (Type==attackType.bullet)
             {
-                if (cannons[currentAttack] != null)
+                
+                for (int i=0;i<cannons.Length;i++)
                 {
-                    cannons[currentAttack].fire();
-                    currentAttack++;
-                    if (currentAttack >= cannons.Length) { currentAttack = 0; }
-                    break;
+                    
+                    if (cannons[bulletCount] != null)
+                    {
+                        cannons[bulletCount].fire();
+                        bulletCount++;
+                        if (bulletCount >= cannons.Length) { bulletCount = 0; }
+                        break;
+                    }
+                    else { continue; }
                 }
             }
+            else
+            {
+                Instantiate(missiles, missileSpawnPoints[missileCount].position, missileSpawnPoints[missileCount].rotation);
+                missileCount++;
+                if (missileCount >= missileSpawnPoints.Length) { missileCount = 0; }
+
+            }
         }
+        
     }
 
 }

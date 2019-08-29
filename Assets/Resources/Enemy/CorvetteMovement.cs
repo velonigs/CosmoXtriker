@@ -14,7 +14,7 @@ public class CorvetteMovement : MonoBehaviour
     [SerializeField] float battleRange=50;
     [SerializeField] float moveSpeed=0.05f;
     [SerializeField] float changeMovementTimer = 3f;
-    
+    [SerializeField]
     float changeMovementCounter;
     [SerializeField]
     int changePhaseLimiter = 10;
@@ -30,76 +30,53 @@ public class CorvetteMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        currentMovePhase = moveBattlePhases.phase1;
-        //ランダム
-        moveX = Random.Range(-Range, Range);
-        moveY = Random.Range(-Range, Range);
-        changeMovementCounter = changeMovementTimer;
-        phaseLimit = changePhaseLimiter;
-        startPosition = transform.position;
-        transform.LookAt(PlayerController.instance.transform);
+
+        Initialize();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = (transform.position - PlayerController.instance.transform.position).sqrMagnitude;
-        if (distanceToPlayer >= battleRange)
+        Move();
+    }
+
+    public void Move()
+    {
+       
+         changeMovementCounter -= Time.deltaTime;
+        if (changeMovementCounter <= 0)
         {
-            reAsset = true;
+            //時間がたったら、反対側へ動く、決めた回に繰り返す。カウンターゼロになったらphase変更
+            ChangeMovementManagement();
+            
+        }
+        if (changePhaseLimiter <= 0)
+        {
+
+            changePhase();
 
         }
-        if (!reAsset)
-        {
-
-
-            if (currentMovePhase == moveBattlePhases.phase1)
+        
+          if (currentMovePhase == moveBattlePhases.phase1)
             {
-                
-                changeMovementCounter -= Time.deltaTime;
-                //時間がたったら、反対側へ動く、決めた回に繰り返す。カウンターゼロになったらphase変更
-                if (changeMovementCounter <= 0)
-                {
-                    ChangeMovementManagement();
-                }
-                
-                    transform.Translate(moveX, moveY, moveZ, Space.World);
-                
+
+  
+                transform.Translate(moveX, moveY, moveZ, Space.World);
 
 
-                if (changePhaseLimiter <= 0)
-                {
-
-                    changePhase();
-
-                }
+               
             }
             if (currentMovePhase == moveBattlePhases.phase2)
             {
-                
-                changeMovementCounter -= Time.deltaTime;
-                if (changeMovementCounter <= 0)
-                {
-                    ChangeMovementManagement();
-                }
-               
-                    transform.Translate(moveX, moveY, moveZ, Space.World);
-                
-
-                if (changePhaseLimiter <= 0)
-                {
-                    changePhase();
-                }
+               transform.Translate(moveX, moveY, moveZ, Space.World);
+   
             }
             //三回目後ろへ動く、最高の距離までそのあと最初のphaseに戻る
             if (currentMovePhase == moveBattlePhases.phase3)
             {
 
                 transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed);
-
-
                 if (transform.position == startPosition)
                 {
                     changePhase();
@@ -111,21 +88,13 @@ public class CorvetteMovement : MonoBehaviour
             {
                 moveZ *= -1;
             }
-           
-        }
-        else
-        {
-            Vector3 newPos = new Vector3(PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y, PlayerController.instance.transform.position.z + battleRange / 2);
-            transform.position = Vector3.MoveTowards(transform.position,newPos, moveSpeed);
-            if (transform.position == newPos)
-            {
-                reAsset = false;
-            }
-        }
-       /* transform.LookAt(PlayerController.instance.transform);
-        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y , 0);*/
-    }
 
+        }
+        
+        
+        /* transform.LookAt(PlayerController.instance.transform);
+         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y , 0);*/
+    
 
     public void ChangeMovementManagement()
     {
@@ -148,13 +117,22 @@ public class CorvetteMovement : MonoBehaviour
         }
         //カウンターリセット
         changePhaseLimiter = phaseLimit;
-        if (currentMovePhase != 0)
-        {
+        
             //ランダムの座標のリセット
             moveX = Random.Range(-Range, Range);
             moveY = Random.Range(-Range, Range);
             moveZ *= -1f;
-        }
        
+    }
+    public void Initialize()
+    {
+        currentMovePhase = moveBattlePhases.phase1;
+        //ランダム
+        moveX = Random.Range(-Range, Range);
+        moveY = Random.Range(-Range, Range);
+        changeMovementCounter = changeMovementTimer;
+        phaseLimit = changePhaseLimiter;
+        startPosition = transform.position;
+        transform.LookAt(PlayerController.instance.transform);
     }
 }

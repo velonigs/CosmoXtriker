@@ -8,64 +8,51 @@ public class EnemyBullet : MonoBehaviour
     public int damage=5;
     [SerializeField]
     float bulletSpeed= 0.4f;
-    PlayerController player;
     [SerializeField]
     float veloctyTimeFactor = 100f;
+    Vector3 playerPos;
+    Vector3 move;
     
-    float playerPoseY;
-    float playerPoseX;
-    float playPoseZ;
-    Vector3 target;
-    bool quitBattle;
     private void Start()
     {
-        quitBattle = false;
+       
         Destroy(gameObject, 5f);
         if (PlayerController.instance == null)
         {
             return;
         }
-        //プレイヤーのポジションを登録する
-        playerPoseX = (PlayerController.instance.transform.position.x ) ;
-        playerPoseY= (PlayerController.instance.transform.position.y);
-        playPoseZ= (PlayerController.instance.transform.position.z );
-        target = new Vector3(playerPoseX, playerPoseY, playPoseZ);
+        playerPos = PlayerController.instance.transform.position;
+        move = playerPos - transform.position;
+        
 
     }
     private void Update()
     {
-        if (!quitBattle)
+
+        // 登録した口座へ移動
+        if (PlayerController.instance != null)
         {
-            // 登録した口座へ移動
-            if (PlayerController.instance != null)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed * (Time.deltaTime*veloctyTimeFactor));
-                if (transform.position.z <= target.z)
-                {
-                    quitBattle = true;
-                }
-            }
-            else
-            {
-                quitBattle = true;
-            }
-            
+            transform.position += move * (bulletSpeed * Time.deltaTime);
         }
+
+
         else
         {
-            transform.Translate(0, 0, (-bulletSpeed * (Time.deltaTime*veloctyTimeFactor)), Space.World);
+            transform.Translate(0, 0, (-bulletSpeed * (Time.deltaTime * veloctyTimeFactor)), Space.World);
         }
-     
-        
-        
-    }
+
+  }
     
     //プレイヤーにダメージをあげる
     public virtual void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<HealthManager>().Takedamage(damage);
+            HealthManager health = other.GetComponent<HealthManager>();
+            if (health != null)
+            {
+                health.Takedamage(damage);
+            }
             Destroy(gameObject);
         }
         if (other.tag == "KillZone")

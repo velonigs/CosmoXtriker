@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5683471950306204662
 Transform:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 4791329386053043680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7114538, y: 1.7114538, z: 1.7114538}
+  m_LocalScale: {x: 2.4575, y: 2.4575, z: 2.4575}
   m_Children:
   - {fileID: 4791329386052884930}
   - {fileID: 4791329386052884932}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4791329386053043680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ae374ad811c871418e2dd8edd863cc4, type: 3}
   m_Name: 
@@ -286,8 +286,8 @@ MonoBehaviour:
   LeftMuzzle: {fileID: 1056166777222299170}
   RPM: 120
   speed: 3000
-  flayr: {fileID: 7189851294258254732, guid: f185df4cbfa5cb243b2c728b3ae7c810, type: 3}
-  flayerDealay: 10
+  _tmpfire: 0
+  _lastfired: 0
 --- !u!95 &4791329386043569696
 Animator:
   serializedVersion: 3
@@ -1533,7 +1533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3101686360685904954
 Transform:
   m_ObjectHideFlags: 0

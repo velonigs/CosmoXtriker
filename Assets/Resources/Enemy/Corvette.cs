@@ -29,6 +29,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     string attack = "";
    Transform player;
     string currentAttack;
+    [SerializeField]
      int health = 300;
     public int currentHealth;
     
@@ -115,7 +116,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
             {
                 if (currentAttack == "") { currentAttack = "bullet"; }
                 attack = currentAttack;
-                laserAttackTime = laserAttackdelay;
+                    laserCannon.reassetting = true;
+                    laserAttackTime = laserAttackdelay;
+                
                    
             } } }  }
 

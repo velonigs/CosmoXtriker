@@ -11,6 +11,7 @@ public class missile : MonoBehaviour
     private _tmpEnemys nearestEnemy;
     private _tmpEnemys[] allaEnemyes;
     private IOrderedEnumerable<_tmpEnemys> enemiesbyDistance;
+    public int damage;
     [SerializeField]
     private float missileVelocity = 0.4f;
 
@@ -49,7 +50,7 @@ public class missile : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            other.GetComponent<ITakeDamage>().takeDamage(damage);
         }
         Destroy(gameObject);
        GameObject newExp= Instantiate(explosion ,transform.position, transform.rotation)as GameObject;
