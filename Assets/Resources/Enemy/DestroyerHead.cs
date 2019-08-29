@@ -15,7 +15,7 @@ public class DestroyerHead :_tmpEnemys
     Transform[] missileSpawnPoints;
     [SerializeField]
     DestroyerCannonAttack[] cannons;
-    int currentAttack;
+    int bulletCount,missileCount;
     float fireCounter;
     
 
@@ -51,25 +51,25 @@ public class DestroyerHead :_tmpEnemys
             fireCounter = fireRate;
             if (Type==attackType.bullet)
             {
+                
                 for (int i=0;i<cannons.Length;i++)
                 {
-                    if (currentAttack > cannons.Length) currentAttack = 0;
-                    if (cannons[currentAttack] != null)
+                    
+                    if (cannons[bulletCount] != null)
                     {
-                        cannons[currentAttack].fire();
-                        currentAttack++;
-                        if (currentAttack >= cannons.Length) { currentAttack = 0; }
+                        cannons[bulletCount].fire();
+                        bulletCount++;
+                        if (bulletCount >= cannons.Length) { bulletCount = 0; }
                         break;
                     }
+                    else { continue; }
                 }
             }
             else
             {
-                if (currentAttack > missileSpawnPoints.Length) { currentAttack = 0; }
-
-                Instantiate(missiles, missileSpawnPoints[currentAttack].position, missileSpawnPoints[currentAttack].rotation);
-                currentAttack++;
-                if (currentAttack >= missileSpawnPoints.Length) { currentAttack = 0; }
+                Instantiate(missiles, missileSpawnPoints[missileCount].position, missileSpawnPoints[missileCount].rotation);
+                missileCount++;
+                if (missileCount >= missileSpawnPoints.Length) { missileCount = 0; }
 
             }
         }
