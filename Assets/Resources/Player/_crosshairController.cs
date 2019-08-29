@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class _crosshairController : MonoBehaviour
 {
-    [SerializeField]
-    private float MaxVerticalAngle;
-    [SerializeField]
-    private float MaxHorizontalAngle;
     private Vector3 _angle = Vector3.zero; //ジョイコン入力
     [SerializeField] private float Sensitivity = 0.1f; //感度
     void Start()

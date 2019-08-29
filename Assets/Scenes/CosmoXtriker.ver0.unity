@@ -5372,7 +5372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameover: {fileID: 1703671967}
   health: 0
-  startingHealth: 1
+  startingHealth: 200
 --- !u!65 &1808163703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5518,6 +5518,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2069124976459769427}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1880528010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2069124976994077031, guid: f237a2a80d9d8b849816ec470fbd4b96,
+    type: 3}
+  m_PrefabInstance: {fileID: 2069124976459769427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880528009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99885a9f30bc12645a6ea6cdab97bb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1880528013 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2914281922984713896, guid: f237a2a80d9d8b849816ec470fbd4b96,
@@ -6452,6 +6464,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
@@ -6464,6 +6481,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1880528010}
+    - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TutorialButtonYes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069124977038970286, guid: f237a2a80d9d8b849816ec470fbd4b96,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6845907255885310805, guid: f237a2a80d9d8b849816ec470fbd4b96,
         type: 3}

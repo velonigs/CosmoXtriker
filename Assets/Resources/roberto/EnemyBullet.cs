@@ -8,57 +8,64 @@ public class EnemyBullet : MonoBehaviour
     public int damage=5;
     [SerializeField]
     float bulletSpeed= 0.4f;
-    [SerializeField]
-    float veloctyTimeFactor = 100f;
-    Vector3 playerPos;
-    Vector3 move;
+    PlayerController player;
     
+    
+    float playerPoseY;
+    float playerPoseX;
+    float playPoseZ;
+    Vector3 target;
+    bool quitBattle;
     private void Start()
     {
-       
+        quitBattle = false;
         Destroy(gameObject, 5f);
         if (PlayerController.instance == null)
         {
             return;
         }
-        playerPos = PlayerController.instance.transform.position;
-        move = playerPos - transform.position;
-        
+        //プレイヤーのポジションを登録する
+        playerPoseX = (PlayerController.instance.transform.position.x ) ;
+        playerPoseY= (PlayerController.instance.transform.position.y);
+        playPoseZ= (PlayerController.instance.transform.position.z );
+        target = new Vector3(playerPoseX, playerPoseY, playPoseZ);
 
     }
     private void Update()
     {
-
-        // 登録した口座へ移動
-        if (PlayerController.instance != null)
+        if (!quitBattle)
         {
-            transform.position += move * (bulletSpeed * Time.deltaTime);
+            // 登録した口座へ移動
+            if (PlayerController.instance != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed);
+                if (transform.position.z <= target.z)
+                {
+                    quitBattle = true;
+                }
+            }
+            else
+            {
+                quitBattle = true;
+            }
+            
         }
-
-
         else
         {
-            transform.Translate(0, 0, (-bulletSpeed * (Time.deltaTime * veloctyTimeFactor)), Space.World);
+            transform.Translate(0, 0, -bulletSpeed,Space.World);
         }
-
-  }
+     
+        
+        
+    }
     
     //プレイヤーにダメージをあげる
     public virtual void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            HealthManager health = other.GetComponent<HealthManager>();
-            if (health != null)
-            {
-                health.Takedamage(damage);
-            }
-            Destroy(gameObject);
+            other.GetComponent<HealthManager>().Takedamage(damage);
         }
-        if (other.tag == "KillZone")
-        {
-            Destroy(gameObject);
-        }
-       
+        Destroy(gameObject);
     }
 }

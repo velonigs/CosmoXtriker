@@ -11,7 +11,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        
+        health = startingHealth;
     }
 
     void Update()

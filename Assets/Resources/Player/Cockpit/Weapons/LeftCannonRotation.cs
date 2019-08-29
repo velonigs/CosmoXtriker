@@ -23,7 +23,6 @@ public class LeftCannonRotation : MonoBehaviour {
     float RotateSpeed = 10.0f;
     
     void Start() {
-        Debug.Log("a");
         _camcon = GameObject.Find("CameraController");
         _lmuzz = GameObject.Find("LeftMuzzle");
         center = _camcon.transform.Find("Crosshair");
@@ -48,7 +47,6 @@ public class LeftCannonRotation : MonoBehaviour {
             }
             else
             {
-
             }
             Debug.DrawLine(_ray.origin, _lhit.point, Color.red);
         }
