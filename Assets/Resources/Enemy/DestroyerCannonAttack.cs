@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(CannonMovement))]
+
 
 public class DestroyerCannonAttack : MonoBehaviour,ITakeDamage
 {

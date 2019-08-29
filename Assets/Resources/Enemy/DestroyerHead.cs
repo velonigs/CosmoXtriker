@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyerHead :_tmpEnemys
 {
     [SerializeField] float chageAttackTimer = 10f;
+    [SerializeField]
     float changeAttackCounte;
     [SerializeField] float fireRate = 2f;
     public static DestroyerHead instance;
@@ -16,14 +17,15 @@ public class DestroyerHead :_tmpEnemys
     DestroyerCannonAttack[] cannons;
     int currentAttack;
     float fireCounter;
-    string attackType = "";
-    bool missilesAttack { get { return attackType == "misile"; } } 
-        
-    bool bulletAttack { get { return attackType == "bullet"; } }
+    
+
+    public enum attackType { bullet,missile}
+    public attackType Type;
+
     private void Awake()
     {
         instance = this;
-        attackType = "bullet";
+        Type = attackType.bullet;
     }
 
     private void Start()
@@ -37,18 +39,19 @@ public class DestroyerHead :_tmpEnemys
         if (changeAttackCounte <= 0)
         {
             changeAttackCounte = chageAttackTimer;
-            if (attackType == "missile") { attackType = "bullet"; }
-           else if (attackType == "bullet") { attackType = "missile"; }
-            
-            
+            switch (Type)
+            {
+                case attackType.bullet:Type = attackType.missile; break;
+                case attackType.missile:Type = attackType.bullet; break;
+            }
         }
         fireCounter -= Time.deltaTime;
         if (fireCounter <= 0)
         {
             fireCounter = fireRate;
-            if (bulletAttack)
+            if (Type==attackType.bullet)
             {
-                for (; ; )
+                for (int i=0;i<cannons.Length;i++)
                 {
                     if (cannons[currentAttack] != null)
                     {
@@ -59,8 +62,9 @@ public class DestroyerHead :_tmpEnemys
                     }
                 }
             }
-            if (missilesAttack)
+            else
             {
+                if (currentAttack > missileSpawnPoints.Length) { currentAttack = 0; }
 
                 Instantiate(missiles, missileSpawnPoints[currentAttack].position, missileSpawnPoints[currentAttack].rotation);
                 currentAttack++;

@@ -49,7 +49,8 @@ public class CannonMovement : MonoBehaviour
     }
     public virtual void findPlayer()
     {
-       
+        if (player.position.y >= cannon[0].position.y)
+        {
             for (int i = 0; i < cannon.Length; i++)
             {
 
@@ -57,6 +58,7 @@ public class CannonMovement : MonoBehaviour
                 cannon[i].rotation = Quaternion.Lerp(cannon[i].rotation, targetRot, RotationSpeed * Time.deltaTime);
 
             }
+        }
    }
     
 
