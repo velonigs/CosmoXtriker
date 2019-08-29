@@ -417,6 +417,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3291935286862766626}
     m_Modifications:
+    - target: {fileID: 6257401004069770931, guid: 3ab421b42637eea44a4702eae4e92697,
+        type: 3}
+      propertyPath: m_Name
+      value: fighter
+      objectReference: {fileID: 0}
     - target: {fileID: 6257401004070259347, guid: 3ab421b42637eea44a4702eae4e92697,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -486,11 +491,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6257401004069770931, guid: 3ab421b42637eea44a4702eae4e92697,
-        type: 3}
-      propertyPath: m_Name
-      value: fighter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab421b42637eea44a4702eae4e92697, type: 3}

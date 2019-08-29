@@ -6,7 +6,7 @@ public class Wave3 : MonoBehaviour
 {
     // Debri収納
     GameObject Debri;
-    // Corvette Wave3時
+    // Corvette Wave2時
     [SerializeField]
     GameObject Corvette3;
     // Corvette Wave6時
@@ -15,7 +15,7 @@ public class Wave3 : MonoBehaviour
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
-    private int currentWave;
+    private int currentWave = 0;
 
 
 
@@ -48,6 +48,7 @@ public class Wave3 : MonoBehaviour
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
             }
+            //Waveが3になったらCorvette Event Proをオンに
             if (currentWave == 2)
             {
                 Corvette3.SetActive(true);
