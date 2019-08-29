@@ -53,6 +53,7 @@ public class DestroyerHead :_tmpEnemys
             {
                 for (int i=0;i<cannons.Length;i++)
                 {
+                    if (currentAttack > cannons.Length) currentAttack = 0;
                     if (cannons[currentAttack] != null)
                     {
                         cannons[currentAttack].fire();
