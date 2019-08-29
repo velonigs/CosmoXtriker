@@ -1207,7 +1207,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 0effeae7d85961e45b6e4410c28f913a, type: 3}
       propertyPath: m_Name
-      value: Jiki
+      value: Jiki1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0effeae7d85961e45b6e4410c28f913a, type: 3}
       propertyPath: m_IsActive
@@ -3244,6 +3244,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4435724525353634255, guid: 5c58e884068137647976c7652ecbadd3,
+        type: 3}
+      propertyPath: m_Name
+      value: Target
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c58e884068137647976c7652ecbadd3, type: 3}
 --- !u!1 &1371053174 stripped
@@ -4257,7 +4262,7 @@ PrefabInstance:
     - target: {fileID: 4791329386053043680, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_Name
-      value: Jiki (1)
+      value: Jiki
       objectReference: {fileID: 0}
     - target: {fileID: 4791329386052884928, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
@@ -4329,6 +4334,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.6348667
       objectReference: {fileID: 0}
+    - target: {fileID: 8016368355739917109, guid: 317837956b5a9764a80ad83f3e1c0b09,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7922658247707486642, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_IsActive
@@ -4337,11 +4347,6 @@ PrefabInstance:
     - target: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8016368355739917109, guid: 317837956b5a9764a80ad83f3e1c0b09,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4613,6 +4618,8 @@ MonoBehaviour:
   moveForceMultiplier: 5
   boostCT: 0
   boostForceMultiplier: 0
+  missile: {fileID: 0}
+  missileSpawnPoint: {fileID: 0}
   flayr: {fileID: 0}
   flayerDealay: 10
 --- !u!114 &1808163701
@@ -5080,6 +5087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FadeIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417120766840206700, guid: 3b1ecaf7bebdbe74187e2952271abf96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1417120766840206672, guid: 3b1ecaf7bebdbe74187e2952271abf96,
         type: 3}
