@@ -1237,6 +1237,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1296623339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296623340}
+  m_Layer: 0
+  m_Name: Asteroid belt Event Pro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1296623340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296623339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8939003, y: -1.8667183, z: 59.155403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1305378595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,11 +1858,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2016826677}
     m_Modifications:
-    - target: {fileID: 5496219814317476103, guid: 113d55e2fc915b94f9e3038ccd497537,
-        type: 3}
-      propertyPath: m_Name
-      value: fighter
-      objectReference: {fileID: 0}
     - target: {fileID: 5496219814317577511, guid: 113d55e2fc915b94f9e3038ccd497537,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1902,6 +1927,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496219814317476103, guid: 113d55e2fc915b94f9e3038ccd497537,
+        type: 3}
+      propertyPath: m_Name
+      value: fighter
       objectReference: {fileID: 0}
     - target: {fileID: 2704964646225493523, guid: 113d55e2fc915b94f9e3038ccd497537,
         type: 3}
@@ -2552,6 +2582,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 567886557}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2129163303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129163304}
+  m_Layer: 0
+  m_Name: Destroyer Event Pro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2129163304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129163303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -64.8, y: 16.93399, z: 110.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &806583813920491190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3690,6 +3750,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3500165287278749755, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500165286789322265, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000002861023
+      objectReference: {fileID: 0}
     - target: {fileID: 6691979984922006382, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3719,16 +3789,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.63566494
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500165287278749755, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500165286789322265, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000002861023
       objectReference: {fileID: 0}
     - target: {fileID: 3500165287644969638, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
         type: 3}
