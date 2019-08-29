@@ -19,11 +19,11 @@ public class _crosshairController : MonoBehaviour
     {
         _angle.x = Input.GetAxis("Mouse Y") * Sensitivity; //後でGetAxisの中身をジョイコンの操作のやつにする
         _angle.y = Input.GetAxis("Mouse X") * Sensitivity;
-            if(transform.localEulerAngles.x > MaxVerticalAngle || transform.localEulerAngles.x < -MaxVerticalAngle){
+            if(transform.eulerAngles.x >= MaxVerticalAngle || transform.eulerAngles.x <= -MaxVerticalAngle){
             _angle.x = -_angle.x;
         }
-            if(transform.localEulerAngles.y > MaxHorizontalAngle || transform.localEulerAngles.y < -MaxVerticalAngle){
-            _angle.y = -_angle.x;
+            if(transform.eulerAngles.y >= MaxHorizontalAngle || transform.eulerAngles.y <= -MaxVerticalAngle){
+            _angle.y = -_angle.y;
         }
         this.gameObject.transform.localEulerAngles += _angle; //クロスヘアの角度をジョイコンの入力で += する
 
