@@ -4114,6 +4114,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corvette Event Pro
       objectReference: {fileID: 0}
+    - target: {fileID: 3291935286862766627, guid: e733f316f30ded44ab280e88c23e0597,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3291935286862766626, guid: e733f316f30ded44ab280e88c23e0597,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4721,6 +4726,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2378390688083862121, guid: 43bacfeeb23e29b4887cdfb415b1c8bd,
+        type: 3}
+      propertyPath: m_Name
+      value: UpDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378390688083862123, guid: 43bacfeeb23e29b4887cdfb415b1c8bd,
+        type: 3}
+      propertyPath: m_Name
+      value: DownDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 2378390688083639815, guid: 43bacfeeb23e29b4887cdfb415b1c8bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4790,16 +4805,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.9569807
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378390688083862121, guid: 43bacfeeb23e29b4887cdfb415b1c8bd,
-        type: 3}
-      propertyPath: m_Name
-      value: UpDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378390688083862123, guid: 43bacfeeb23e29b4887cdfb415b1c8bd,
-        type: 3}
-      propertyPath: m_Name
-      value: DownDoor
       objectReference: {fileID: 0}
     - target: {fileID: 2378390688083639885, guid: 43bacfeeb23e29b4887cdfb415b1c8bd,
         type: 3}
@@ -7423,16 +7428,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7747502319437569973, guid: 391ca329f74293a419dfab7fe7d828ff,
-        type: 3}
-      propertyPath: m_Name
-      value: UpDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747502319437569975, guid: 391ca329f74293a419dfab7fe7d828ff,
-        type: 3}
-      propertyPath: m_Name
-      value: DownDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 7747502319437136773, guid: 391ca329f74293a419dfab7fe7d828ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7502,6 +7497,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.9569807
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747502319437569973, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_Name
+      value: UpDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747502319437569975, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_Name
+      value: DownDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7747502319437569983, guid: 391ca329f74293a419dfab7fe7d828ff,
         type: 3}

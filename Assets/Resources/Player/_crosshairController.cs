@@ -9,7 +9,6 @@ public class _crosshairController : MonoBehaviour
     [SerializeField]
     private float MaxHorizontalAngle;
     private Vector3 _angle = Vector3.zero; //ジョイコン入力
-    private Vector3 _currentangle = Vector3.zero;
     [SerializeField] private float Sensitivity = 0.1f; //感度
     void Start()
     {
@@ -19,12 +18,7 @@ public class _crosshairController : MonoBehaviour
     {
         _angle.x = Input.GetAxis("Mouse Y") * Sensitivity; //後でGetAxisの中身をジョイコンの操作のやつにする
         _angle.y = Input.GetAxis("Mouse X") * Sensitivity;
-            if(transform.eulerAngles.x >= MaxVerticalAngle || transform.eulerAngles.x <= -MaxVerticalAngle){
-            _angle.x = -_angle.x;
-        }
-            if(transform.eulerAngles.y >= MaxHorizontalAngle || transform.eulerAngles.y <= -MaxVerticalAngle){
-            _angle.y = -_angle.y;
-        }
+
         this.gameObject.transform.localEulerAngles += _angle; //クロスヘアの角度をジョイコンの入力で += する
 
         //弾がレティクルの中心に飛ぶようにするにはカメラの位置と、Crosshairの座標が等しい必要がある。
