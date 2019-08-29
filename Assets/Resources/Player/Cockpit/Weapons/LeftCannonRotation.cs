@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LeftCannonRotation : MonoBehaviour {
+    GameObject _camcon;
     GameObject _lmuzz;
-    GameObject center;
+    Transform center;
     GameObject sight;
     private Ray _ray;
     private Ray _ray2;
@@ -23,8 +24,9 @@ public class LeftCannonRotation : MonoBehaviour {
     
     void Start() {
         Debug.Log("a");
+        _camcon = GameObject.Find("CameraController");
         _lmuzz = GameObject.Find("LeftMuzzle");
-        center = GameObject.Find("Crosshair");
+        center = _camcon.transform.Find("Crosshair");
         sight = GameObject.Find("Target");
     }
     void _target()
