@@ -7,11 +7,13 @@ public class Wave3 : MonoBehaviour
     // Debri収納
     GameObject Debri;
     // Corvette Wave3時
-    /* [SerializeField]
+    /*
+    [SerializeField]
     GameObject Corvette3;
     // Corvette Wave6時
     [SerializeField]
-    GameObject Corvette6;*/
+    GameObject Corvette6;
+    */
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
@@ -48,14 +50,16 @@ public class Wave3 : MonoBehaviour
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
             }
-            /* if (currentWave == 2)
+            /*
+            if (currentWave == 2)
             {
                 Corvette3.SetActive(true);
             }
             if (currentWave == 5)
             {
                 Corvette6.SetActive(true);
-            }*/
+            }
+            */
             //Waveの子要素のEnemyがすべて消去されるまで待機する
             while (wave.activeSelf == true)
             {
