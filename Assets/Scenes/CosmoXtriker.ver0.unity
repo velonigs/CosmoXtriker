@@ -340,6 +340,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 145185348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &39357415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3681826787345729800, guid: 4f21ba99c7c0dab468d0e1549fe69ac6,
+    type: 3}
+  m_PrefabInstance: {fileID: 145185348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39357414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1ff739c37b0d549af0fba30f265520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &84985935
 GameObject:
   m_ObjectHideFlags: 0
@@ -3267,7 +3279,7 @@ PrefabInstance:
     - target: {fileID: 1417120766840206700, guid: 3b1ecaf7bebdbe74187e2952271abf96,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1417120766840206700, guid: 3b1ecaf7bebdbe74187e2952271abf96,
         type: 3}
@@ -4716,11 +4728,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4791329386053043682, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4737,6 +4744,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4791329386053043584, guid: 317837956b5a9764a80ad83f3e1c0b09,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
@@ -5223,6 +5235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameover: {fileID: 1703671967}
+  hcChanger: {fileID: 39357415}
   health: 500
   startingHealth: 500
 --- !u!65 &1808163703
