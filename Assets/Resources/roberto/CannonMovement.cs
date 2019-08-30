@@ -34,10 +34,15 @@ public class CannonMovement : MonoBehaviour
         {
             if (player != null)
             {
+                if (Torret.rotation.y < 50)
+                {
+                    Torret.LookAt(player, Vector3.up);
+                    Torret.rotation = Quaternion.Euler(0, Torret.eulerAngles.y, 0);
+                }
                 //左と右の移動
-                Torret.LookAt(player, Vector3.up);
-                Torret.rotation = Quaternion.Euler(0, Torret.eulerAngles.y, 0);
-                findPlayer();
+              
+             
+                    findPlayer();
 
             }
         }
