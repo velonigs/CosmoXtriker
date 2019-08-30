@@ -1157,6 +1157,7 @@ GameObject:
   - component: {fileID: 4617780338679399444}
   - component: {fileID: 2649728094522529755}
   - component: {fileID: 7681332960495556631}
+  - component: {fileID: 2630349662805431093}
   m_Layer: 0
   m_Name: corvette_ultimate
   m_TagString: Corvette
@@ -1299,6 +1300,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9, y: 5, z: 20}
   m_Center: {x: 0, y: 1.05, z: 4.97}
+--- !u!95 &2630349662805431093
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385860794680674970}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d66294e968585a4a97135eef948f0dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2385860794680674972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,15 +3686,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e197dcbb5929b04ebe281c3c2593cc8, type: 3}
---- !u!4 &5473027081544246783 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-    type: 3}
-  m_PrefabInstance: {fileID: 8376393989459934771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!120 &5473027081544246720 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8376393989459934771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5473027081544246783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
     type: 3}
   m_PrefabInstance: {fileID: 8376393989459934771}
   m_PrefabAsset: {fileID: 0}
