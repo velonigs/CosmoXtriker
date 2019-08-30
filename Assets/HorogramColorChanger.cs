@@ -8,6 +8,8 @@ public class HorogramColorChanger : HealthManager {
 
     }
 
+    // 改善点：このスクリプトまで体力が反映されていないのでそれを解決する
+                
     void Update () {
         if (health > startingHealth / 2) {
             GetComponent<Renderer>().material.color = new Color32(0, 255, 0, 100);
