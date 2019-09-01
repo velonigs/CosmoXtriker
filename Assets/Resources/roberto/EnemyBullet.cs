@@ -7,13 +7,13 @@ public class EnemyBullet : MonoBehaviour
     
     public int damage=5;
     [SerializeField]
-    float speedMultipler=1f;
+   protected float speedMultipler=1f;
     [SerializeField]
-    float bulletSpeed = 0.4f, rotateSpeed = 1;
+   protected float bulletSpeed = 0.4f, rotateSpeed = 1;
     
-    Transform player;
+   protected Transform player;
     
-    Vector3 target;
+   protected  Vector3 target;
     
     private void Start()
     {
@@ -33,23 +33,27 @@ public class EnemyBullet : MonoBehaviour
     }
     private void Update()
     {
-       
-            // 登録した口座へ移動
-            if (PlayerController.instance != null)
-            {
-            transform.position += target * Time.deltaTime * bulletSpeed*speedMultipler;
-            
 
-        }
-          else
-        {
-            transform.Translate(0, 0, -bulletSpeed,Space.World);
-        }
-     
-        
+        move();
         
     }
     
+    public virtual void move()
+    {
+
+        // 登録した口座へ移動
+        if (PlayerController.instance != null)
+        {
+            transform.position += target * Time.deltaTime * bulletSpeed * speedMultipler;
+
+
+        }
+        else
+        {
+            transform.Translate(0, 0, -bulletSpeed, Space.World);
+        }
+
+    }
     //プレイヤーにダメージをあげる
     public virtual void OnTriggerEnter(Collider other)
     {
