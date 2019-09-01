@@ -12,7 +12,7 @@ public class EnemyBullet : MonoBehaviour
    protected float bulletSpeed = 0.4f, rotateSpeed = 1;
     
    protected Transform player;
-    
+    bool quitBattle;
    protected  Vector3 target;
     
     private void Start()
@@ -25,10 +25,9 @@ public class EnemyBullet : MonoBehaviour
         player = PlayerController.instance.transform;
         if (player.position.z > transform.position.z)
         {
-            player = null;
-            return;
-
-        }
+            quitBattle = true;
+            
+         }
         target =  player.position-transform.position;
     }
     private void Update()
@@ -40,14 +39,16 @@ public class EnemyBullet : MonoBehaviour
     
     public virtual void move()
     {
-
-        // 登録した口座へ移動
-        if (PlayerController.instance != null)
+        if (!quitBattle)
         {
-            transform.position += target * Time.deltaTime * bulletSpeed * speedMultipler;
+            // 登録した口座へ移動
+            if (PlayerController.instance != null)
+            {
+                transform.position += target * Time.deltaTime * bulletSpeed * speedMultipler;
 
-
+             }
         }
+       
         else
         {
             transform.Translate(0, 0, -bulletSpeed, Space.World);
