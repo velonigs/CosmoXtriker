@@ -9,7 +9,8 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField]
     float speedMultipler=1f;
     [SerializeField]
-    float bulletSpeed= 0.4f;
+    float bulletSpeed = 0.4f, rotateSpeed = 1;
+    
     Transform player;
     
     Vector3 target;
@@ -22,6 +23,12 @@ public class EnemyBullet : MonoBehaviour
         }
 
         player = PlayerController.instance.transform;
+        if (player.position.z > transform.position.z)
+        {
+            player = null;
+            return;
+
+        }
         target =  player.position-transform.position;
     }
     private void Update()
@@ -31,8 +38,9 @@ public class EnemyBullet : MonoBehaviour
             if (PlayerController.instance != null)
             {
             transform.position += target * Time.deltaTime * bulletSpeed*speedMultipler;
-               
-            }
+            
+
+        }
           else
         {
             transform.Translate(0, 0, -bulletSpeed,Space.World);
