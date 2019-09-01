@@ -33,7 +33,10 @@ public class Wave3 : MonoBehaviour
             if (currentWave == 2)
             {
                 Corvette3.GetComponent<Animator>().enabled = true;
-
+                while(Corvette3.GetComponent<Corvette>().enabled == false)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
             }
             if (currentWave == 5)
             {
