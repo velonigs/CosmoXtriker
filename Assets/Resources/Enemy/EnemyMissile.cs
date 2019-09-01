@@ -67,7 +67,7 @@ public class EnemyMissile : MonoBehaviour
     {
         if (_callback != null)
             _callback();
-        if (other.tag == "Player"|| other.name == "KillZone")
+        if (other.tag == "Player"|| other.name == "KillZone"||other.tag=="Bullet")
         {
             
             
