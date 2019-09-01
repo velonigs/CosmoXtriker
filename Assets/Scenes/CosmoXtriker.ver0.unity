@@ -3203,8 +3203,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305378595}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.5, z: 142.7}
-  m_LocalScale: {x: 17.950817, y: 5.4464192, z: 18.518456}
+  m_LocalPosition: {x: -2437, y: -824, z: 40}
+  m_LocalScale: {x: 1000, y: 5.4464192, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -7156,6 +7156,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3500165287278749755, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1874637720}
+    - target: {fileID: 3500165286789322265, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000002861023
+      objectReference: {fileID: 0}
     - target: {fileID: 6691979984922006382, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -7185,16 +7195,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.63566494
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500165287278749755, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1874637720}
-    - target: {fileID: 3500165286789322265, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000002861023
       objectReference: {fileID: 0}
     - target: {fileID: 3500165287644969638, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
         type: 3}
@@ -7226,17 +7226,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -376.3355
       objectReference: {fileID: 0}
+    - target: {fileID: 3500165287644969639, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4309195271657372654, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4309195271657372654, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500165287644969639, guid: 52d255fd9cdf92a4ca2aa8c6a416f2e9,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1

@@ -6,18 +6,23 @@ public class EnemyMissile : MonoBehaviour
 {
 
     [SerializeField] GameObject explosion;
-    [SerializeField] float velocity = 4f;
+    [SerializeField] float velocity = 4f,rotateSpeed=1;
     [SerializeField] float lifetime = 5f;
     [SerializeField] int damage = 10;
     [SerializeField]
     float veloctyTimeFactor = 100f;
     System.Action _callback = null;
     bool followPlayer;
+    Transform player;
     Vector3 newTarget;
 
     private void Start()
     {
         followPlayer = true;
+        if(PlayerController.instance!=null)
+        player = PlayerController.instance.transform;
+
+        
     }
     // Update is called once per frame
     void Update()
@@ -27,7 +32,10 @@ public class EnemyMissile : MonoBehaviour
             if (PlayerController.instance != null)
             {
                 //プレイヤーへ動く
-                transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position, velocity*(Time.deltaTime*veloctyTimeFactor));
+                transform.position = Vector3.MoveTowards(transform.position, player.position, velocity*(Time.deltaTime*veloctyTimeFactor));
+                transform.position.Normalize();
+                Vector3 dir = player.position - transform.position;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), rotateSpeed * Time.deltaTime);
             }
         }
         else
@@ -35,6 +43,7 @@ public class EnemyMissile : MonoBehaviour
             //flayrのため
         
             transform.position = Vector3.MoveTowards(transform.position, newTarget, velocity * (Time.deltaTime * veloctyTimeFactor));
+            transform.position.Normalize();
         }
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)

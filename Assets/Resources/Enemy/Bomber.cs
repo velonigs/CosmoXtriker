@@ -118,6 +118,7 @@ public class Bomber : _tmpEnemys
             {
                 if (spawnpoint[i] != null)
                 {
+                    if(bulletPrefab!=null)
                     Instantiate(bulletPrefab, spawnpoint[i].position, transform.rotation);
                 }
                
