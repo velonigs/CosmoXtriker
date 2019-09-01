@@ -9,7 +9,8 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField]
     float speedMultipler=1f;
     [SerializeField]
-    float bulletSpeed= 0.4f;
+    float bulletSpeed = 0.4f, rotateSpeed = 1;
+    
     Transform player;
     
     Vector3 target;
@@ -36,9 +37,11 @@ public class EnemyBullet : MonoBehaviour
             // 登録した口座へ移動
             if (PlayerController.instance != null)
             {
-              transform.position += target * Time.deltaTime * bulletSpeed*speedMultipler;
-               
-            }
+            transform.position += target * Time.deltaTime * bulletSpeed*speedMultipler;
+            Vector3 dir = player.position - transform.position;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), rotateSpeed * Time.deltaTime);
+
+        }
           else
         {
             transform.Translate(0, 0, -bulletSpeed,Space.World);
