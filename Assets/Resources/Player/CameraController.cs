@@ -12,11 +12,16 @@ public class CameraController : MonoBehaviour
     {
         this.player = GameObject.Find("Sphere");
 
+        if(player!=null)
         offset = transform.position - player.transform.position;
     }
     private void Update()
     {
-        transform.position = player.transform.position + offset;
-        transform.rotation = player.transform.rotation;
+        if (player != null)
+        {
+            transform.position = player.transform.position + offset;
+            transform.rotation = player.transform.rotation;
+        }
+       
     }
 }
