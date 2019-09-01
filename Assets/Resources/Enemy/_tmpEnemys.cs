@@ -11,14 +11,16 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
     [SerializeField]
     private int debritsNumberToSpawn;//ゴミ数
     public GameObject[] debridsToSpawn;//ゴミprefab
+   
     //移動方向
    private float IdouX;
      private float IdouY;
     private float IdouZ;
-
+   
 
     public int HP = 20;
 
+   
     public virtual void OnTriggerEnter(Collider collision){
 
 
@@ -65,8 +67,9 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
     {
         Transform myTransform = this.transform; //Transformの設定？
         myTransform.Translate(IdouX, IdouY, IdouZ, Space.World); //World座標での移動*/
+        
 
-}
+    }
 
     public void takeDamage(int damage)
     {

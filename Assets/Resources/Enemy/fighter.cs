@@ -89,6 +89,7 @@ public class fighter : _tmpEnemys
                 if (attackdelay <= 0)
                 {
                     attackdelay = 1f;
+                        if(transform.position.z>player.transform.position.z)
                     shot();
                     
 

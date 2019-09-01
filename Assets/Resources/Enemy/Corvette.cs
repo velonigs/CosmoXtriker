@@ -32,7 +32,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     [SerializeField]
      int health = 300;
     public int currentHealth;
-    
+  
 
     //attack文字列によって攻撃は違う
     public bool missileAttack
@@ -57,12 +57,14 @@ public class Corvette : MonoBehaviour, ITakeDamage
         attack = "laser";
         currentAttack = "";
         player = PlayerController.instance.transform;
-        
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //攻撃タイプはレーサーじゃなければ
         if (attack != "laser")
         {
@@ -161,12 +163,14 @@ public class Corvette : MonoBehaviour, ITakeDamage
         currentHealth -= damageToTake;
         if (currentHealth == 200)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             //レーサー攻撃を使う
             attack = "laser";
             cannonShotCounter = cannonLoadingTime;
         }
         if (currentHealth == 100)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             attack = "laser";
             cannonShotCounter = cannonLoadingTime;
         }
@@ -194,6 +198,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
         if (other.gameObject.tag == "Bullet")
         {
             ushort _dmg = other.gameObject.GetComponent<_tmpBullet>().Damage;
+           
             takeDamage(_dmg);
         }
         if (other.tag == "Player")

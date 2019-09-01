@@ -4,18 +4,54 @@ using UnityEngine;
 
 public class FighterLeader : _tmpEnemys
 {
-    
-    
-    fighter[] allEnemyes;
-    
+    Renderer[] rends;
 
+    fighter[] allEnemyes;
+    protected float hitTimer = 0.15f;
+    bool hit;
+    public void Start()
+    {
+        rends = GetComponentsInChildren<Renderer>();
+    }
+
+    private void Update()
+    {
+        Movement();
+    }
+
+    public override void Movement()
+    {
+        if (hit)
+        {
+            if (hitTimer > 0)
+            {
+
+                foreach (var r in rends)
+                {
+                    r.enabled = false;
+                }
+                hitTimer -= Time.deltaTime;
+                if (hitTimer <= 0)
+                {
+                    hit = false;
+                    foreach (var r in rends)
+                    {
+                        r.enabled = true;
+                    }
+                }
+            }
+        }
+     
+    }
     public override void OnTriggerEnter(Collider collision)
     {
         
         if (collision.gameObject.tag == "Bullet")
         {
+            hit = true;
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
             HP -= _dmg;
+            hitTimer = 0.15f;
             if (HP <= 0)
             {
 

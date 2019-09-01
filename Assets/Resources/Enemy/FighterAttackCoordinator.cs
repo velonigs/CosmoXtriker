@@ -47,7 +47,7 @@ public class FighterAttackCoordinator : MonoBehaviour
         {
             fireRate = fireTime;
 
-            
+            if(transform.position.z>PlayerController.instance.transform.position.z)
                 StartCoroutine(FighterFire());
            
              spawnBullet(currentShip);
@@ -80,6 +80,7 @@ public class FighterAttackCoordinator : MonoBehaviour
     {
         if (ships[currentShip] != null)
         {
+            if(transform.position.z> PlayerController.instance.transform.position.z)
             ships[currentShip].shot();
            
          }
