@@ -22,6 +22,12 @@ public class EnemyBullet : MonoBehaviour
         }
 
         player = PlayerController.instance.transform;
+        if (player.position.z > transform.position.z)
+        {
+            player = null;
+            return;
+
+        }
         target =  player.position-transform.position;
     }
     private void Update()
@@ -30,7 +36,7 @@ public class EnemyBullet : MonoBehaviour
             // 登録した口座へ移動
             if (PlayerController.instance != null)
             {
-            transform.position += target * Time.deltaTime * bulletSpeed*speedMultipler;
+              transform.position += target * Time.deltaTime * bulletSpeed*speedMultipler;
                
             }
           else
