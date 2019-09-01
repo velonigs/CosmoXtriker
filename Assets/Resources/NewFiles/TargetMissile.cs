@@ -16,6 +16,7 @@ public class TargetMissile : MonoBehaviour
         if (target != null)
         {
             this.transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            this.transform.position = this.transform.position.normalized;
         }
         else
         {

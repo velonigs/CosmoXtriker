@@ -141,7 +141,8 @@ public class EventDirector : MonoBehaviour {
         }
 
         if (_selectListNum == 8) {
-            _waveSpawn = Instantiate(_waveController, _waveSpawn.transform.position, Quaternion.identity);
+            /*_waveSpawn = Instantiate(_waveController, _waveSpawn.transform.position, Quaternion.identity);*/
+            _waveController.SetActive(true);
             Destroy(_hanger);
         }
 
