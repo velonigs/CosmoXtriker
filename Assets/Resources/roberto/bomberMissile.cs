@@ -39,8 +39,7 @@ public class bomberMissile : EnemyBullet
         if (PlayerController.instance != null)
         {
             transform.position += target * Time.deltaTime * bulletSpeed * speedMultipler;
-            Vector3 dir = player.position - transform.position;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), rotateSpeed * Time.deltaTime);
+            
 
         }
         else

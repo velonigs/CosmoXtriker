@@ -45,7 +45,7 @@ public class BomberAttackCoordinator : MonoBehaviour
             //プロトンの攻撃
             if (enemyes[currentship] != null)
             {
-                
+                if(transform.position.z>PlayerController.instance.transform.position.z)
                 enemyes[currentship].shot();
             }
             

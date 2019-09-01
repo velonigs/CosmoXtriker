@@ -29,6 +29,8 @@ public class EnemyBullet : MonoBehaviour
             
          }
         target =  player.position-transform.position;
+        Vector3 dir = player.position - transform.position;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), rotateSpeed * Time.deltaTime);
     }
     private void Update()
     {
