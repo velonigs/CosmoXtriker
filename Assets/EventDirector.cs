@@ -57,7 +57,7 @@ public class EventDirector : MonoBehaviour {
 
     void Start() {
         _mainSceneObj = GameObject.Find("AllThisSceneObject");
-        DontDestroyOnLoad(_mainSceneObj);
+        // DontDestroyOnLoad(_mainSceneObj);
     }
 
     void Update() {
