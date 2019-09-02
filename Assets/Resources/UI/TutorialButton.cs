@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialButton : MonoBehaviour {
 
@@ -19,6 +20,10 @@ public class TutorialButton : MonoBehaviour {
     [SerializeField]
     private GameObject _tutorialMovieDirecter;
 
+    void Start() {
+        
+    }
+
     void Update() {
         
     }
@@ -27,7 +32,7 @@ public class TutorialButton : MonoBehaviour {
         _tutorialCanvas.SetActive(false);
         _tutorialMovieDirecter.SetActive(true);
         // チュートリアルムービーの表示
-        _tutorialMovie.StartTutorialMovie();
+        SceneManager.LoadScene("CosmoTutorial");
     }
 
     public void TutorialButtonNo() {

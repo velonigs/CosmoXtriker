@@ -53,8 +53,11 @@ public class EventDirector : MonoBehaviour {
     [SerializeField]
     private GameObject _strikerHorogram;
 
+    private GameObject _mainSceneObj;
+
     void Start() {
-        
+        _mainSceneObj = GameObject.Find("AllThisSceneObject");
+        DontDestroyOnLoad(_mainSceneObj);
     }
 
     void Update() {
