@@ -7,8 +7,8 @@ public class FighterLeader : _tmpEnemys
     Renderer[] rends;
 
     fighter[] allEnemyes;
-    protected float hitTimer = 0.15f;
-    bool hit;
+    //protected float hitTimer = 0.15f;
+   // bool hit;
     public void Start()
     {
         rends = GetComponentsInChildren<Renderer>();
@@ -21,7 +21,7 @@ public class FighterLeader : _tmpEnemys
 
     public override void Movement()
     {
-        if (hit)
+      /*  if (hit)
         {
             if (hitTimer > 0)
             {
@@ -40,7 +40,7 @@ public class FighterLeader : _tmpEnemys
                     }
                 }
             }
-        }
+        }*/
      
     }
     public override void OnTriggerEnter(Collider collision)
@@ -48,10 +48,10 @@ public class FighterLeader : _tmpEnemys
         
         if (collision.gameObject.tag == "Bullet")
         {
-            hit = true;
+            //hit = true;
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
             HP -= _dmg;
-            hitTimer = 0.15f;
+            //hitTimer = 0.15f;
             if (HP <= 0)
             {
 
