@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class BomberLeader : _tmpEnemys
 {
-
-
-
     Bomber[] allEnemyes;
     Renderer[] rends;
-    protected float hitTimer = 0.15f;
-    bool hit;
+    //protected float hitTimer = 0.15f;
+    //bool hit;
     private void Start()
     {
         rends = GetComponentsInChildren<Renderer>();
@@ -23,7 +20,7 @@ public class BomberLeader : _tmpEnemys
 
     public override void Movement()
     {
-        if (hit)
+       /* if (hit)
         {
             if (hitTimer > 0)
             {
@@ -42,7 +39,7 @@ public class BomberLeader : _tmpEnemys
                     }
                 }
             }
-        }
+        }*/
        
     }
 
@@ -53,8 +50,8 @@ public class BomberLeader : _tmpEnemys
         {
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
             HP -= _dmg;
-            hitTimer = 0.15f;
-            hit = true;
+           // hitTimer = 0.15f;
+           // hit = true;
             if (HP <= 0)
             {
 
