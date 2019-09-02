@@ -9,10 +9,13 @@ public class SpaceStationDroneSpawner : MonoBehaviour
     [SerializeField] Transform spawnningPoint;
     float spawncounter;
     bool canSpawn;
+    Transform player;
     // Start is called before the first frame update
     void Start()
     {
         spawncounter = spawningTime;
+        canSpawn = true;
+        player = PlayerController.instance.transform;
     }
 
     // Update is called once per frame
@@ -27,5 +30,10 @@ public class SpaceStationDroneSpawner : MonoBehaviour
                 Instantiate(dronePrefab, spawnningPoint.position, spawnningPoint.rotation);
             }
         }
+        if (transform.position.z < player.position.z)
+        {
+            canSpawn = false;
+        }
+
     }
 }
