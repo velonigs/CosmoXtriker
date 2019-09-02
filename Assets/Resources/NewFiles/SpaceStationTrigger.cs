@@ -5,18 +5,13 @@ using UnityEngine;
 public class SpaceStationTrigger : MonoBehaviour
 {
     [SerializeField] GameObject drone;
-    
     //偽物のドローン
-    [SerializeField] GameObject fakeDrone;
-    //ドローンの画像
-    MeshRenderer REND;
-
+    [SerializeField] GameObject[] fakeDrone;
     bool isTheFirstTime;
     // Start is called before the first frame update
     void Start()
     {
         isTheFirstTime = true;
-        REND = fakeDrone.gameObject.GetComponent<MeshRenderer>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,8 +22,14 @@ public class SpaceStationTrigger : MonoBehaviour
             {
                 isTheFirstTime = false;
                 //偽物の画像を消して、おっもののドローンを作成する
-                REND.enabled = false;
-                Instantiate(drone, fakeDrone.transform.position, fakeDrone.transform.rotation);
+                foreach (GameObject dr in fakeDrone)
+                {
+                    
+                    Instantiate(drone, dr.transform.position, dr.transform.rotation);
+                    dr.SetActive(false);
+                }
+
+
             }
         }
     }

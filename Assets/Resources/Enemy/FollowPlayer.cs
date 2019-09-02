@@ -6,7 +6,8 @@ public class FollowPlayer : MonoBehaviour
 {
     [SerializeField]
     private float followRange = 500f;
-   
+   [SerializeField]
+   float speed=0.2f;
     [SerializeField]
     private float attackrange = 100f;
     private PlayerController player;
@@ -34,12 +35,12 @@ public class FollowPlayer : MonoBehaviour
             if (distanceToPlayer <= followRange )
             {
 
-                this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, speed);
              
             }
             else
             {
-                this.transform.Translate(0, 0, -0.2f, Space.World);
+                this.transform.Translate(0, 0, -speed, Space.World);
             }
 
             if (distanceToPlayer <= attackrange)
@@ -48,13 +49,13 @@ public class FollowPlayer : MonoBehaviour
             }
         }
             else {   //真っ直ぐへ移動
-                this.transform.Translate(0, 0, -0.2f, Space.World);
+                this.transform.Translate(0, 0, -speed, Space.World);
             }
         }
 
         else
         {　　　//真っ直ぐへ移動
-            this.transform.Translate(0, 0, -0.2f,Space.World);
+            this.transform.Translate(0, 0, -speed,Space.World);
         }
     }
 

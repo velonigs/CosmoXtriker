@@ -24,6 +24,7 @@ public class Drone : CorvetteMovement
         if (fireCounter <= 0)
         {
             fireCounter = fireDelay;
+            if(transform.position.z>PlayerController.instance.transform.position.z)
             Instantiate(bullet, spawnpoint.position, spawnpoint.rotation);
         }
         if (PlayerController.instance != null)
