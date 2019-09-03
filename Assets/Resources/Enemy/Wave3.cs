@@ -14,6 +14,9 @@ public class Wave3 : MonoBehaviour
     // Corvette Wave6時
     [SerializeField]
     GameObject Corvette6;
+    // Destroyer
+    [SerializeField]
+    GameObject Destroyer;
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
@@ -73,6 +76,7 @@ public class Wave3 : MonoBehaviour
             if (currentWave == 8)
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
+                Corvette6.GetComponent<Animator>().SetBool("Corvette6", true);
             }
             
             
@@ -99,5 +103,6 @@ public class Wave3 : MonoBehaviour
             yield return null;
         }
         /* Destroyer起動 */
+        Destroyer.SetActive(true);
     }
 }

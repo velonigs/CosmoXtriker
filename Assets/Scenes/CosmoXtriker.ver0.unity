@@ -1073,6 +1073,11 @@ PrefabInstance:
       propertyPath: CorvetteEvent3
       value: 
       objectReference: {fileID: 1463880486}
+    - target: {fileID: 1707579952384668049, guid: 258397b748f66e14e95c6c4c4dde06c8,
+        type: 3}
+      propertyPath: Destroyer
+      value: 
+      objectReference: {fileID: 383305725}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258397b748f66e14e95c6c4c4dde06c8, type: 3}
 --- !u!1 &308575180
@@ -1269,6 +1274,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339547709}
   m_Mesh: {fileID: 4300000, guid: 6f22143ee2aa2d84db0b7fc478481f9e, type: 3}
+--- !u!1 &383305725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 480738826899573402, guid: cf8e6af02e9e47146ae9898ee04d11ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 7947617751328399487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &415531094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4889,11 +4900,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4791329386053043682, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4910,6 +4916,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4791329386053043584, guid: 317837956b5a9764a80ad83f3e1c0b09,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
@@ -6528,6 +6539,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.631369
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976927743605650106, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957591002986563400, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125531959053340850, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957345795808972357, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391ca329f74293a419dfab7fe7d828ff, type: 3}
