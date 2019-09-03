@@ -9,11 +9,11 @@ public class Wave3 : MonoBehaviour
     // Corvette Wave3時
     [SerializeField]
     GameObject Corvette3;
+    [SerializeField]
+    GameObject CorvetteEvent3;
     // Corvette Wave6時
     [SerializeField]
     GameObject Corvette6;
-    [SerializeField]
-    GameObject Destroyer;
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
@@ -32,17 +32,22 @@ public class Wave3 : MonoBehaviour
     {
         while (waves.Length >= currentWave)
         {
-            if (currentWave == 2)
+            if (currentWave == 1)
             {
                 //シーンにいるCorvetteのAnimatorを起動
                 Corvette3.GetComponent<Animator>().enabled = true;
                 Corvette3.GetComponent<Animator>().SetBool("Corvette3", true); 
 
-                //Corvette定位置まで、Wave停止
+                /*//Animatorの終わりでCorvette3.csをActiveにするので、それまで待機
                 while (Corvette3.GetComponent<Corvette>().enabled == false)
                 {
                     yield return new WaitForEndOfFrame();
-                }
+                }*/
+            }
+            if (currentWave == 2)
+            {
+                //corvette Event ProのAnimator起動
+                CorvetteEvent3.GetComponent<Animator>().enabled = true;
             }
             if (currentWave == 5)
             {
@@ -68,13 +73,6 @@ public class Wave3 : MonoBehaviour
             if (currentWave == 8)
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
-                Corvette6.GetComponent<Animator>().SetBool("Corvette6", true);
-
-                    //Corvette定位置まで、Wave停止
-                    while (Corvette6.GetComponent<Corvette>().enabled == false)
-                {
-                    yield return new WaitForEndOfFrame();
-                }
             }
             
             
@@ -101,6 +99,5 @@ public class Wave3 : MonoBehaviour
             yield return null;
         }
         /* Destroyer起動 */
-        Destroyer.SetActive(true);
     }
 }
