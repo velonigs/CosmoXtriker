@@ -35,11 +35,11 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
         {
             case 2500: DroneInvoke(5); break;
             //eventSystem
-            case 1500:DroneInvoke(10); if (healthIsLess != null) healthIsLess(1); break;
+            case 1500:DroneInvoke(10); if (healthIsLess != null) healthIsLess(2); break;
             case 1000:
                 DroneInvoke(15);
                 break;
-            case 500: if (healthIsLess != null) healthIsLess(2); break;
+            case 500: if (healthIsLess != null) healthIsLess(3); break;
             default:break;
         }
         if (health <= 0)
