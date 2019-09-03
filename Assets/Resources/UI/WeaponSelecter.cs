@@ -32,9 +32,6 @@ public class WeaponSelecter : MonoBehaviour {
     [SerializeField]
     private GameObject _weaponSelecter;
 
-    [SerializeField]
-    private Tutorial _tutorial;
-
     // 1フレーム前に選択していた武器番号
     private int _prevSelectNum = -1;
 
@@ -92,7 +89,6 @@ public class WeaponSelecter : MonoBehaviour {
             _isSelected = true;
             _equipment.SetActive(false);
             _weaponSelecter.SetActive(false);
-            _tutorial.StartTutorial();
         }
 
         // 今回選択した番号を記録する

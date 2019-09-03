@@ -11,21 +11,21 @@ public class GameController : MonoBehaviour {
     private VehicleController _vehicle;
 
     [SerializeField]
-    private GameObject _tutorialCanvas;
+    private GameObject _equipmentCanvas;
 
-    private bool _tutorialCanvasFlg = false;
+    private bool _equipmentCanvasFlg = false;
     
     void Start () {
-        _tutorialCanvasFlg = _tutorialCanvas.activeSelf;
+        _equipmentCanvasFlg = _equipmentCanvas.activeSelf;
     }
 
     
     void Update () {
-        if (_tutorialCanvas.activeSelf == false && _tutorialCanvasFlg != _tutorialCanvas.activeSelf) {
+        if (_equipmentCanvas.activeSelf == false && _equipmentCanvasFlg != _equipmentCanvas.activeSelf) {
             _vehicle.IsAction = VehicleController.VehicleControlStatus.Action;
         }
 
-        _tutorialCanvasFlg = _tutorialCanvas.activeSelf;
+        _equipmentCanvasFlg = _equipmentCanvas.activeSelf;
 
     }
 }
