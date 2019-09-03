@@ -17,7 +17,7 @@ public class BossAttack : MonoBehaviour
     bool canAttack;
     float missileTime = 3,missileCounter;
 
-    public enum phase {  phase1=1,  phase2 , phase3 }
+    public enum phase {  phase1=1,  phase2 , phase3,end }
    public phase currentphase = phase.phase1;
     
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class BossAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(currentphase!=phase.end)
         switch (currentState)
         {
             case State.Attacka: anim.SetInteger("atk", 1); break;
@@ -94,7 +94,7 @@ public class BossAttack : MonoBehaviour
             }
 
         }
-        if (currentState != State.Attacka) {
+        if (currentState != State.Attacka && BossBulletsSpawner.canAttack) {
             BossBulletsSpawner.canAttack = false;
                 }
 
@@ -112,6 +112,10 @@ public class BossAttack : MonoBehaviour
         {
             currentState = State.Attackd;
             currentphase = phase.phase3;
+        }else if (num == 4)
+        {
+            currentphase = phase.end;
+            anim.SetTrigger("dead");
         }
     }
 }

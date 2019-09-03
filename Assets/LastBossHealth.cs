@@ -11,6 +11,11 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
     [SerializeField] GameObject deathEffect;
     [SerializeField] GameObject drone;
     [SerializeField] Transform spawnPoint;
+    [SerializeField]
+    GameObject[] debris;
+    int arm = 0;
+    [SerializeField]
+    float spawnLimits = 10;
     
     [SerializeField]
     int health = 3000;
@@ -19,6 +24,7 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
     {
         instance = this;
     }
+  
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -44,17 +50,36 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
         }
         if (health <= 0)
         {
-            gameObject.SetActive(false);
-            Instantiate(deathEffect, transform.position, transform.rotation);
+            if (healthIsLess != null) healthIsLess(4);
         }
       
     }
 
     public void DroneInvoke(int num)
     {
-        for(int i = 0; i < num; i++)
+      float randX = 0;
+        float randy = 0;
+        for (int i = 0; i < num; i++)
         {
-            Instantiate(drone, spawnPoint.position, spawnPoint.rotation);
+            randX = UnityEngine.Random.Range(-spawnLimits, spawnLimits);
+            randy = UnityEngine.Random.Range(-spawnLimits, spawnLimits);
+            Instantiate(drone,new Vector3(spawnPoint.position.x+randX,
+                spawnPoint.position.y+randy,spawnPoint.position.z), Quaternion.identity);
         }
+    }
+
+    public void death()
+    {
+        Instantiate(deathEffect,new Vector3( transform.position.x,transform.position.y+5,transform.position.z+2), transform.rotation);
+        for(int i = 0; i < 5; i++)
+        {
+            float randx = UnityEngine.Random.Range(-5, 5);
+            float randy = UnityEngine.Random.Range(-5, 5);
+            float randz= UnityEngine.Random.Range(-5, 5);
+            int rand = UnityEngine.Random.Range(0, debris.Length);
+            Instantiate(debris[rand], new Vector3(transform.position.x+randx, transform.position.y + 5+randy, transform.position.z + randz), transform.rotation);
+        }
+        
+        gameObject.SetActive(false);
     }
 }
