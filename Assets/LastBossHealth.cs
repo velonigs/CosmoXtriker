@@ -11,9 +11,10 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
     [SerializeField] GameObject deathEffect;
     [SerializeField] GameObject drone;
     [SerializeField] Transform spawnPoint;
+    Transform center;
     [SerializeField]
     GameObject[] debris;
-    int arm = 0;
+    
     [SerializeField]
     float spawnLimits = 10;
     
@@ -24,7 +25,10 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
     {
         instance = this;
     }
-  
+    private void Start()
+    {
+        center = GameObject.Find("Center").transform;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -70,7 +74,7 @@ public class LastBossHealth : MonoBehaviour, ITakeDamage
 
     public void death()
     {
-        Instantiate(deathEffect,new Vector3( transform.position.x,transform.position.y+5,transform.position.z+2), transform.rotation);
+        Instantiate(deathEffect,center.position, transform.rotation);
         for(int i = 0; i < 5; i++)
         {
             float randx = UnityEngine.Random.Range(-5, 5);
