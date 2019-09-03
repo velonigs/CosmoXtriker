@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class TutorialFadeOut : MonoBehaviour {
 
+    [SerializeField]
+    private TutorialButton _tButton;
+
     float fadeSpeed = 0.01f;
     float red, green, blue, alfa;
 
-    private bool isFadeOut = false;
+    public bool isFadeOut = false;
 
     Image fadeImage;
 
@@ -22,7 +25,7 @@ public class TutorialFadeOut : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (_tButton._endTutorialFlg) {
             isFadeOut = true;
         }
 
@@ -32,7 +35,7 @@ public class TutorialFadeOut : MonoBehaviour {
 
     }
 
-    void StartFadeOut() {
+    public void StartFadeOut() {
         fadeImage.enabled = true;
         alfa += fadeSpeed;
         SetAlpha();
@@ -41,7 +44,7 @@ public class TutorialFadeOut : MonoBehaviour {
             isFadeOut = false;
         }
     }
-    void SetAlpha() {
+    public void SetAlpha() {
         fadeImage.color = new Color(red, green, blue, alfa);
     }
 }

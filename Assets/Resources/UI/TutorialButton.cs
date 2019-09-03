@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(TutorialFadeOut))]
 public class TutorialButton : MonoBehaviour {
 
     [SerializeField]
     private GameObject _tutorialCanvas;
 
-    [SerializeField]
-    private GameObject _weaponSelecter;
+    public bool _endTutorialFlg = false;
 
     void Start() {
         
@@ -22,15 +22,10 @@ public class TutorialButton : MonoBehaviour {
     public void TutorialButtonYes() {
         _tutorialCanvas.SetActive(false);
         // チュートリアルムービーの表示
-        SceneManager.LoadScene("CosmoTutorial");
     }
 
     public void TutorialButtonNo() {
         _tutorialCanvas.SetActive(false);
-    }
-
-    public void BackWeaponSelecter() {
-        _tutorialCanvas.SetActive(false);
-        // 装備画面の再表示
+        _endTutorialFlg = true;
     }
 }
