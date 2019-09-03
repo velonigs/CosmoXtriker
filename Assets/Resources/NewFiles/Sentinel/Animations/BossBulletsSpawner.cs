@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossBulletsSpawner : MonoBehaviour
 {
+    //dekita
     [SerializeField] GameObject bullet, rayGun, missiles,cannonBulletPrefab;
     [SerializeField] Transform bulletSpawnPoint, raygunSpawnPoint;
     [SerializeField] Transform[] missilesSpawnPoints;

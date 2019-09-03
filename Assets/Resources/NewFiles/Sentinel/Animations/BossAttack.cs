@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
+    /// <summary>
+    /// dekita
+    /// </summary>
     public enum State { Attacka = 1, Attackb, Attackc, Attackd }
     public State currentState;
     Animator anim;
