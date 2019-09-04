@@ -335,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764067998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.1, y: 0, z: 0}
+  m_LocalPosition: {x: 17.1, y: 0, z: -23.7}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatespeed: 2
-  loockPlayer: 0
+  lookPlayer: 0
 --- !u!114 &1012358223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,28 +507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcabb741aed85734fb9c89828b403e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilesSpawnPoint: []
-  ShotgunSpawnPoint: {fileID: 373306447}
-  bulletSpawnPoint: {fileID: 949669873}
-  cannonSpawnPoints:
-  - {fileID: 572764345}
-  - {fileID: 360340164}
-  - {fileID: 1430517502}
-  - {fileID: 923462817}
-  bulletPrefab: {fileID: 6376360039738231924, guid: 1f03ab74c8bd6a24ba254bcbae250441,
-    type: 3}
-  shotGunBulletPrefab: {fileID: 6376360039738231924, guid: 1f03ab74c8bd6a24ba254bcbae250441,
-    type: 3}
-  missilePrefab: {fileID: 4676836303835340333, guid: fb652323530e3da4ab840c18c21a50a5,
-    type: 3}
-  cannonbulletPrefab: {fileID: 5541359290625683377, guid: ccdb78614ed7ca94bae752da84fd8e0f,
-    type: 3}
-  attackDelay: 0
-  missilesAttackDelay: 15
-  changeAttackCounter: 0
-  waiting: 0.75
-  currentAttack: 0
-  timeStop: 0
 --- !u!54 &1012358225
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -995,7 +973,7 @@ PrefabInstance:
     - target: {fileID: 3644351594039051010, guid: 4e8cb041662efd441a23a8cad35eda87,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.3
+      value: 51.1
       objectReference: {fileID: 0}
     - target: {fileID: 3644351594039051010, guid: 4e8cb041662efd441a23a8cad35eda87,
         type: 3}
@@ -1037,5 +1015,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3644351593269559880, guid: 4e8cb041662efd441a23a8cad35eda87,
+        type: 3}
+      propertyPath: missiles
+      value: 
+      objectReference: {fileID: 3964116300689659203, guid: 202a51c1c03f09e4bac4f1e6e8c13dab,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e8cb041662efd441a23a8cad35eda87, type: 3}

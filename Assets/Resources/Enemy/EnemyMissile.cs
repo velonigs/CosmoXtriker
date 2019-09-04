@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMissile : MonoBehaviour
+public class EnemyMissile : MonoBehaviour,IMissile<Vector3>
 {
 
     [SerializeField] GameObject explosion;
@@ -10,7 +10,7 @@ public class EnemyMissile : MonoBehaviour
     [SerializeField] float lifetime = 5f;
     [SerializeField] int damage = 10;
     [SerializeField]
-    float veloctyTimeFactor = 100f;
+    float veloctyTimeFactor = 50f;
     System.Action _callback = null;
     bool followPlayer;
     Transform player;
@@ -31,11 +31,11 @@ public class EnemyMissile : MonoBehaviour
         {
             if (PlayerController.instance != null)
             {
-                //プレイヤーへ動く
-                transform.position = Vector3.MoveTowards(transform.position, player.position, velocity*(Time.deltaTime*veloctyTimeFactor));
-                transform.position.Normalize();
-                Vector3 dir = player.position - transform.position;
+                Vector3 lookRot = new Vector3(player.position.x, player.position.y, player.position.z);
+                Vector3 dir = lookRot - transform.position;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), rotateSpeed * Time.deltaTime);
+                if (dir.magnitude > 0.1f)
+                    transform.Translate(dir.normalized * Time.deltaTime * velocity * veloctyTimeFactor, Space.World);
             }
         }
         else

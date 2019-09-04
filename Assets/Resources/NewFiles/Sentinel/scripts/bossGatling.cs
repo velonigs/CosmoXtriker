@@ -9,10 +9,8 @@ public class bossGatling : MonoBehaviour
     float fireDelay = 0.25f;
     float fireCounter;
     public bool fire;
-    float waiting = 2;
-    float waithCounter;
     int bulletSpawned;
-    int counter = 0;
+
     // Start is called before the first frame update
     void Start()
     {

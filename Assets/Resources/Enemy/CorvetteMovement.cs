@@ -11,7 +11,7 @@ public class CorvetteMovement : MonoBehaviour
     [SerializeField]
     float distanceToPlayer;
     //50以上必ず
-    [SerializeField] float battleRange=50;
+    
     [SerializeField] float moveSpeed=0.05f;
     [SerializeField] float changeMovementTimer = 3f;
     [SerializeField]

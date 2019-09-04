@@ -29,14 +29,14 @@ public class IDou : MonoBehaviour
     //方向
     private Vector3 direction;
     //目的地に到着したフラグ
-    private bool arrived;
+    //private bool arrived;
 
 
     // Start is called before the first frame update
     void Start()
     {
         destination = new Vector3 (0f, 2f, -10f);
-        arrived = false;
+       // arrived = false;
     }
 
     // Update is called once per frame
