@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;//event Actionを使うため
 
-public class LastBossHealth : MonoBehaviour, ITakeDamage
+public class BossHealth : MonoBehaviour, ITakeDamage
 {
     //そとから呼び出すため
-    public static LastBossHealth instance;
+    public static BossHealth instance;
     public event Action<int> healthIsLess;
     [SerializeField] GameObject deathEffect;
     [SerializeField] GameObject drone;

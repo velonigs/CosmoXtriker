@@ -27,7 +27,7 @@ public class BossAttack : MonoBehaviour
         bulletSpawner = GetComponent<BossBulletsSpawner>();
         changeCounter = 3;
         currentState = State.Attacka;
-        LastBossHealth.instance.healthIsLess += healtISLess;
+        BossHealth.instance.healthIsLess += healtISLess;
 
     }
 
@@ -89,16 +89,10 @@ public class BossAttack : MonoBehaviour
                         currentState = State.Attacka;
                     }
                     break;
-
-
-            }
+             }
 
         }
-        if (currentState != State.Attacka && BossBulletsSpawner.canAttack) {
-            BossBulletsSpawner.canAttack = false;
-                }
-
-    }
+  }
 
 
     public void healtISLess(int num)

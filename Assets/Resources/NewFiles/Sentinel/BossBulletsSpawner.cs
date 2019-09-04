@@ -9,58 +9,15 @@ public class BossBulletsSpawner : MonoBehaviour
     [SerializeField] Transform bulletSpawnPoint, raygunSpawnPoint;
     [SerializeField] Transform[] missilesSpawnPoints;
     [SerializeField] Transform[] cannonSpawnPoints;
-    float bulletSpawnDelay = 0.125f;
-    int bullespawned = 0;
-    
-   public static bool canAttack;
-   [SerializeField] float waitingtime = 1;
 
-    private void Start()
-    {
-        canAttack = false;
-    }
-    void Update()
-    {
-        if (canAttack)
-        {
-            bulletSpawnDelay -= Time.deltaTime;
-            if (bulletSpawnDelay <= 0)
-            {
-                bulletSpawnDelay = 0.125f;
-                
-               
-                gatlingAttack();
-                
-            }
-        }
-        
-    }
-
-    public void deactiveGatling()
-    {
-        canAttack = false;
-    }
-
-    public void activeGatling()
-    {
-        canAttack = true;
-    }
-
-    public void gatlingAttack()
+    public void bulletFire()
     {
         Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        bullespawned++;
-        if (bullespawned < 12)
-        {
-            canAttack = false;
-        }
     }
     public void raygunAttack()
     {
         Instantiate(rayGun, raygunSpawnPoint.position, raygunSpawnPoint.rotation);
-        
-
-    }
+   }
     public void cannonAttack()
     {
         foreach (Transform point in missilesSpawnPoints)

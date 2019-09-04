@@ -36,7 +36,7 @@ public class Gatling : MonoBehaviour
         if (fire)
         {
             rotationPoint.Rotate(velocity, 0, 0);
-            fireCounter *= Time.deltaTime;
+            fireCounter -= Time.deltaTime;
             if (fireCounter <= 0)
             {
                 fireCounter = fireDelay;
