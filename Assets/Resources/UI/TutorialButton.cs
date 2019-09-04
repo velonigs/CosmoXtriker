@@ -10,6 +10,7 @@ public class TutorialButton : MonoBehaviour {
     private GameObject _tutorialCanvas;
 
     public bool _endTutorialFlg = false;
+    public bool _beginTutorial = false;
 
     void Start() {
         
@@ -21,7 +22,7 @@ public class TutorialButton : MonoBehaviour {
 
     public void TutorialButtonYes() {
         _tutorialCanvas.SetActive(false);
-        // チュートリアルムービーの表示
+        _beginTutorial = true;
     }
 
     public void TutorialButtonNo() {

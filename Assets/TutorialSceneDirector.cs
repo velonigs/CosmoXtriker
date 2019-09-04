@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class TutorialSceneDirector : MonoBehaviour {
 
     [SerializeField]
-    private GameObject _tutorialCnavas;
+    private GameObject _tutorialCanvas;
+
+    [SerializeField]    
+    private GameObject _doingTutorial;
     
     void Start() {
         StartCoroutine(ConfirmWindow());
@@ -21,6 +24,7 @@ public class TutorialSceneDirector : MonoBehaviour {
 
     IEnumerator ConfirmWindow() {
         yield return new WaitForSeconds(4.0f);
-        _tutorialCnavas.SetActive(true);
+        _tutorialCanvas.SetActive(true);
+        _doingTutorial.SetActive(true);
     }
 }

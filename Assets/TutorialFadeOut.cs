@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TutorialFadeOut : MonoBehaviour {
 
     [SerializeField]
-    private TutorialButton _tButton;
+    private TutorialButton _tutorialButton;
 
     float fadeSpeed = 0.01f;
     float red, green, blue, alfa;
@@ -25,7 +25,7 @@ public class TutorialFadeOut : MonoBehaviour {
     }
 
     void Update() {
-        if (_tButton._endTutorialFlg) {
+        if (_tutorialButton._endTutorialFlg) {
             isFadeOut = true;
         }
 
