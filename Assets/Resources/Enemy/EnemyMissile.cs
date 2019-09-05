@@ -75,8 +75,9 @@ public class EnemyMissile : MonoBehaviour,IMissile<Vector3>
             {
                 other.GetComponent<HealthManager>().Takedamage(damage);
                 Instantiate(explosion, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+          
         }
        
 

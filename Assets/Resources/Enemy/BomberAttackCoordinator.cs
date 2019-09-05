@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BomberAttackCoordinator : MonoBehaviour
 {
-     
+    [SerializeField]
     private float attackDelay=1f;
     private float attackTimer;
     [SerializeField]Transform[] attackPoints;

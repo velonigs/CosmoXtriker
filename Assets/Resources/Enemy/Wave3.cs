@@ -41,11 +41,11 @@ public class Wave3 : MonoBehaviour
                 Corvette3.GetComponent<Animator>().enabled = true;
                 Corvette3.GetComponent<Animator>().SetBool("Corvette3", true); 
 
-                /*//Animatorの終わりでCorvette3.csをActiveにするので、それまで待機
+                //Animatorの終わりでCorvette3.csをActiveにするので、それまで待機
                 while (Corvette3.GetComponent<Corvette>().enabled == false)
                 {
                     yield return new WaitForEndOfFrame();
-                }*/
+                }
             }
             if (currentWave == 2)
             {
