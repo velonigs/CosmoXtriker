@@ -16,7 +16,7 @@ public class Gatling : MonoBehaviour
    public bool fire;
     Transform player;
     [SerializeField]
-    float offset;
+    float offset=60;
     [SerializeField]
     float fireDelay=0.25f;
     float fireCounter;

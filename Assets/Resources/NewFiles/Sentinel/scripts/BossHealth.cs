@@ -7,13 +7,16 @@ public class BossHealth : MonoBehaviour, ITakeDamage
 {
     //そとから呼び出すため
     public static BossHealth instance;
+    
+    //イベントです、このイベントが呼ばれた時に他のスクリプトから
+    //色々な機能が動く、intはIDです。番号に沿って機能は行動する
     public event Action<int> healthIsLess;
-    [SerializeField] GameObject deathEffect;
+
+     public GameObject deathEffect;
     [SerializeField] GameObject drone;
-    [SerializeField] Transform spawnPoint;
+    [SerializeField] Transform spawnPoint=null;
     Transform center;
-    [SerializeField]
-    GameObject[] debris;
+    public GameObject[] debris;
     
     [SerializeField]
     float spawnLimits = 10;
@@ -43,11 +46,12 @@ public class BossHealth : MonoBehaviour, ITakeDamage
         //体力によってドローンを作る
         switch (health)
         {
-            case 2500: DroneInvoke(5); break;
+            case 2500: DroneInvoke(5); if (healthIsLess != null) healthIsLess(0); break;
+            case 2000:if (healthIsLess != null) healthIsLess(1);break;
             //eventSystem
             case 1500:DroneInvoke(10); if (healthIsLess != null) healthIsLess(2); break;
             case 1000:
-                DroneInvoke(15);
+                DroneInvoke(15); if (healthIsLess != null) healthIsLess(5);
                 break;
             case 500: if (healthIsLess != null) healthIsLess(3); break;
             default:break;

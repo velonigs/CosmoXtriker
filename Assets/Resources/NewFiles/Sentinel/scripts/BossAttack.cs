@@ -6,10 +6,12 @@ using UnityEngine;
 public class BossAttack : MonoBehaviour
 {
     /// <summary>
-    /// dekita
+    /// Attacka>bullet, Attackb>raygun,Attackc>cannon,Attack>missiles
     /// </summary>
     public enum State { Attacka = 1, Attackb, Attackc, Attackd }
+   
     public State currentState;
+
     Animator anim;
     public static int changeCounter;
     State attackMemory;
@@ -17,8 +19,9 @@ public class BossAttack : MonoBehaviour
     bool canAttack;
     float missileTime = 3,missileCounter;
 
+    //phase1 bullet and raygunAttack, phase2 only cannon, phase3 all attacks, end death
     public enum phase {  phase1=1,  phase2 , phase3,end }
-   public phase currentphase = phase.phase1;
+    public phase currentphase = phase.phase1;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,8 @@ public class BossAttack : MonoBehaviour
         bulletSpawner = GetComponent<BossBulletsSpawner>();
         changeCounter = 3;
         currentState = State.Attacka;
+
+        //イベントに関数を追加する
         BossHealth.instance.healthIsLess += healtISLess;
 
     }
@@ -34,6 +39,7 @@ public class BossAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //statusによってanimation又は攻撃が変わる
         if(currentphase!=phase.end)
         switch (currentState)
         {
@@ -68,6 +74,7 @@ public class BossAttack : MonoBehaviour
         {
             changeCounter = 3;
             currentState++;
+            //phaseによってstateはリミットがある
             switch (currentphase)
             {
                 case phase.phase1:
@@ -94,7 +101,7 @@ public class BossAttack : MonoBehaviour
         }
   }
 
-
+    //イベントから呼ばれた機能、numによってphaseが変わる
     public void healtISLess(int num)
     {
         if (num == 2)
