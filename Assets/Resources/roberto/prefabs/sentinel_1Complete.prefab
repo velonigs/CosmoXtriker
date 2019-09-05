@@ -109,11 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd621118ef5099947865b406631ade54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6376360039738231924, guid: 1f03ab74c8bd6a24ba254bcbae250441, type: 3}
-  rayGun: {fileID: 6376360039738231924, guid: 1f03ab74c8bd6a24ba254bcbae250441, type: 3}
+  bullet: {fileID: 399788720003004825, guid: 4db9c47dfb17b774d9617bf5d16c99f3, type: 3}
+  rayGun: {fileID: 399788720003004825, guid: 4db9c47dfb17b774d9617bf5d16c99f3, type: 3}
   missiles: {fileID: 3964116300689659203, guid: 202a51c1c03f09e4bac4f1e6e8c13dab,
     type: 3}
-  cannonBulletPrefab: {fileID: 6376360039738231924, guid: 1f03ab74c8bd6a24ba254bcbae250441,
+  cannonBulletPrefab: {fileID: 399788720003004825, guid: 4db9c47dfb17b774d9617bf5d16c99f3,
     type: 3}
   bulletSpawnPoint: {fileID: 2952265304489463592}
   raygunSpawnPoint: {fileID: 2952265304632131854}
@@ -5253,13 +5253,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5839638139009517415}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.000040328545, y: -0.00041116422, z: -0.00065220613, w: 0.99999976}
   m_LocalPosition: {x: 0, y: 6.91, z: 15.92}
   m_LocalScale: {x: 12.52464, y: 12.52464, z: 12.52464}
   m_Children: []
   m_Father: {fileID: 2350459675456693472}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.0050000004, y: -0.047000002, z: -0.075}
 --- !u!135 &5839638139009517414
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5285,7 +5285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7969c20db0e1348b836def7a929503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Limits: {x: 10, y: 10, z: 10}
+  Limits: {x: 5, y: 5, z: 5}
 --- !u!1 &5839638139570098406
 GameObject:
   m_ObjectHideFlags: 0
