@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2293640108014395575}
   - component: {fileID: 1076959232565700177}
   - component: {fileID: 3225803448481283453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: missile_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,8 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  speedMultipler: 1
   bulletSpeed: 0.4
-  veloctyTimeFactor: 50
+  rotateSpeed: 1
   explosion: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
 --- !u!65 &2293640108014395575
 BoxCollider:

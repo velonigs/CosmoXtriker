@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RandomMovement : MonoBehaviour
 {    //最小と最大の値を決める
-    [SerializeField] private float minValue;
-    [SerializeField] private float MaxValue;
+    [SerializeField] private float minValue=-5;
+    [SerializeField] private float MaxValue=5;
     //プレーヤーへ向かう
     [SerializeField] private float moveZ=-0.2f;
     float movex;

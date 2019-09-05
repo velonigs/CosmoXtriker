@@ -10,9 +10,9 @@ public class FighterAttackCoordinator : MonoBehaviour
     GameObject bulletPrefab;
     [SerializeField]
     fighter[] ships;
-    private float fireRate;
+    private float fireRate=2;
     [SerializeField]
-    private float fireTime;
+    private float fireTime=2;
     private int currentShip;
     [SerializeField]
     Transform[] Leaderfirepoint;

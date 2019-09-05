@@ -18,7 +18,7 @@ public class FighterEnemyAttackCoordinator : MonoBehaviour
     private int currentShip;
     [SerializeField]
     Transform[] Leaderfirepoint;
-    int rl = 0;
+
 
 
     // Start is called before the first frame update

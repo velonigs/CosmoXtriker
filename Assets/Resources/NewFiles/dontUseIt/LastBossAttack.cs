@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LastBossAttack : MonoBehaviour
-{
+public class LastBossAttack : MonoBehaviour { 
+/*
     [SerializeField] Transform []missilesSpawnPoint;//4 を作ってください
     [SerializeField] Transform ShotgunSpawnPoint;
     [SerializeField] Transform bulletSpawnPoint;
@@ -206,7 +206,7 @@ public class LastBossAttack : MonoBehaviour
             waitForNewAttack -= Time.deltaTime;
             if (waitForNewAttack <= 0)
             {
-                LastBossMove.instance.loockPlayer = false;
+                //LastBossMove.instance.loockPlayer = false;
                 waitForNewAttack = waiting;
                 for (int i = 0; i < cannonSpawnPoints.Length; i++)
                 {
@@ -216,7 +216,7 @@ public class LastBossAttack : MonoBehaviour
                 canAttack = false;
                 attackDelay = cannonAttackDelay;
                 changeAttackCounter--;
-                LastBossMove.instance.loockPlayer = true;
+               // LastBossMove.instance.loockPlayer = true;
                 timeStop = false;
             }
            }
@@ -272,6 +272,6 @@ public class LastBossAttack : MonoBehaviour
     private void OnDisable()
     {
         //イベントに関数を引く
-        LastBossHealth.instance.healthIsLess -= healthIsLess;
-    }
+       // BossHealth.instance.healthIsLess -= healthIsLess;
+    }*/
 }

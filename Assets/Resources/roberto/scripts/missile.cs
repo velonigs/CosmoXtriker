@@ -7,7 +7,7 @@ using System.Linq;
 public class missile : MonoBehaviour
 {
     [SerializeField]
-    private GameObject explosion;
+    private GameObject explosion=null;
     private _tmpEnemys nearestEnemy;
     private _tmpEnemys[] allaEnemyes;
     private IOrderedEnumerable<_tmpEnemys> enemiesbyDistance;

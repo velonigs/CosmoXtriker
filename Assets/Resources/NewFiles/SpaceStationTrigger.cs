@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpaceStationTrigger : MonoBehaviour
 {
-    [SerializeField] GameObject drone;
+    [SerializeField] GameObject drone=null;
     //偽物のドローン
     [SerializeField] GameObject[] fakeDrone;
     bool isTheFirstTime;

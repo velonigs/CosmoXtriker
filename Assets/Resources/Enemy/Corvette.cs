@@ -6,7 +6,6 @@ public class Corvette : MonoBehaviour, ITakeDamage
 {
     [SerializeField] CannonMovement laserCannon;
     [SerializeField] LineRenderer laserLine;
-   [SerializeField] float RotationSpeed=5f;
     [SerializeField] float cannonLoadingTime = 3f;
     float cannonShotCounter;
     [SerializeField] GameObject explosion;
