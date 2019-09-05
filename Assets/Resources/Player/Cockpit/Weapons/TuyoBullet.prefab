@@ -145,10 +145,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2312945774184636644}
     m_Modifications:
-    - target: {fileID: 1452043023141516, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
-      propertyPath: m_Name
-      value: BulletBlueSparkleSFX
-      objectReference: {fileID: 0}
     - target: {fileID: 4466262414135954, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -205,6 +201,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 6.634
       objectReference: {fileID: 0}
+    - target: {fileID: 1452043023141516, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
+      propertyPath: m_Name
+      value: BulletBlueSparkleSFX
+      objectReference: {fileID: 0}
     - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
       propertyPath: m_RenderMode
@@ -258,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
       propertyPath: life
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 96046009712919600, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
