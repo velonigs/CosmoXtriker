@@ -13,17 +13,23 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     private GameObject _equipmentCanvas;
 
+    [SerializeField]
+    private GameObject Credit_Manager;
+
     private bool _equipmentCanvasFlg = false;
-    
+
     void Start () {
         _equipmentCanvasFlg = _equipmentCanvas.activeSelf;
     }
 
     
     void Update () {
+
+
         if (_equipmentCanvas.activeSelf == false && _equipmentCanvasFlg != _equipmentCanvas.activeSelf) {
             _vehicle.IsAction = VehicleController.VehicleControlStatus.Action;
-        }
+            Credit_Manager.SetActive(true);
+            }
 
         _equipmentCanvasFlg = _equipmentCanvas.activeSelf;
 
