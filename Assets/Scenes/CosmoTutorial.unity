@@ -363,10 +363,17 @@ MonoBehaviour:
   _striker: {fileID: 1721088738}
   _doingTutorial: {fileID: 234234208}
   _tutorialButton: {fileID: 2069124976389319476}
+  _spawnController: {fileID: 3514414969030528971, guid: e15f562e5fbff804482591d56a592c99,
+    type: 3}
+  _enemySpawn: {fileID: 1528216989}
+  _moveDefault: {fileID: 1721088750}
   _tutorialDescriptionVoice: {fileID: 8300000, guid: c6315cb553469704aa880640ea2098bd,
     type: 3}
   _moveTutorialVoice: {fileID: 8300000, guid: a513bdd5e5f27c7408410baaf189b06b, type: 3}
-  _tutorialWaves: 0
+  _weaponCannonVoice: {fileID: 8300000, guid: 8e7a57ec5378e374981ef6001160654d, type: 3}
+  _weaponMissileVoice: {fileID: 8300000, guid: cad31d97ceabb5e418821aee11a36903, type: 3}
+  _evadeTutorialVoice: {fileID: 8300000, guid: 553a71e82c230ef46a3e403559f52295, type: 3}
+  _flareTutorialVoice: {fileID: 8300000, guid: 9cf168079b46e0e44bd8b01d1f3a3503, type: 3}
 --- !u!82 &234234211
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1484,6 +1491,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tutorialCanvas: {fileID: 2914281922648915199}
   _doingTutorial: {fileID: 234234208}
+--- !u!1 &1297655148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297655149}
+  m_Layer: 0
+  m_Name: DefaultPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297655149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297655148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -115, y: -70, z: 18.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1359787667
 Animator:
   serializedVersion: 3
@@ -1515,6 +1552,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950354bad905c9c42a9cc4fad3f02a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1528216989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1528216990}
+  m_Layer: 0
+  m_Name: BattleTutorialEnemySpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1528216990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528216989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -115, y: -70, z: -40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1533619314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,6 +1953,7 @@ GameObject:
   - component: {fileID: 1721088740}
   - component: {fileID: 1721088749}
   - component: {fileID: 1721088739}
+  - component: {fileID: 1721088750}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
@@ -2072,7 +2140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721088738}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -114.45, y: -70.81, z: 18.48}
+  m_LocalPosition: {x: -115, y: -70, z: 18.5}
   m_LocalScale: {x: 0.16181563, y: 0.16181563, z: 0.16181563}
   m_Children:
   - {fileID: 1569442930}
@@ -2101,6 +2169,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveTutorialCollision: {fileID: 0}
+--- !u!114 &1721088750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721088738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c756766fd8d0c0e49b4e7e9c9ea0ceb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _striker: {fileID: 1721088738}
+  _tutorialCore: {fileID: 234234210}
+  _defaultPosition: {fileID: 1297655148}
+  _returnSpeed: 5
 --- !u!1 &1791410356
 GameObject:
   m_ObjectHideFlags: 0
