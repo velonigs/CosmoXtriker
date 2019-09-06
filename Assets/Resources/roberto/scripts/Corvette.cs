@@ -5,19 +5,13 @@ using UnityEngine;
 public class Corvette : MonoBehaviour, ITakeDamage
 {
     [SerializeField] CannonMovement laserCannon;
-    [SerializeField] LineRenderer laserLine;
-    [SerializeField] float cannonLoadingTime = 3f;
-    float cannonShotCounter;
     [SerializeField] GameObject explosion;
     //attackポジション
     [SerializeField] Transform[] missileSpawnpoints;
-    [SerializeField] Transform laserSpawnPoint;
     [SerializeField] Transform[] bulletsSpawnPoints;
     //時間
     [SerializeField] float attackdelay = 2f;
-    float laserAttackTime;
-    [SerializeField] float laserAttackdelay = 5f;
-    float attackTimer;
+     float attackTimer;
     [SerializeField]
     float damageMultipler = 0.5f;
     [SerializeField] EnemyMissile missiles;
@@ -49,14 +43,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
     // Start is called before the first frame update
     void Start()
     {
-        cannonShotCounter = cannonLoadingTime;
-        laserCannon = GameObject.Find("mobileCannoX").GetComponent<CannonMovement>();
+       laserCannon = GameObject.Find("mobileCannoX").GetComponent<CannonMovement>();
         currentHealth = health;
-        laserAttackTime = laserAttackdelay;
-        attack = "laser";
         currentAttack = "";
         player = PlayerController.instance.transform;
-       
+        changeFase("laser");
 
     }
 
@@ -68,7 +59,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
         if (attack != "laser")
         {
             laserCannon.canMove = false;
-            laserLine.enabled = false;
+            
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
@@ -84,44 +75,8 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 }
             }
         }
-        //レーサーだったら、時間が終わるまでレーサーを使う
-        else
-        {
-            laserCannon.canMove = true;
-            cannonShotCounter -= Time.deltaTime;
-          
-            if (cannonShotCounter <= 0)
-            {
-
-                laserCannon.canMove = false;
-            if (!laserLine.enabled)
-            {
-
-                laserLine.enabled = true;
-            }
-
-
-            laserAttackTime -= Time.deltaTime;
-            RaycastHit laserHit;
-            if(Physics.Raycast(laserSpawnPoint.position,laserSpawnPoint.forward,out laserHit))
-            {
-                if (laserHit.collider.GetComponent<HealthManager>())
-                {
-                    laserHit.collider.GetComponent<HealthManager>().Takedamage(1*damageMultipler);
-                }
-            }
-            laserLine.SetPosition(0, laserSpawnPoint.position);
-            laserLine.SetPosition(1, laserSpawnPoint.forward * 5000);
-            
-            if (laserAttackTime <= 0)
-            {
-                if (currentAttack == "") { currentAttack = "bullet"; }
-                attack = currentAttack;
-                    laserCannon.reassetting = true;
-                    laserAttackTime = laserAttackdelay;
-                
-                   
-            } } }  }
+    
+   }
 
     //バレット攻撃
  public IEnumerator bulletFire() {
@@ -152,6 +107,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
        
         currentAttack = faseTochange;
         attack = currentAttack;
+        if (attack == "laser")
+        {
+            laserCannon.canMove = true;
+            GetComponent<CorvetteLaser>().LaserActive();
+        }
         
        
     }
@@ -160,18 +120,18 @@ public class Corvette : MonoBehaviour, ITakeDamage
     {
         
         currentHealth -= damageToTake;
-        if (currentHealth == 200)
+        if (currentHealth == 500)
         {
             Instantiate(explosion, transform.position, transform.rotation);
             //レーサー攻撃を使う
-            attack = "laser";
-            cannonShotCounter = cannonLoadingTime;
+            changeFase("laser");
+            
         }
-        if (currentHealth == 100)
+        if (currentHealth == 250)
         {
             Instantiate(explosion, transform.position, transform.rotation);
-            attack = "laser";
-            cannonShotCounter = cannonLoadingTime;
+            changeFase("laser");
+
         }
         if (currentHealth <= 0)
         {
