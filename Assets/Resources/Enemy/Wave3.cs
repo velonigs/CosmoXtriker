@@ -60,6 +60,7 @@ public class Wave3 : MonoBehaviour
                 //シーンにいるCorvetteのAnimatorを起動
                 Corvette6.GetComponent<Animator>().enabled = true;
                 Corvette6.GetComponent<Animator>().SetBool("Corvette6", true);
+                Corvette3.GetComponent<Animator>().SetTrigger("Stege out");
             }
             if (currentWave == 6)
             {
@@ -89,6 +90,7 @@ public class Wave3 : MonoBehaviour
             if (currentWave == 8)
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
+                Corvette6.GetComponent<Animator>().SetTrigger("Stege out");
             }
             
             
