@@ -46,7 +46,8 @@ public class BossAttack : MonoBehaviour
             case State.Attacka: anim.SetInteger("atk", 1); break;
             case State.Attackb: anim.SetInteger("atk", 2); break;
             case State.Attackc: anim.SetInteger("atk", 3); break;
-            case State.Attackd: missileSpawn();break;
+            case State.Attackd: anim.SetTrigger("matk");
+                    changeCounter = 0; goToIdle(); break;
 
         }
         

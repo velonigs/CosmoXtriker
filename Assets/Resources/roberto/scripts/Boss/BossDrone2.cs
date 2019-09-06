@@ -59,9 +59,11 @@ public class BossDrone2 : MonoBehaviour
         }
         else
         {
-           Bounds b = new Bounds(center, dronemanager.Limits);
+            center = dronemanager.transform.position;
+            Bounds b = new Bounds(center, dronemanager.Limits);
             if (!b.Contains(transform.position))
             {
+
                 turning = true;
                 dir = center - transform.position;
                 
