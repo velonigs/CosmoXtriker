@@ -53,6 +53,7 @@ public class Wave3 : MonoBehaviour
             {
                 //corvette Event ProのAnimator起動
                 CorvetteEvent3.GetComponent<Animator>().enabled = true;
+                Corvette3.GetComponent<Animator>().SetBool("Corvette3", false);
             }
             if (currentWave == 5)
             {
@@ -63,6 +64,7 @@ public class Wave3 : MonoBehaviour
             if (currentWave == 6)
             {
                 //corvette Event ProのAnimator起動
+                Corvette6.GetComponent<Animator>().SetBool("Corvette6", false);
                 CorvetteEvent6.GetComponent<Animator>().enabled = true;
             }
 
