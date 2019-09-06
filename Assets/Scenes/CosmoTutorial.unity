@@ -366,7 +366,7 @@ MonoBehaviour:
   _spawnController: {fileID: 3514414969030528971, guid: e15f562e5fbff804482591d56a592c99,
     type: 3}
   _enemySpawn: {fileID: 1528216989}
-  _defaultPosition: {fileID: 1297655148}
+  _moveDefault: {fileID: 1721088750}
   _tutorialDescriptionVoice: {fileID: 8300000, guid: c6315cb553469704aa880640ea2098bd,
     type: 3}
   _moveTutorialVoice: {fileID: 8300000, guid: a513bdd5e5f27c7408410baaf189b06b, type: 3}
@@ -1515,7 +1515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297655148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -122.3, y: -67.07358, z: -29.474438}
+  m_LocalPosition: {x: -115, y: -70, z: 18.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1953,6 +1953,7 @@ GameObject:
   - component: {fileID: 1721088740}
   - component: {fileID: 1721088749}
   - component: {fileID: 1721088739}
+  - component: {fileID: 1721088750}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
@@ -2168,6 +2169,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveTutorialCollision: {fileID: 0}
+--- !u!114 &1721088750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721088738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c756766fd8d0c0e49b4e7e9c9ea0ceb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _striker: {fileID: 1721088738}
+  _tutorialCore: {fileID: 234234210}
+  _defaultPosition: {fileID: 1297655148}
+  _returnSpeed: 5
 --- !u!1 &1791410356
 GameObject:
   m_ObjectHideFlags: 0
