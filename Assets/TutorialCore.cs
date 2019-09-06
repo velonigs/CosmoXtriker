@@ -5,6 +5,9 @@ using UnityEngine;
 public class TutorialCore : MonoBehaviour {
 
     [SerializeField]
+    private MoveTutorial[] _moveTutorial;
+
+    [SerializeField]
     private GameObject _successText;
 
     [SerializeField]
@@ -16,8 +19,8 @@ public class TutorialCore : MonoBehaviour {
     [SerializeField]
     private TutorialButton _tutorialButton;
 
-    public AudioClip _tutorialDescription;
-    public AudioClip _moveTutorial;
+    public AudioClip _tutorialDescriptionVoice;
+    public AudioClip _moveTutorialVoice;
 
     private AudioSource _voice1;
     private AudioSource _voice2;
@@ -35,7 +38,7 @@ public class TutorialCore : MonoBehaviour {
     void Start () {
         _voice1 = gameObject.GetComponent<AudioSource>();
         _voice2 = gameObject.GetComponent<AudioSource>();
-        _voice1.clip = _tutorialDescription;
+        _voice1.clip = _tutorialDescriptionVoice;
         _voice1.Play();
     }
 
@@ -43,24 +46,23 @@ public class TutorialCore : MonoBehaviour {
     void Update () {
         if (_tutorialButton._beginTutorial == true) {
             _voice1.Stop();
-            _voice2.clip = _moveTutorial;
+            _voice2.clip = _moveTutorialVoice;
             _voice2.Play();
             _striker.GetComponent<PlayerController>().enabled = true;
         }
 
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if (_striker.gameObject.tag == "EndMoveTutorial") {
-            _tutorialButton._beginTutorial = true;
-            StartCoroutine(SuccessText());
-            _EndMoveTutorial = true;
+        for (int i = 0; i < _moveTutorial.Length; i++) {
+            if (_moveTutorial[i].BattleTutorialFlg) {
+                StartCoroutine(SuccessText());
+            }
         }
+
     }
 
-    IEnumerator SuccessText() {
+    public IEnumerator SuccessText() {
         _successText.SetActive(true);
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         _successText.SetActive(false);
     }
+
 }
