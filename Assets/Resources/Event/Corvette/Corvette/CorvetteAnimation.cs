@@ -12,15 +12,22 @@ public class CorvetteAnimation : MonoBehaviour
     GameObject CorvetteEvent1;
     */
     Animator animator;
+
+    GameObject Corvettelaser;
+
+    LaserAnimation script;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        Corvettelaser = GameObject.Find("Corvette_Laser");
+        script = Corvettelaser.GetComponent<LaserAnimation>();
     }
 
     // Update is called once per frame
     public void EndAnimation()
     {
         animator.SetTrigger("St Ani End");
+        script.Laser();
     }
 }
