@@ -33,15 +33,19 @@ public class MoveDefault : MonoBehaviour {
         float _time = _returnSpeed * Time.deltaTime;
 
         if (_tutorialCore.ReturnDefault) {
-            _rigidbody.Sleep();
+            _striker.GetComponent<Rigidbody>().Sleep();
             _striker.GetComponent<PlayerController>().enabled = false;
-            transform.position = Vector3.MoveTowards(transform.position, _defaultPosition.transform.position, _time);
+            _striker.transform.position = Vector3.MoveTowards(transform.position, _defaultPosition.transform.position, _time);
         }
 
         if (_striker.transform.position == _defaultPosition.transform.position) {
-            _rigidbody.WakeUp();
+            _striker.GetComponent<Rigidbody>().WakeUp();
             _striker.GetComponent<PlayerController>().enabled = true;
+            Vector3 playerpos=_striker.transform.position;
+            Vector3 defaultPos=_defaultPosition.transform.position;
+            Debug.Log("player"+ playerpos+"/"+"defaultpos"+defaultPos);
             _endReturnMove = true;
+           
         }
     }
 }
