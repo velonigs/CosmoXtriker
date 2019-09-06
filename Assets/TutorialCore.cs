@@ -47,9 +47,10 @@ public class TutorialCore : MonoBehaviour {
     private bool _returnDefault = false;
     public bool ReturnDefault {
         get {
-            return _returnDefault;
+            return _returnDefault; 
         }
     }
+    
     
     
     void Start () {
@@ -78,9 +79,12 @@ public class TutorialCore : MonoBehaviour {
         }
 
         if (_moveDefault.EndReturnMove) {
+          
             _spawnTutorialEnemy = true;
             _voice3.clip = _weaponCannonVoice;
             _voice3.Play();
+            
+            
         }
 
         // if () {
@@ -97,7 +101,7 @@ public class TutorialCore : MonoBehaviour {
         _successText.SetActive(true);
         _returnDefault = true;
         yield return new WaitForSeconds(2.0f);
-        _successText.SetActive(false);
+         _successText.SetActive(false);
 
         if (_spawnTutorialEnemy) {
             //_enemySpawn = Instantiate(_spawnController, _enemySpawn.transform.position, Quaternion.identity);
