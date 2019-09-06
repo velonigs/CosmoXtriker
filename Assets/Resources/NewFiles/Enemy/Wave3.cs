@@ -26,12 +26,15 @@ public class Wave3 : MonoBehaviour
     public GameObject[] waves;
     //現在のWave
     private int currentWave;
+    //惑星のアニメーター取得用
+    private Animator planetanim;
 
 
 
     void Start()
     {
         this.Debri = GameObject.Find("Debri Sponner");
+        planetanim = GameObject.Find("PlanetScalePivot").GetComponent<Animator>();
 
         StartCoroutine(StartWave());
     }
@@ -120,5 +123,6 @@ public class Wave3 : MonoBehaviour
         }
         /* Destroyer起動 */
         Destroyer.SetActive(true);
+        planetanim.SetBool("planettrigger", true);
     }
 }
