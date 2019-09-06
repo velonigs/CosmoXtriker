@@ -21,7 +21,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     [SerializeField]
     float damageMultipler = 0.5f;
     [SerializeField] EnemyMissile missiles;
-    [SerializeField] EnemyBullet bullet;
+    public EnemyBullet bullet;
     [SerializeField]
     private int debritsNumberToSpawn;//ゴミ数
     public GameObject[] debridsToSpawn;//ゴミprefab

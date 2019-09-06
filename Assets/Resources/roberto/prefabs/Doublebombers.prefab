@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followRange: 500
+  speed: 0.2
   attackrange: 100
 --- !u!1 &167560866549475923
 GameObject:
@@ -2093,7 +2094,7 @@ MonoBehaviour:
   - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
   HP: 20
   randomMove: 0
-  bulletPrefab: {fileID: 6743802064163855671, guid: 9df31e976cc29cf448f649c2cacdf638,
+  bulletPrefab: {fileID: 6083607701571200277, guid: 20b9ea7b926c77c42a4316cd45009445,
     type: 3}
   spawnpoint:
   - {fileID: 7558528899792099257}
@@ -2726,6 +2727,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004308717064333451, guid: 5b54ea056218b544b9cd4090cf1d12a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 733617270282546502, guid: 5b54ea056218b544b9cd4090cf1d12a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097657944648719385, guid: 5b54ea056218b544b9cd4090cf1d12a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198755833483416782, guid: 5b54ea056218b544b9cd4090cf1d12a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876062722197232152, guid: 5b54ea056218b544b9cd4090cf1d12a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734367538379411260, guid: 5b54ea056218b544b9cd4090cf1d12a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527463895147290103, guid: 5b54ea056218b544b9cd4090cf1d12a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7105067698809549825, guid: 5b54ea056218b544b9cd4090cf1d12a4,
         type: 3}

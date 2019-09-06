@@ -17,7 +17,7 @@ public class Orbiter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 relativePos = (target.transform.position + new Vector3(0, 1.5f, 0))-transform.position;
+        Vector3 relativePos = (target.transform.position + new Vector3(0, 0, 0))-transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos);
         Quaternion currentPos = transform.localRotation;
         transform.localRotation = Quaternion.Slerp(currentPos, rotation, Time.deltaTime);
