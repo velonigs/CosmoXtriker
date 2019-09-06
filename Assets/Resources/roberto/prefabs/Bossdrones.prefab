@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 5334819001616675260}
   - component: {fileID: 267676902234203174}
   - component: {fileID: 4208008889426834566}
+  - component: {fileID: 465936851020029250}
   m_Layer: 9
   m_Name: Bossdrones
   m_TagString: Enemy
@@ -358,6 +359,25 @@ MonoBehaviour:
   fireDelay: 2
   spawnpoint: {fileID: 9201638156991493418}
   BossDist: 5
+--- !u!114 &465936851020029250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916373934724529981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa802c1a0b55a14386d78f5a2d86785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  attackDistance: 8
+  bullet: {fileID: 399788720003004825, guid: 4db9c47dfb17b774d9617bf5d16c99f3, type: 3}
+  fireDelay: 2
+  spawnpoint: {fileID: 9201638156991493418}
+  BossDist: 5
+  angle: 45
 --- !u!1 &5916373934724529983
 GameObject:
   m_ObjectHideFlags: 0

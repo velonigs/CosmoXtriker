@@ -31,7 +31,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     [SerializeField]
      int health = 300;
     public int currentHealth;
-  
+    [SerializeField] float offset;
 
     //attack文字列によって攻撃は違う
     public bool missileAttack
@@ -125,7 +125,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
     //バレット攻撃
  public IEnumerator bulletFire() {
-
+        if(player.transform.position.y>transform.position.y-offset)
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < bulletsSpawnPoints.Length; j++)

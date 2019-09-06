@@ -23,6 +23,7 @@ public class BossDrone : MonoBehaviour
     GameObject orbit;
     [SerializeField]
     float BossDist=5;
+    [SerializeField]
     float angle = 30;
     int tipe = 0;
     // Start is called before the first frame update
