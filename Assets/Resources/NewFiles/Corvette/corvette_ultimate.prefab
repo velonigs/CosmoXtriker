@@ -1335,6 +1335,7 @@ MonoBehaviour:
   - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
   health: 750
   currentHealth: 0
+  offset: 10
 --- !u!54 &2649728094522529755
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3131,7 +3132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2918797247789508827}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 1.91, y: -1.412, z: 6.76}
+  m_LocalPosition: {x: 1.52, y: -1.412, z: 6.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4607597494077577182}
@@ -4267,7 +4268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7301383925484030031}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -1.504, y: -1.412, z: 6.76}
+  m_LocalPosition: {x: -2.31, y: -1.412, z: 6.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6366132872018534062}
@@ -4576,11 +4577,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2385860794681038522}
     m_Modifications:
-    - target: {fileID: 5690854802057437630, guid: 92e10d191f9c4454b9ae936c638557ae,
-        type: 3}
-      propertyPath: m_Name
-      value: CorvetteAfterBurner
-      objectReference: {fileID: 0}
     - target: {fileID: 6859255089651849253, guid: 92e10d191f9c4454b9ae936c638557ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4636,6 +4632,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5690854802057437630, guid: 92e10d191f9c4454b9ae936c638557ae,
+        type: 3}
+      propertyPath: m_Name
+      value: CorvetteAfterBurner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e10d191f9c4454b9ae936c638557ae, type: 3}
 --- !u!4 &1038526554792586279 stripped
@@ -4651,21 +4652,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2385860794681038488}
     m_Modifications:
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Name
-      value: laserBeamSample
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4719,6 +4705,21 @@ PrefabInstance:
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Name
+      value: laserBeamSample
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

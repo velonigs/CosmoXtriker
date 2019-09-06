@@ -38,7 +38,7 @@ public class CorvetteDownCannon : MonoBehaviour
     public virtual void findPlayer()
     {
 
-        if (player.position.y < cannon.position.y)
+        if (player.position.y < corvette.transform.position.y)
         {
             Quaternion targetRot = Quaternion.LookRotation(player.position - cannon.position);
             cannon.rotation = Quaternion.Lerp(cannon.rotation, targetRot, RotationSpeed * Time.deltaTime);
