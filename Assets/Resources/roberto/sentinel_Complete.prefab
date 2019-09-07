@@ -3695,11 +3695,12 @@ MonoBehaviour:
   partToBrake:
   - {fileID: 3644351594039090982}
   - {fileID: 3644351594039091006}
-  - {fileID: 3644351594039091038}
+  - {fileID: 3644351594039090910}
   - {fileID: 3644351594039090852}
+  - {fileID: 3644351594039091026}
+  - {fileID: 3644351594039090864}
+  - {fileID: 3644351594039091038}
   - {fileID: 3644351594039091020}
-  - {fileID: 3644351594039091032}
-  - {fileID: 3644351594039090876}
 --- !u!114 &2368407008906695409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5446,7 +5447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3691541054731720091
 Transform:
   m_ObjectHideFlags: 0
@@ -5598,16 +5599,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3691541055157930570}
     m_Modifications:
-    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
-        type: 3}
-      propertyPath: m_Name
-      value: FLeaderAfterBurner
-      objectReference: {fileID: 0}
-    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1274553592090292271, guid: c1c817bb090d8d44aa90d42626a76093,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5673,6 +5664,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20000012
       objectReference: {fileID: 0}
+    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
+        type: 3}
+      propertyPath: m_Name
+      value: FLeaderAfterBurner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c817bb090d8d44aa90d42626a76093, type: 3}
 --- !u!4 &2489051035549556334 stripped
@@ -5688,16 +5684,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3691541055157930570}
     m_Modifications:
-    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
-        type: 3}
-      propertyPath: m_Name
-      value: FLeaderAfterBurner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1274553592090292271, guid: c1c817bb090d8d44aa90d42626a76093,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5762,6 +5748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.20000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
+        type: 3}
+      propertyPath: m_Name
+      value: FLeaderAfterBurner (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c817bb090d8d44aa90d42626a76093, type: 3}

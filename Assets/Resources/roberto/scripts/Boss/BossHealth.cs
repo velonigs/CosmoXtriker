@@ -54,6 +54,7 @@ public class BossHealth : MonoBehaviour, ITakeDamage
                 DroneInvoke(15); if (healthIsLess != null) healthIsLess(5);
                 break;
             case 500: if (healthIsLess != null) healthIsLess(3); break;
+            case 200: if (healthIsLess != null) healthIsLess(6);break;
             default:break;
         }
         if (health <= 0)
