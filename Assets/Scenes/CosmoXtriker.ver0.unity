@@ -2019,7 +2019,6 @@ MonoBehaviour:
   _currentSelectNum: 0
   _equipment: {fileID: 2069124976163477597}
   _weaponSelecter: {fileID: 787093364}
-  _tutorial: {fileID: 2069124977094465330}
 --- !u!4 &787093367
 Transform:
   m_ObjectHideFlags: 0
@@ -3094,10 +3093,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tutorialCanvas: {fileID: 1880528009}
-  _weaponSelecter: {fileID: 787093364}
-  _tutorialMovie: {fileID: 3162479449859572870}
-  _backWeaponSelecter: {fileID: 8252318783945448639}
-  _tutorialMovieDirecter: {fileID: 995038083688318475}
+  _endTutorialFlg: 0
+  _beginTutorial: 0
 --- !u!4 &1256270924
 Transform:
   m_ObjectHideFlags: 0
@@ -5766,8 +5763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 9
   moveForceMultiplier: 5
-  boostCT: 0
-  boostForceMultiplier: 0
+  boostCT: 3
+  boostForceMultiplier: 1
   missile: {fileID: 0}
   missileSpawnPoint: {fileID: 0}
   flayr: {fileID: 7189851294258254732, guid: f185df4cbfa5cb243b2c728b3ae7c810, type: 3}
@@ -6254,7 +6251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vehicle: {fileID: 1808163694}
-  _tutorialCanvas: {fileID: 1880528009}
+  _equipmentCanvas: {fileID: 2069124976163477597}
 --- !u!4 &2134677142
 Transform:
   m_ObjectHideFlags: 0
@@ -7221,7 +7218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb2c163aea23c1459ce978b04088dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tutorialPanel: {fileID: 1880528009}
 --- !u!4 &2069124977094465331
 Transform:
   m_ObjectHideFlags: 0
@@ -7593,9 +7589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286e04b56c8919745a1d2d9fa18eb255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tutorialMovie: {fileID: 2069124976313950435}
-  _tutorialMovieDirecter: {fileID: 995038083688318475}
-  _movementFlg: 0
 --- !u!1001 &3180693612183507183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8150,6 +8143,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.631369
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976927743605650106, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957591002986563400, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125531959053340850, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957345795808972357, guid: 391ca329f74293a419dfab7fe7d828ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391ca329f74293a419dfab7fe7d828ff, type: 3}
