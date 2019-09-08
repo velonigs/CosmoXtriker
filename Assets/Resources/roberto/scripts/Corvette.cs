@@ -190,4 +190,8 @@ public class Corvette : MonoBehaviour, ITakeDamage
         }
     }
 
+    private void OnEnable()
+    {
+        changeFase("laser");
+    }
 }
