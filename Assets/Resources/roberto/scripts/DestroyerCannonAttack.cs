@@ -24,7 +24,14 @@ public class DestroyerCannonAttack : MonoBehaviour,ITakeDamage
         }
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet")
+        {
+            takeDamage(10);
+        }
+    }
+
     public void takeDamage(int damage)
     {
         Health -= damage;
