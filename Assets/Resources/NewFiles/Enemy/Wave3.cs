@@ -19,6 +19,9 @@ public class Wave3 : MonoBehaviour
     //Asteroid Event
     [SerializeField]
     GameObject Asteroid;
+    [SerializeField]
+    GameObject Destroyer;
+    Animator planetanim;
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
@@ -29,7 +32,7 @@ public class Wave3 : MonoBehaviour
     void Start()
     {
         this.Debri = GameObject.Find("Debri Sponner");
-
+        planetanim = GameObject.Find("PlanetScalePivot").transform.GetComponent<Animator>();
         StartCoroutine(StartWave());
     }
 
@@ -41,7 +44,7 @@ public class Wave3 : MonoBehaviour
             {
                 //シーンにいるCorvetteのAnimatorを起動
                 Corvette3.GetComponent<Animator>().enabled = true;
-                Corvette3.GetComponent<Animator>().SetBool("Corvette3", true); 
+                Corvette3.GetComponent<Animator>().SetBool("Corvette3", true);
 
                 /*//Animatorの終わりでCorvette3.csをActiveにするので、それまで待機
                 while (Corvette3.GetComponent<Corvette>().enabled == false)
@@ -70,7 +73,7 @@ public class Wave3 : MonoBehaviour
             }
 
             //Waveを作成する,プレイヤーのポジションｘとｙと同じ講座
-            GameObject wave = (GameObject)Instantiate(waves[currentWave], new Vector3(PlayerController.instance.transform.position.x,PlayerController.instance.transform.position.y,waves[currentWave].transform.position.z)
+            GameObject wave = (GameObject)Instantiate(waves[currentWave], new Vector3(PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y, waves[currentWave].transform.position.z)
             , Quaternion.identity);
 
             //WaveをEmitterの子要素にする
@@ -82,7 +85,7 @@ public class Wave3 : MonoBehaviour
                 this.Debri.GetComponent<DebrisPop>().enabled = true;
             }
             //AsteroidEventPro 仮設置
-            if ( currentWave == 3)
+            if (currentWave == 3)
             {
                 Asteroid.GetComponent<Animator>().enabled = true;
             }
@@ -92,8 +95,8 @@ public class Wave3 : MonoBehaviour
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
                 Corvette6.GetComponent<Animator>().SetTrigger("Stege out");
             }
-            
-            
+
+
             //Waveの子要素のEnemyがすべて消去されるまで待機する
             while (wave.activeSelf == true)
             {
@@ -109,7 +112,7 @@ public class Wave3 : MonoBehaviour
             {
                 currentWave = 0;
             }*/
-            if(currentWave == 10)
+            if (currentWave == 10)
             {
                 break;
             }
@@ -117,5 +120,7 @@ public class Wave3 : MonoBehaviour
             yield return null;
         }
         /* Destroyer起動 */
+        Destroyer.SetActive(true);
+        planetanim.SetBool("planettrigger", true);
     }
 }
