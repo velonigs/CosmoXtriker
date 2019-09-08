@@ -48,6 +48,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
        laserCannon = GameObject.Find("mobileCannoX").GetComponent<CannonMovement>();
         currentHealth = health;
         currentAttack = "";
+        if(PlayerController.instance!=null)
         player = PlayerController.instance.transform;
         changeFase("laser");
         corvetteLaser = GetComponent<CorvetteLaser>();
@@ -154,6 +155,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 death = true;
                 Instantiate(explosion, transform.position, transform.rotation);
                 spawnDebrids(debritsNumberToSpawn);
+                gameObject.SetActive(false);
             }
 
             if (corvette1)
