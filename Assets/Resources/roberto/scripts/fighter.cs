@@ -19,6 +19,7 @@ public class fighter : _tmpEnemys
     bool battlequit = false;
     private PlayerController player;
     bool battleAsset = false;
+    [SerializeField]
     float attackdelay = 1f;
     private float attackrange = 30;
     bool canAttack;

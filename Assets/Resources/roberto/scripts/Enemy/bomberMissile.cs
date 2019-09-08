@@ -20,10 +20,16 @@ public class bomberMissile : EnemyBullet
             other.GetComponent<HealthManager>().Takedamage(damage);
              
             Destroy(gameObject);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
-        if (other.tag == "KillZone"||other.tag=="Bullet")
+        else if(other.tag == "Bullet")
         {
-            
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+       else if (other.tag == "KillZone")
+        {
+
             Destroy(gameObject);
         }
         
@@ -45,8 +51,4 @@ public class bomberMissile : EnemyBullet
         }
     }
 
-    private void OnDestroy()
-    {
-        Instantiate(explosion, transform.position, transform.rotation);
-    }
 }

@@ -160,10 +160,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
             {
                 GetComponent<Animator>().SetTrigger("Stege out");
             }
-            else
-            {
-                gameObject.SetActive(false);
-            }
+          
            
         }
     }
