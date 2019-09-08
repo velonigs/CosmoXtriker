@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class lastbattle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    GameObject sentinel;
     void Start()
     {
-        
+        sentinel.SetActive(true);
     }
 
     // Update is called once per frame
