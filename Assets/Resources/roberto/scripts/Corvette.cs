@@ -26,7 +26,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
      int health = 300;
     public int currentHealth;
     [SerializeField] float offset;
-
+    CorvetteLaser corvetteLaser;
+    bool death;
+    public bool corvette1;
     //attack文字列によって攻撃は違う
     public bool missileAttack
     {
@@ -48,6 +50,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
         currentAttack = "";
         player = PlayerController.instance.transform;
         changeFase("laser");
+        corvetteLaser = GetComponent<CorvetteLaser>();
 
     }
 
@@ -104,9 +107,16 @@ public class Corvette : MonoBehaviour, ITakeDamage
     //攻撃タイプを変更する
     public void changeFase(string faseTochange)
     {
-       
-        currentAttack = faseTochange;
-        attack = currentAttack;
+        if (corvetteLaser != null)
+        {
+            if (!corvetteLaser.Shot)
+            {
+                currentAttack = faseTochange;
+                attack = currentAttack;
+            }
+        }
+      
+        
         if (attack == "laser")
         {
             laserCannon.canMove = true;
@@ -139,10 +149,22 @@ public class Corvette : MonoBehaviour, ITakeDamage
         }
         if (currentHealth <= 0)
         {
+            if (!death)
+            {
+                death = true;
+                Instantiate(explosion, transform.position, transform.rotation);
+                spawnDebrids(debritsNumberToSpawn);
+            }
+
+            if (corvette1)
+            {
+                GetComponent<Animator>().SetTrigger("Stege out");
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
            
-            Instantiate(explosion, transform.position, transform.rotation);
-            spawnDebrids(debritsNumberToSpawn);
-            gameObject.SetActive(false);
         }
     }
     public void spawnDebrids(int num)

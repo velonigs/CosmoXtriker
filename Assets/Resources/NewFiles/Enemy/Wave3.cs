@@ -122,5 +122,13 @@ public class Wave3 : MonoBehaviour
         /* Destroyer起動 */
         Destroyer.SetActive(true);
         planetanim.SetBool("planettrigger", true);
+        while (true)
+        {
+            if(Destroyer.activeSelf == false)
+            {
+                planetanim.SetBool("planettrigger", false);
+                break;
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
    private float IdouX;
      private float IdouY;
     private float IdouZ;
-   
+    bool death;
 
     public int HP = 20;
 
@@ -77,10 +77,15 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
 
         if (HP <= 0)
         {
+            if (!death)
+            {
+                death = true;
+                Instantiate(Explode, transform.position, transform.rotation); //現在位置にエフェクト生成
+                                                                              //ゴミを作る
+                spawnDebrids(debritsNumberToSpawn);
+            }
            
-            Instantiate(Explode, transform.position, transform.rotation); //現在位置にエフェクト生成
-                                                                          //ゴミを作る
-            spawnDebrids(debritsNumberToSpawn);
+           
             gameObject.SetActive(false); //HP無くなったらDestroyの代わり、処理的にのうほうが安い
         }
     }

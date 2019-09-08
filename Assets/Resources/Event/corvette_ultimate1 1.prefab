@@ -1414,6 +1414,7 @@ GameObject:
   - component: {fileID: 713069806573273649}
   - component: {fileID: 5187064311223879955}
   - component: {fileID: 8009691770209713929}
+  - component: {fileID: 3757846662609250103}
   m_Layer: 0
   m_Name: corvette_ultimate1 1
   m_TagString: Corvette
@@ -1470,7 +1471,6 @@ MonoBehaviour:
   moveY: 0
   moveZ: -0.02
   distanceToPlayer: 0
-  battleRange: 100
   moveSpeed: 0.02
   changeMovementTimer: 5
   changeMovementCounter: 0
@@ -1501,9 +1501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserCannon: {fileID: 7758565052765854266}
-  laserLine: {fileID: 2920830328551817190}
-  RotationSpeed: 5
-  cannonLoadingTime: 3
   explosion: {fileID: 5048588642334010147, guid: e182a850e1fca4f4d924eb72bf01b4e3,
     type: 3}
   missileSpawnpoints:
@@ -1523,12 +1520,10 @@ MonoBehaviour:
   - {fileID: 3061364489619944041}
   - {fileID: 6709011993779633422}
   - {fileID: 3523922595206038038}
-  laserSpawnPoint: {fileID: 4782965015893478588}
   bulletsSpawnPoints:
   - {fileID: 5573893824973925019}
   - {fileID: 5573893823789885788}
   attackdelay: 3.5
-  laserAttackdelay: 5
   damageMultipler: 0.5
   missiles: {fileID: 5107167020904043361, guid: fb652323530e3da4ab840c18c21a50a5,
     type: 3}
@@ -1540,6 +1535,7 @@ MonoBehaviour:
   - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
   health: 750
   currentHealth: 0
+  offset: 0
 --- !u!54 &5168301953904430589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1600,6 +1596,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6016f331865ec9b489723fd515ff41fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3757846662609250103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782965015893512380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4153a5263072ea04fa3306fe92437903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charge: {fileID: 0}
+  laser: {fileID: 0}
+  Shot: 0
 --- !u!1 &4782965015893512382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,6 +4655,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4782965015893478590}
     m_Modifications:
+    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4709,22 +4725,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e197dcbb5929b04ebe281c3c2593cc8, type: 3}
 --- !u!4 &2920830328551817177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675949717004280853}
-  m_PrefabAsset: {fileID: 0}
---- !u!120 &2920830328551817190 stripped
-LineRenderer:
-  m_CorrespondingSourceObject: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
     type: 3}
   m_PrefabInstance: {fileID: 1675949717004280853}
   m_PrefabAsset: {fileID: 0}
@@ -4735,6 +4740,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5573893823786828770}
     m_Modifications:
+    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4798,11 +4808,6 @@ PrefabInstance:
     - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4820,6 +4825,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5573893825265926017}
     m_Modifications:
+    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4883,11 +4893,6 @@ PrefabInstance:
     - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
