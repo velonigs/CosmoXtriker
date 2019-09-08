@@ -110,7 +110,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
         if (attack == "laser")
         {
             laserCannon.canMove = true;
-            GetComponent<CorvetteLaser>().LaserActive();
+            CorvetteLaser laser= GetComponent<CorvetteLaser>();
+            if (laser != null)
+            {
+                laser.LaserActive();
+            }
         }
         
        
