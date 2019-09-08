@@ -2508,6 +2508,7 @@ MonoBehaviour:
   health: 750
   currentHealth: 0
   offset: 0
+  corvette1: 1
 --- !u!54 &3703191459571606069
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4714,9 +4715,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8859339364234039222}
     m_Modifications:
-    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_Name
+      value: laserBeamSample
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
@@ -4774,14 +4780,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
-      propertyPath: m_Name
-      value: laserBeamSample
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4993,9 +4994,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8859339365713130453}
     m_Modifications:
-    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_Name
+      value: laserBeamSample
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
@@ -5053,14 +5059,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+    - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
-      propertyPath: m_Name
-      value: laserBeamSample
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
