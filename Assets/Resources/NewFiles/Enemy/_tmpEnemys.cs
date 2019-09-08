@@ -79,6 +79,7 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
         {
             if (!death)
             {
+                death = true;
                 Instantiate(Explode, transform.position, transform.rotation); //現在位置にエフェクト生成
                                                                               //ゴミを作る
                 spawnDebrids(debritsNumberToSpawn);
