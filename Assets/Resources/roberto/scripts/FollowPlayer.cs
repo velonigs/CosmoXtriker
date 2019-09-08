@@ -35,7 +35,7 @@ public class FollowPlayer : MonoBehaviour
             if (distanceToPlayer <= followRange )
             {
 
-                this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, speed*Time.deltaTime);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, speed);
              
             }
             else
