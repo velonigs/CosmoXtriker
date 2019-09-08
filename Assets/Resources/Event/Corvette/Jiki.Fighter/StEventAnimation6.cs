@@ -8,18 +8,19 @@ public class StEventAnimation6 : MonoBehaviour
 
     GameObject Corvette6;
 
-    CorvetteAnimation script;
+    CorvetteAnimation6 script;
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
         Corvette6 = GameObject.Find("corvette_ultimate2");
-        script = Corvette6.GetComponent<CorvetteAnimation>();
+        script = Corvette6.GetComponent<CorvetteAnimation6>();
     }
 
     // Update is called once per frame
     void Animationend()
     {
+        if(script!=null)
         script.EndAnimation();
     }
 }
