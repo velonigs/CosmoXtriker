@@ -6144,7 +6144,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 10000
+  far clip plane: 100000
   field of view: 30
   orthographic: 0
   orthographic size: 5
@@ -6912,6 +6912,7 @@ MonoBehaviour:
   minValue: -0.1
   MaxValue: 0.1
   moveZ: -0.2
+  attackdelay: 1
 --- !u!1 &1954416854142684508 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3106090903002353593, guid: 7020e755a9c77c74e834e777cac0e033,
