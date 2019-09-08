@@ -14,9 +14,11 @@ public class Wave3 : MonoBehaviour
     // Corvette Wave6時
     [SerializeField]
     GameObject Corvette6;
-    // Destroyer
     [SerializeField]
-    GameObject Destroyer;
+    GameObject CorvetteEvent6;
+    //Asteroid Event
+    [SerializeField]
+    GameObject Asteroid;
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
@@ -41,23 +43,30 @@ public class Wave3 : MonoBehaviour
                 Corvette3.GetComponent<Animator>().enabled = true;
                 Corvette3.GetComponent<Animator>().SetBool("Corvette3", true); 
 
-                //Animatorの終わりでCorvette3.csをActiveにするので、それまで待機
+                /*//Animatorの終わりでCorvette3.csをActiveにするので、それまで待機
                 while (Corvette3.GetComponent<Corvette>().enabled == false)
                 {
                     yield return new WaitForEndOfFrame();
-                }
+                }*/
             }
             if (currentWave == 2)
             {
                 //corvette Event ProのAnimator起動
                 CorvetteEvent3.GetComponent<Animator>().enabled = true;
+                Corvette3.GetComponent<Animator>().SetBool("Corvette3", false);
             }
             if (currentWave == 5)
             {
-                Corvette6.SetActive(true);
+                //シーンにいるCorvetteのAnimatorを起動
                 Corvette6.GetComponent<Animator>().enabled = true;
-                Corvette6.GetComponent<Animator>().SetBool("Corvette3", true);
-                Corvette3.GetComponent<Animator>().SetBool("Corvette6", true);
+                Corvette6.GetComponent<Animator>().SetBool("Corvette6", true);
+                Corvette3.GetComponent<Animator>().SetTrigger("Stege out");
+            }
+            if (currentWave == 6)
+            {
+                //corvette Event ProのAnimator起動
+                Corvette6.GetComponent<Animator>().SetBool("Corvette6", false);
+                CorvetteEvent6.GetComponent<Animator>().enabled = true;
             }
 
             //Waveを作成する,プレイヤーのポジションｘとｙと同じ講座
@@ -72,11 +81,16 @@ public class Wave3 : MonoBehaviour
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = true;
             }
+            //AsteroidEventPro 仮設置
+            if ( currentWave == 3)
+            {
+                Asteroid.GetComponent<Animator>().enabled = true;
+            }
             //Waveが9になったらDebrisPopをオフに
             if (currentWave == 8)
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
-                Corvette6.GetComponent<Animator>().SetBool("Corvette6", true);
+                Corvette6.GetComponent<Animator>().SetTrigger("Stege out");
             }
             
             
@@ -103,6 +117,5 @@ public class Wave3 : MonoBehaviour
             yield return null;
         }
         /* Destroyer起動 */
-        Destroyer.SetActive(true);
     }
 }

@@ -15,6 +15,10 @@ public class DebrisPop : MonoBehaviour
 [SerializeField] float appearNextTime;
 //この場所から出現する敵の数
 [SerializeField] int maxNumOfEnemys;
+//Asteroidイベントの座標
+GameObject Asteroid;
+//Asteroidスクリプト用
+AsteroidAnimation Script;
 //　今何人の敵を出現させたか
 private int numberOfEnemys;
 //  待ち時間計測フィールド
@@ -22,6 +26,9 @@ private float elapsedTime;
     // Start is called before the first frame update
     void Start()
     {
+        Asteroid = GameObject.Find("Asteroid belt Event Pro");
+        Script = Asteroid.GetComponent<AsteroidAnimation>();
+        Script.DebriStart();
         numberOfEnemys = 0;
         elapsedTime = 0f;
     }
