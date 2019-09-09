@@ -60,7 +60,7 @@ public class Wave3 : MonoBehaviour
             }
             if (currentWave == 5)
             {
-                Corvette6.SetActive(true);
+               // Corvette6.SetActive(true);
                 //シーンにいるCorvetteのAnimatorを起動
               /*  Corvette6.GetComponent<Animator>().enabled = true;
                 Corvette6.GetComponent<Animator>().SetBool("Corvette6", true);
