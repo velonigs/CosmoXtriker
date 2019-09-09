@@ -5,7 +5,8 @@ using UnityEngine;
 public class Corvette : MonoBehaviour, ITakeDamage
 {
     [SerializeField] CannonMovement laserCannon;
-    [SerializeField] GameObject explosion;
+    [SerializeField] GameObject explosion,Corvette6;
+    
     //attackポジション
     [SerializeField] Transform[] missileSpawnpoints;
     [SerializeField] Transform[] bulletsSpawnPoints;
@@ -48,8 +49,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
        laserCannon = GameObject.Find("mobileCannoX").GetComponent<CannonMovement>();
         currentHealth = health;
         currentAttack = "";
+        if(PlayerController.instance!=null)
         player = PlayerController.instance.transform;
-        changeFase("laser");
+        changeFase("bullet");
         corvetteLaser = GetComponent<CorvetteLaser>();
 
     }
@@ -151,15 +153,22 @@ public class Corvette : MonoBehaviour, ITakeDamage
         {
             if (!death)
             {
-                death = true;
-                Instantiate(explosion, transform.position, transform.rotation);
-                spawnDebrids(debritsNumberToSpawn);
+                if (corvette1)
+                {
+                    GetComponent<Animator>().SetTrigger("Stege out");
+                    Corvette6.SetActive(true);
+                }
+                else
+                {
+                    death = true;
+                    Instantiate(explosion, transform.position, transform.rotation);
+                    spawnDebrids(debritsNumberToSpawn);
+                    gameObject.SetActive(false);
+                }
+               
             }
 
-            if (corvette1)
-            {
-                GetComponent<Animator>().SetTrigger("Stege out");
-            }
+           
           
            
         }
@@ -192,6 +201,6 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
     private void OnEnable()
     {
-        changeFase("laser");
+        changeFase("missile");
     }
 }
