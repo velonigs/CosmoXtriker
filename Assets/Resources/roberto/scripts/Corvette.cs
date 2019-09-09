@@ -161,9 +161,10 @@ public class Corvette : MonoBehaviour, ITakeDamage
                 else
                 {
                     death = true;
-                    Instantiate(explosion, transform.position, transform.rotation);
+                    /*Instantiate(explosion, transform.position, transform.rotation);
                     spawnDebrids(debritsNumberToSpawn);
-                    gameObject.SetActive(false);
+                    gameObject.SetActive(false);*/
+                    GetComponent<Animator>().SetTrigger("end");
                 }
                
             }
@@ -203,4 +204,6 @@ public class Corvette : MonoBehaviour, ITakeDamage
     {
         changeFase("missile");
     }
+
+    
 }

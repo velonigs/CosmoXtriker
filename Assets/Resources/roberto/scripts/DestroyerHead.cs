@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyerHead :_tmpEnemys
+public class DestroyerHead :MonoBehaviour
 {
     [SerializeField] float chageAttackTimer = 10f;
     [SerializeField]
@@ -17,7 +17,7 @@ public class DestroyerHead :_tmpEnemys
     DestroyerCannonAttack[] cannons;
     int bulletCount,missileCount;
     float fireCounter;
-    
+    Corvette[] allcorvette;
 
     public enum attackType { bullet,missile}
     public attackType Type;
@@ -32,6 +32,15 @@ public class DestroyerHead :_tmpEnemys
     {
         fireCounter = fireRate;
         cannons = FindObjectsOfType<DestroyerCannonAttack>();
+        allcorvette = FindObjectsOfType<Corvette>();
+        if (allcorvette != null)
+        {
+            foreach(var cor in allcorvette)
+            {
+                cor.GetComponent<Animator>().SetTrigger("end");
+            }
+
+        }
     }
     private void Update()
     {
