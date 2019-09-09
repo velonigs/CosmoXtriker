@@ -877,6 +877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1678784445235411504}
+  - component: {fileID: 1678784445235242513}
   - component: {fileID: 1678784445225882700}
   - component: {fileID: 1678784443588852607}
   - component: {fileID: 1678784443588852605}
@@ -884,7 +885,6 @@ GameObject:
   - component: {fileID: 2729018619085844251}
   - component: {fileID: 605717123218515660}
   - component: {fileID: 360620409089649603}
-  - component: {fileID: 1678784445235242513}
   m_Layer: 9
   m_Name: sentinel_Complete_Roberto
   m_TagString: Enemy
@@ -914,6 +914,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678784445235242513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678784445235242512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8fd6975d1cbdc4c8698b27dd3d153b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatespeed: 1.2
+  hight: 0
+  speed: 5
+  acuracy: 0.1
+  boost: {fileID: 1649890857602724729}
 --- !u!95 &1678784445225882700
 Animator:
   serializedVersion: 3
@@ -1046,23 +1063,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireDelay: 1
   fire: 0
---- !u!114 &1678784445235242513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678784445235242512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8fd6975d1cbdc4c8698b27dd3d153b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotatespeed: 1.2
-  hight: 10
-  speed: 5
-  acuracy: 0.1
-  boost: {fileID: 1649890857602724729}
 --- !u!1 &1678784445235242514
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,11 +5598,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1649890857602724728}
     m_Modifications:
-    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
-        type: 3}
-      propertyPath: m_Name
-      value: FLeaderAfterBurner
-      objectReference: {fileID: 0}
     - target: {fileID: 1274553592090292271, guid: c1c817bb090d8d44aa90d42626a76093,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5668,6 +5663,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20000012
       objectReference: {fileID: 0}
+    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
+        type: 3}
+      propertyPath: m_Name
+      value: FLeaderAfterBurner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c817bb090d8d44aa90d42626a76093, type: 3}
 --- !u!4 &528479452516673372 stripped
@@ -5683,11 +5683,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1649890857602724728}
     m_Modifications:
-    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
-        type: 3}
-      propertyPath: m_Name
-      value: FLeaderAfterBurner (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1274553592090292271, guid: c1c817bb090d8d44aa90d42626a76093,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5752,6 +5747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.20000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
+        type: 3}
+      propertyPath: m_Name
+      value: FLeaderAfterBurner (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c817bb090d8d44aa90d42626a76093, type: 3}
