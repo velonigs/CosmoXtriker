@@ -15,7 +15,7 @@ public class EnemyHealthManager : MonoBehaviour,ITakeDamage
         if (health <= 0)
         {
             Instantiate(effect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
