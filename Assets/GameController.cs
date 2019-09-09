@@ -11,11 +11,11 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     private VehicleController _vehicle;
 
-    [SerializeField]
-    private GameObject _equipmentCanvas;
-
     //[SerializeField]
-    //private GameObject Credit_Manager;
+    //private GameObject _equipmentCanvas;
+
+    [SerializeField]
+    private GameObject Credit_Manager;
 
     private bool _equipmentCanvasFlg = false;
 
@@ -32,14 +32,14 @@ public class GameController : MonoBehaviour {
 
     void Update() {
 
-        //if (Credit_Manager.activeSelf == false)
-        //{
-        //    _flg1 = true;
-        //}
+        if (Credit_Manager.activeSelf == false)
+        {
+            _flg1 = true;
+        }
 
-        if (_departureFlg) {
+        if (_departureFlg && _flg1) {
             _vehicle.IsAction = VehicleController.VehicleControlStatus.Action;
-            //Credit_Manager.SetActive(true);
+            Credit_Manager.SetActive(true);
             _flg1 = false;
         }
 
