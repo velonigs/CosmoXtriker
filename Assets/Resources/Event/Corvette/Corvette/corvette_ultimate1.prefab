@@ -2475,6 +2475,7 @@ MonoBehaviour:
   laserCannon: {fileID: 2267258889419798002}
   explosion: {fileID: 5048588642334010147, guid: e182a850e1fca4f4d924eb72bf01b4e3,
     type: 3}
+  Corvette6: {fileID: 0}
   missileSpawnpoints:
   - {fileID: 1379090692757239628}
   - {fileID: 8618674558890406996}
@@ -4860,20 +4861,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5362818704484576001, guid: 7020e755a9c77c74e834e777cac0e033,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3351614460079060997, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.23
       objectReference: {fileID: 0}
-    - target: {fileID: 6666232334998412931, guid: 7020e755a9c77c74e834e777cac0e033,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8645834911241617918, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.914
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335426036463305001, guid: 7020e755a9c77c74e834e777cac0e033,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.15169637
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335426036463305001, guid: 7020e755a9c77c74e834e777cac0e033,
+        type: 3}
+      propertyPath: m_Height
+      value: 28.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335426036463305001, guid: 7020e755a9c77c74e834e777cac0e033,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -14.6
       objectReference: {fileID: 0}
     - target: {fileID: 2730401777794748322, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
@@ -4897,11 +4913,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2730401777794748322, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2730401777794748322, guid: 7020e755a9c77c74e834e777cac0e033,
-        type: 3}
       propertyPath: ShapeModule.radiusThickness
       value: 0
       objectReference: {fileID: 0}
@@ -4909,11 +4920,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.radius.value
       value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2730401777794748322, guid: 7020e755a9c77c74e834e777cac0e033,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2730401777794748322, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
@@ -4935,25 +4941,10 @@ PrefabInstance:
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6335426036463305001, guid: 7020e755a9c77c74e834e777cac0e033,
+    - target: {fileID: 4656770723260214254, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.15169637
-      objectReference: {fileID: 0}
-    - target: {fileID: 6335426036463305001, guid: 7020e755a9c77c74e834e777cac0e033,
-        type: 3}
-      propertyPath: m_Height
-      value: 28.000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 6335426036463305001, guid: 7020e755a9c77c74e834e777cac0e033,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -14.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212912001349729656, guid: 7020e755a9c77c74e834e777cac0e033,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: InitialModule.maxNumParticles
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7020e755a9c77c74e834e777cac0e033, type: 3}
