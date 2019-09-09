@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4608845246048098764}
   m_Layer: 0
   m_Name: eventBulletBluer
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1587858259456388926}
     m_Modifications:
+    - target: {fileID: 1452043023141516, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
+      propertyPath: m_Name
+      value: BulletBlueSparkleSFX
+      objectReference: {fileID: 0}
     - target: {fileID: 4466262414135954, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -188,10 +192,6 @@ PrefabInstance:
     - target: {fileID: 4466262414135954, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
       propertyPath: m_LocalScale.y
       value: 6.634
-      objectReference: {fileID: 0}
-    - target: {fileID: 1452043023141516, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
-      propertyPath: m_Name
-      value: BulletBlueSparkleSFX
       objectReference: {fileID: 0}
     - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
