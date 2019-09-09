@@ -5751,6 +5751,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8905626077761819771, guid: a6ec660f875be454780070bf8b46d5fe,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8905626077761819771, guid: a6ec660f875be454780070bf8b46d5fe,
+        type: 3}
+      propertyPath: HP
+      value: 2000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ec660f875be454780070bf8b46d5fe, type: 3}
 --- !u!1 &1708488914 stripped
@@ -11013,7 +11023,7 @@ MonoBehaviour:
   - {fileID: 6688642594866224271, guid: a2bbce967c7abcf4bba5741ece1c8a3b, type: 3}
   - {fileID: 2728130291642302206, guid: 8949986726f4c89429dadb1d14e75f90, type: 3}
   - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
-  health: 2500
+  health: 1200
   currentHealth: 0
   offset: 0
   corvette1: 0
