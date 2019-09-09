@@ -20,7 +20,8 @@ public class Wave3 : MonoBehaviour
     [SerializeField]
     GameObject Asteroid;
     [SerializeField]
-    GameObject Destroyer;
+    GameObject Destroyerbody;
+    Animator destroyeranim;
     Animator planetanim;
     // Waveプレハブを収納する
     public GameObject[] waves;
@@ -33,6 +34,7 @@ public class Wave3 : MonoBehaviour
     {
         this.Debri = GameObject.Find("Debri Sponner");
         planetanim = GameObject.Find("PlanetScalePivot").transform.GetComponent<Animator>();
+        destroyeranim = GameObject.Find("DestroyerComplete2").transform.GetComponent<Animator>();
         StartCoroutine(StartWave());
     }
 
@@ -107,16 +109,12 @@ public class Wave3 : MonoBehaviour
             yield return null;
         }
         /* Destroyer起動 */
-        Destroyer.SetActive(true);
+        destroyeranim.enabled = true;
         planetanim.SetBool("planettrigger", true);
-        //危ない処理をコメントアウト
-        /* while (true)
-        {
-            if(Destroyer.activeSelf == false)
-            {
-                planetanim.SetBool("planettrigger", false);
-                break;
-            }
-        }*/
+    }
+    void Update(){
+    if(Destroyerbody.activeSelf == false){
+        planetanim.SetBool("planettrigger2", true);
+        }
     }
 }
