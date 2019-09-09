@@ -37,6 +37,7 @@ public class LeftCannonRotation : MonoBehaviour {
             if (_lhit.collider.gameObject.tag == "Enemy")
             {
                 _pos2 = _lhit.point;
+                break;
             }
             else if(_lhit.collider.gameObject.tag == "Debris"){
                 _pos2 = _lhit.point;

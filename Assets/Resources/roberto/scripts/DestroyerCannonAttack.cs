@@ -37,7 +37,9 @@ public class DestroyerCannonAttack : MonoBehaviour,ITakeDamage
         Health -= damage;
         if (Health <= 0)
         {
-            DestroyerHead.instance.takeDamage(50);
+            EnemyHealthManager health = GetComponent<EnemyHealthManager>();
+            if(health!=null)
+            health.takeDamage(50);
             Instantiate(explosion, firepoints[0].position, transform.rotation);
             gameObject.SetActive(false);
         }

@@ -14,8 +14,8 @@ public class Wave3 : MonoBehaviour
     // Corvette Wave6時
     [SerializeField]
     GameObject Corvette6;
-    [SerializeField]
-    GameObject CorvetteEvent6;
+   // [SerializeField]
+   // GameObject CorvetteEvent6;
     //Asteroid Event
     [SerializeField]
     GameObject Asteroid;
@@ -60,20 +60,7 @@ public class Wave3 : MonoBehaviour
                 CorvetteEvent3.GetComponent<Animator>().enabled = true;
                 Corvette3.GetComponent<Animator>().SetBool("Corvette3", false);
             }
-            if (currentWave == 5)
-            {
-                //シーンにいるCorvetteのAnimatorを起動
-                Corvette6.GetComponent<Animator>().enabled = true;
-                Corvette6.GetComponent<Animator>().SetBool("Corvette6", true);
-                Corvette3.GetComponent<Animator>().SetTrigger("Stege out");
-            }
-            if (currentWave == 6)
-            {
-                //corvette Event ProのAnimator起動
-                Corvette6.GetComponent<Animator>().SetBool("Corvette6", false);
-                CorvetteEvent6.GetComponent<Animator>().enabled = true;
-            }
-
+          
             //Waveを作成する,プレイヤーのポジションｘとｙと同じ講座
             GameObject wave = (GameObject)Instantiate(waves[currentWave], new Vector3(PlayerController.instance.transform.position.x, PlayerController.instance.transform.position.y, waves[currentWave].transform.position.z)
             , Quaternion.identity);
@@ -92,10 +79,10 @@ public class Wave3 : MonoBehaviour
                 Asteroid.GetComponent<Animator>().enabled = true;
             }
             //Waveが9になったらDebrisPopをオフに
-            if (currentWave == 8)
+            if (currentWave == 7)
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
-                Corvette6.GetComponent<Animator>().SetTrigger("Stege out");
+               // Corvette6.GetComponent<Animator>().SetTrigger("Stege out");
             }
 
 
@@ -114,7 +101,7 @@ public class Wave3 : MonoBehaviour
             {
                 currentWave = 0;
             }*/
-            if (currentWave == 10)
+            if (currentWave == 8)
             {
                 break;
             }
