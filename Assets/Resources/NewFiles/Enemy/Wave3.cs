@@ -44,19 +44,13 @@ public class Wave3 : MonoBehaviour
             {
                 //シーンにいるCorvetteのAnimatorを起動
                 Corvette3.GetComponent<Animator>().enabled = true;
-                Corvette3.GetComponent<Animator>().SetBool("Corvette3", true);
-
-                /*//Animatorの終わりでCorvette3.csをActiveにするので、それまで待機
-                while (Corvette3.GetComponent<Corvette>().enabled == false)
-                {
-                    yield return new WaitForEndOfFrame();
-                }*/
+          
             }
             if (currentWave == 2)
             {
                 //corvette Event ProのAnimator起動
                 CorvetteEvent3.GetComponent<Animator>().enabled = true;
-                Corvette3.GetComponent<Animator>().SetBool("Corvette3", false);
+                
             }
           
             //Waveを作成する,プレイヤーのポジションｘとｙと同じ講座

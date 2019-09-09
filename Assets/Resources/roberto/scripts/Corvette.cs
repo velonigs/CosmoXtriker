@@ -153,19 +153,18 @@ public class Corvette : MonoBehaviour, ITakeDamage
         {
             if (!death)
             {
+                death = true;
                 if (corvette1)
                 {
-                    GetComponent<Animator>().SetTrigger("Stege out");
+                    
                     Corvette6.SetActive(true);
                 }
-                else
-                {
-                    death = true;
-                    /*Instantiate(explosion, transform.position, transform.rotation);
-                    spawnDebrids(debritsNumberToSpawn);
-                    gameObject.SetActive(false);*/
+               
+                   
+                  
                     GetComponent<Animator>().SetTrigger("end");
-                }
+
+            }
                
             }
 
@@ -173,7 +172,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
           
            
         }
-    }
+    
     public void spawnDebrids(int num)
     {
         for (int i = 0; i < num; i++)
@@ -205,5 +204,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
         changeFase("missile");
     }
 
+    public void heal()
+    {
+        currentHealth = health;
+    }
     
 }
