@@ -39,7 +39,7 @@ public class Title : MonoBehaviour
     IEnumerator EquipmentPanel() {
         _equipmentFlg = true;
         yield return new WaitForSeconds(0.5f);
-        _equipment.SetActive(true);
+        //_equipment.SetActive(true);
         _weaponSelecter.SetActive(true);
     }
 }

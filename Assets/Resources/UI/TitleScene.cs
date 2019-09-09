@@ -41,7 +41,7 @@ public class TitleScene : MonoBehaviour {
         alfa += fadeSpeed;
         SetAlpha();
         if (alfa >= 1) {
-            SceneManager.LoadScene("CosmoTutorial");
+            SceneManager.LoadScene("CosmoXtriker.ver0");
             isFadeOut = false;
         }
     }

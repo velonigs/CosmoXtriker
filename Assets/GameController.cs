@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.Video;
 
 /// <summary>
 /// ゲーム内のイベントなどを起動させる
@@ -13,19 +14,42 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     private GameObject _equipmentCanvas;
 
+    [SerializeField]
+    private GameObject Credit_Manager;
+
     private bool _equipmentCanvasFlg = false;
-    
-    void Start () {
-        _equipmentCanvasFlg = _equipmentCanvas.activeSelf;
+
+    private bool _departureFlg = false;
+    private bool _flg1 = false;
+
+    void Start() {
+
+        
+        StartCoroutine(WaitTime());
+
     }
 
-    
-    void Update () {
-        if (_equipmentCanvas.activeSelf == false && _equipmentCanvasFlg != _equipmentCanvas.activeSelf) {
-            _vehicle.IsAction = VehicleController.VehicleControlStatus.Action;
+
+    void Update() {
+
+        if (Credit_Manager.activeSelf == false)
+        {
+            _flg1 = true;
         }
 
-        _equipmentCanvasFlg = _equipmentCanvas.activeSelf;
+        if (_departureFlg && _flg1) {
+            _vehicle.IsAction = VehicleController.VehicleControlStatus.Action;
+            Credit_Manager.SetActive(true);
+            _flg1 = false;
+        }
 
+        
+
+    }
+
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(17.0f);
+        _departureFlg = true;
     }
 }

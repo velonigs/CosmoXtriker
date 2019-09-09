@@ -54,7 +54,7 @@ public class EventDirector : MonoBehaviour {
     private GameObject _strikerHorogram;
 
     void Start() {
-        
+
     }
 
     void Update() {
@@ -86,6 +86,9 @@ public class EventDirector : MonoBehaviour {
             _hangerHatchUp.transform.position += new Vector3(0, 0.05f, 0);
             _hangerHatchDown.transform.position += new Vector3(0, -0.05f, 0);
             yield return null;
+            
+            var audioSource = GameObject.Find("Thruster").GetComponent<AudioSource>();
+                audioSource.Play();
         }
 
         Destroy(_hangerHatchUp);
@@ -149,6 +152,8 @@ public class EventDirector : MonoBehaviour {
         if (_selectListNum < _transLists.Count) {
             if (_hatchFlg) {
                 StartCoroutine(OpenHatch());
+                var audioSource2 = GameObject.Find("UpDoor").GetComponent<AudioSource>();
+                audioSource2.Play();
             } else {
                 StartCoroutine(StartActionCoroutine());
             }
