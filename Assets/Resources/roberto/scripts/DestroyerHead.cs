@@ -85,4 +85,10 @@ public class DestroyerHead :MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+        GameObject planet = GameObject.Find("PlanetScalePivot").gameObject;
+        planet.GetComponent<Animator>().SetBool("planettrigger",false);
+    }
+
 }
