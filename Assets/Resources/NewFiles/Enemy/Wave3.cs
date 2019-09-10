@@ -21,8 +21,13 @@ public class Wave3 : MonoBehaviour
     GameObject Asteroid;
     [SerializeField]
     GameObject Destroyerbody;
+    //Destroyerのアニメーション
     Animator destroyeranim;
+    //SpaceStationのアニメーション
     Animator planetanim;
+    //Corvetteスクリプト
+    Corvette corvette3script;
+    Corvette corvette6script;
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
@@ -32,6 +37,7 @@ public class Wave3 : MonoBehaviour
 
     void Start()
     {
+        corvette3script = Corvette3.GetComponent<Corvette>();
         this.Debri = GameObject.Find("Debri Sponner");
         planetanim = GameObject.Find("PlanetScalePivot").transform.GetComponent<Animator>();
         destroyeranim = GameObject.Find("DestroyerComplete2").transform.GetComponent<Animator>();
@@ -46,8 +52,32 @@ public class Wave3 : MonoBehaviour
             {
                 //シーンにいるCorvetteのAnimatorを起動
                 Corvette3.GetComponent<Animator>().enabled = true;
-          
+                    //コルベットの当たり判定が出るまでWaveを止める
+                    while(Corvette3.GetComponent<BoxCollider>().enabled == false){
+                        yield return new WaitForEndOfFrame();
+                    }
             }
+
+            if (currentWave == 6){
+                //一機目のコルベット殺
+                if(corvette3script.currentHealth >= 0 && Corvette6.activeSelf == false){
+                corvette3script.currentHealth -= 750;
+                }
+                //退場するまで（意図として二機目が定位置に付くまで）Waveを止める
+                while(Corvette3.activeSelf == true){
+                    yield return new WaitForEndOfFrame();
+                }
+            }
+
+            //Corvette3が死んだ地点でCorvette6を沸かせるため
+            if(corvette3script.currentHealth <= 0 && Corvette3.activeSelf == true){
+                while(Corvette6.GetComponent<BoxCollider>().enabled == false){
+                    yield return new WaitForEndOfFrame();
+                }
+                //Corvette6のHP取得用
+                corvette6script = Corvette6.GetComponent<Corvette>();
+            }
+
             if (currentWave == 2)
             {
                 //corvette Event ProのAnimator起動
@@ -62,17 +92,14 @@ public class Wave3 : MonoBehaviour
             //WaveをEmitterの子要素にする
             wave.transform.parent = transform;
 
-            //Waveが5になったらDebrisPopをオンに
-            if (currentWave == 4)
-            {
-                this.Debri.GetComponent<DebrisPop>().enabled = true;
-            }
+            //Waveが4になったらDebrisPopをオンに
             //AsteroidEventPro 仮設置
             if (currentWave == 3)
             {
+                this.Debri.GetComponent<DebrisPop>().enabled = true;
                 Asteroid.GetComponent<Animator>().enabled = true;
             }
-            //Waveが9になったらDebrisPopをオフに
+            //Waveが8になったらDebrisPopをオフに
             if (currentWave == 7)
             {
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
@@ -95,8 +122,11 @@ public class Wave3 : MonoBehaviour
             {
                 currentWave = 0;
             }*/
-            if (currentWave == 8)
-            {
+            if (currentWave == 10){
+                //二機目のコルベット殺
+                if(Corvette6.activeSelf == true && corvette6script.currentHealth >= 0){
+                corvette6script.currentHealth -= 750;
+                }
                 break;
             }
 
