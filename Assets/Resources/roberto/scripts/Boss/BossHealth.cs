@@ -7,7 +7,7 @@ public class BossHealth : MonoBehaviour, ITakeDamage
 {
     //そとから呼び出すため
     public static BossHealth instance;
-    
+    [SerializeField] GameObject sceneLoader;
     //イベントです、このイベントが呼ばれた時に他のスクリプトから
     //色々な機能が動く、intはIDです。番号に沿って機能は行動する
     public event Action<int> healthIsLess;
@@ -88,7 +88,7 @@ public class BossHealth : MonoBehaviour, ITakeDamage
             int rand = UnityEngine.Random.Range(0, debris.Length);
             Instantiate(debris[rand], new Vector3(transform.position.x+randx, transform.position.y + 5+randy, transform.position.z + randz), transform.rotation);
         }
-        
+        sceneLoader.SetActive(true);
         gameObject.SetActive(false);
     }
 
@@ -100,4 +100,5 @@ public class BossHealth : MonoBehaviour, ITakeDamage
         }
   
     }
+
 }

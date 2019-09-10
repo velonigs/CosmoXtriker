@@ -6,12 +6,12 @@ public class SceneLoader : MonoBehaviour
 {
     public string sceneToLoad;
     public string mainMenu;
-
+   
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            goToMainMenu();
+           goToMainMenu();
         }
     }
     public void loadScene()
