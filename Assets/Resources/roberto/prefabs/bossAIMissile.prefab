@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3964116300689659203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.316986, y: 39.12158, z: -4.449559}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 500, y: 500, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
-  velocity: 0.6
+  velocity: 1
   rotateSpeed: 1
   damage: 10
-  veloctyMultipler: 50
+  veloctyMultipler: 100
 --- !u!65 &7417399404310686414
 BoxCollider:
   m_ObjectHideFlags: 0
