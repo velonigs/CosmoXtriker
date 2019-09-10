@@ -5,9 +5,7 @@ using UnityEngine;
 public class Corvette : MonoBehaviour, ITakeDamage
 {
 
-   
-
-    [SerializeField] CannonMovement laserCannon;
+  [SerializeField] CannonMovement laserCannon;
     [SerializeField] GameObject explosion,Corvette6;
     
     //attackポジション
@@ -23,9 +21,9 @@ public class Corvette : MonoBehaviour, ITakeDamage
     [SerializeField]
     private int debritsNumberToSpawn;//ゴミ数
     public GameObject[] debridsToSpawn;//ゴミprefab
-    string attack = "";
+    
    Transform player;
-    string currentAttack;
+   
     [SerializeField]
      int health = 300;
     public int currentHealth;
@@ -33,28 +31,17 @@ public class Corvette : MonoBehaviour, ITakeDamage
     CorvetteLaser corvetteLaser;
     bool death;
     public bool corvette1;
-    //attack文字列によって攻撃は違う
-    public bool missileAttack
-    {
-        get { return attack == "missile"; }
-    }
-    public bool bulletAttack
-    {
-        get { return attack == "bullet"; }
-    }
-    public bool laserAttack
-    {
-        get { return attack == "laser"; }
-    }  
+
+    public enum attackType { missile, bullet,lase}
+    public attackType attack;
     // Start is called before the first frame update
     void Start()
     {
        laserCannon = GameObject.Find("mobileCannoX").GetComponent<CannonMovement>();
         currentHealth = health;
-        currentAttack = "";
+       
         if(PlayerController.instance!=null)
         player = PlayerController.instance.transform;
-        changeFase("bullet");
         corvetteLaser = GetComponent<CorvetteLaser>();
         CorvetteLaser.afterLaser += randomChange;
 
@@ -64,9 +51,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     void Update()
     {
 
-        //攻撃タイプはレーサーじゃなければ
-        if (attack != "laser")
-        {
+        
             laserCannon.canMove = false;
             
             attackTimer -= Time.deltaTime;
@@ -74,15 +59,21 @@ public class Corvette : MonoBehaviour, ITakeDamage
             {
                 attackTimer = attackdelay;
 
-                if (bulletAttack)
-                {
-                    StartCoroutine(bulletFire());
-                }
-                else if (missileAttack)
-                {
-                    missileFire();
-                }
+            switch (attack)
+            {
+                case attackType.lase:
+                    laserCannon.canMove = true;
+                    CorvetteLaser laser = GetComponent<CorvetteLaser>();
+                    if (laser != null)
+                    {
+                        laser.LaserActive();
+                    }
+                    break;
+                case attackType.missile: missileFire(); laserCannon.canMove = false; break;
+                case attackType.bullet: StartCoroutine(bulletFire()); laserCannon.canMove = false; break;
             }
+
+
         }
     
    }
@@ -111,23 +102,10 @@ public class Corvette : MonoBehaviour, ITakeDamage
 
 
     //攻撃タイプを変更する
-    public void changeFase(string faseTochange)
+    public void changeFase(attackType type)
     {
-        
-                currentAttack = faseTochange;
-                attack = currentAttack;
-          
-       if (attack == "laser")
-        {
-            laserCannon.canMove = true;
-            CorvetteLaser laser= GetComponent<CorvetteLaser>();
-            if (laser != null)
-            {
-                laser.LaserActive();
-            }
-        }
-        
-       
+        attack = type;
+ 
     }
 
     public void takeDamage(int damageToTake)
@@ -138,13 +116,13 @@ public class Corvette : MonoBehaviour, ITakeDamage
         {
             Instantiate(explosion, transform.position, transform.rotation);
             //レーサー攻撃を使う
-            changeFase("laser");
+            changeFase(attack=attackType.lase);
             
         }
         if (currentHealth == 250)
         {
             Instantiate(explosion, transform.position, transform.rotation);
-            changeFase("laser");
+            changeFase(attack = attackType.lase);
 
         }
         if (currentHealth <= 0)
@@ -158,18 +136,13 @@ public class Corvette : MonoBehaviour, ITakeDamage
                     Corvette6.SetActive(true);
                 }
                
-                   
-                  
-                    GetComponent<Animator>().SetTrigger("end");
+                 GetComponent<Animator>().SetTrigger("end");
 
             }
                
             }
 
-           
-          
-           
-        }
+     }
     
     public void spawnDebrids(int num)
     {
@@ -207,16 +180,16 @@ public class Corvette : MonoBehaviour, ITakeDamage
     public void randomChange()
     {
         int num = Random.Range(0, 10);
-        string _newAtk = "";
+      
         if (num >= 5)
         {
-            _newAtk = "missile";
+            attack = attackType.bullet;
         }
         else
         {
-            _newAtk = "bullet";
+            attack = attackType.missile;
         }
-        currentAttack = _newAtk;
-        attack = currentAttack;
+       
+       
     }
 }
