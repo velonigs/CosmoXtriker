@@ -209,7 +209,7 @@ Light:
 --- !u!199 &6538224598850210404
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4801,7 +4801,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 484aa26a6ec4e4c469c3929da934ab91, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 943d00bac479861478e153f42f2f4815, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4947,6 +4947,7 @@ MonoBehaviour:
   damage: 5
   speedMultipler: 1
   bulletSpeed: 1
+  rotateSpeed: 1
 --- !u!135 &6374925589035353830
 SphereCollider:
   m_ObjectHideFlags: 0
