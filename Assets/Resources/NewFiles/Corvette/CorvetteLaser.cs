@@ -11,10 +11,15 @@ public class CorvetteLaser : MonoBehaviour
     public bool Shot;
     float chargeDealay=3;
     float shotTime = 5;
-   
+    float activingTime = 10;
     // Update is called once per frame
     void Update()
     {
+        activingTime -= Time.deltaTime;
+        if (activingTime <= 0) {
+            activingTime = 10;
+            Shot = true;
+        }
         if (Shot)
         {
             if(chargeDealay>0)
@@ -35,8 +40,7 @@ public class CorvetteLaser : MonoBehaviour
                 {
                     laser.SetActive(false);
                     Shot = false;
-                    if (afterLaser != null)
-                        afterLaser();
+                   
                 }
 
             }

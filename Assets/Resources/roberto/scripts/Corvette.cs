@@ -28,11 +28,10 @@ public class Corvette : MonoBehaviour, ITakeDamage
      int health = 300;
     public int currentHealth;
     [SerializeField] float offset;
-    CorvetteLaser corvetteLaser;
     bool death;
     public bool corvette1;
 
-    public enum attackType { missile, bullet,lase}
+    public enum attackType { missile, bullet}
     public attackType attack;
     // Start is called before the first frame update
     void Start()
@@ -42,39 +41,23 @@ public class Corvette : MonoBehaviour, ITakeDamage
        
         if(PlayerController.instance!=null)
         player = PlayerController.instance.transform;
-        corvetteLaser = GetComponent<CorvetteLaser>();
-        CorvetteLaser.afterLaser += randomChange;
-
+  
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        
-            laserCannon.canMove = false;
-            
-            attackTimer -= Time.deltaTime;
+          attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
+                randomChange(); 
                 attackTimer = attackdelay;
 
             switch (attack)
-            {
-                case attackType.lase:
-                    laserCannon.canMove = true;
-                    CorvetteLaser laser = GetComponent<CorvetteLaser>();
-                    if (laser != null)
-                    {
-                        laser.LaserActive();
-                    }
-                    break;
-                case attackType.missile: missileFire(); laserCannon.canMove = false; break;
+            {   case attackType.missile: missileFire(); laserCannon.canMove = false; break;
                 case attackType.bullet: StartCoroutine(bulletFire()); laserCannon.canMove = false; break;
             }
-
-
-        }
+       }
     
    }
 
@@ -105,8 +88,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
     public void changeFase(attackType type)
     {
         attack = type;
- 
-    }
+ }
 
     public void takeDamage(int damageToTake)
     {
@@ -116,13 +98,13 @@ public class Corvette : MonoBehaviour, ITakeDamage
         {
             Instantiate(explosion, transform.position, transform.rotation);
             //レーサー攻撃を使う
-            changeFase(attack=attackType.lase);
+            
             
         }
         if (currentHealth == 250)
         {
             Instantiate(explosion, transform.position, transform.rotation);
-            changeFase(attack = attackType.lase);
+            
 
         }
         if (currentHealth <= 0)
