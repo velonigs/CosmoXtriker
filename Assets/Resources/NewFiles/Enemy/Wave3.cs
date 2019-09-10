@@ -105,6 +105,8 @@ public class Wave3 : MonoBehaviour
             }
             //Waveが8になったらDebrisPopをオフに
             if (currentWave == 7){
+                var iokasute = transform.GetChild(0).gameObject.GetComponent<AudioSource>();
+                iokasute.Play();
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
                // Corvette6.GetComponent<Animator>().SetTrigger("Stege out");
             }
