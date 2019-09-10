@@ -1591,7 +1591,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Corvette6
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 617263415}
     - target: {fileID: 1707579952384668049, guid: 258397b748f66e14e95c6c4c4dde06c8,
         type: 3}
       propertyPath: waves.Array.data[0]
@@ -3364,6 +3364,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8716587498452448056}
     m_Modifications:
+    - target: {fileID: 3106090903002353593, guid: 7020e755a9c77c74e834e777cac0e033,
+        type: 3}
+      propertyPath: m_Name
+      value: Corvette_Laser
+      objectReference: {fileID: 0}
     - target: {fileID: 5023688550477801450, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3438,11 +3443,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3106090903002353593, guid: 7020e755a9c77c74e834e777cac0e033,
-        type: 3}
-      propertyPath: m_Name
-      value: Corvette_Laser
       objectReference: {fileID: 0}
     - target: {fileID: 3351614460079060997, guid: 7020e755a9c77c74e834e777cac0e033,
         type: 3}
@@ -6428,6 +6428,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8905626077761819771, guid: a6ec660f875be454780070bf8b46d5fe,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.66
+      objectReference: {fileID: 0}
     - target: {fileID: 4373739632035187665, guid: a6ec660f875be454780070bf8b46d5fe,
         type: 3}
       propertyPath: m_Enabled
@@ -6442,6 +6447,16 @@ PrefabInstance:
         type: 3}
       propertyPath: health
       value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8905626077761819769, guid: a6ec660f875be454780070bf8b46d5fe,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8905626077761819769, guid: a6ec660f875be454780070bf8b46d5fe,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ec660f875be454780070bf8b46d5fe, type: 3}
@@ -11783,6 +11798,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5573893824240476651}
     m_Modifications:
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Name
+      value: laserBeamSample
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11841,16 +11866,6 @@ PrefabInstance:
     - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Name
-      value: laserBeamSample
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12264,6 +12279,11 @@ PrefabInstance:
       propertyPath: Corvette6
       value: 
       objectReference: {fileID: 617263415}
+    - target: {fileID: 6319815172376572410, guid: 1c5ce80748b02494eb3d5f09b21c3997,
+        type: 3}
+      propertyPath: currentHealth
+      value: 750
+      objectReference: {fileID: 0}
     - target: {fileID: 3218415166862466847, guid: 1c5ce80748b02494eb3d5f09b21c3997,
         type: 3}
       propertyPath: m_IsActive
@@ -15603,6 +15623,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5573893823569976712}
     m_Modifications:
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_Name
+      value: laserBeamSample
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4596755570483026892, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15661,16 +15691,6 @@ PrefabInstance:
     - target: {fileID: 4596755570483026931, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_Name
-      value: laserBeamSample
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596755570483026930, guid: 6e197dcbb5929b04ebe281c3c2593cc8,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
