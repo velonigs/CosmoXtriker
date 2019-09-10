@@ -26,18 +26,18 @@ public class Wave3 : MonoBehaviour
     //SpaceStationのアニメーション
     Animator planetanim;
     //Corvetteスクリプト
-    Corvette corvette3script;
-    Corvette corvette6script;
+   /* Corvette corvette3script;
+    Corvette corvette6script;*/
     // Waveプレハブを収納する
     public GameObject[] waves;
     //現在のWave
     private int currentWave;
-
-
+    CorvetteHEALTH corvette3script;
+    CorvetteHEALTH corvette6script;
 
     void Start()
     {
-        corvette3script = Corvette3.GetComponent<Corvette>();
+      corvette3script = Corvette3.GetComponent<CorvetteHEALTH>();
         this.Debri = GameObject.Find("Debri Sponner");
         planetanim = GameObject.Find("PlanetScalePivot").transform.GetComponent<Animator>();
         destroyeranim = GameObject.Find("DestroyerComplete2").transform.GetComponent<Animator>();
@@ -70,7 +70,7 @@ public class Wave3 : MonoBehaviour
             }
 
             if(currentWave == 5){
-                corvette6script = Corvette6.GetComponent<Corvette>();
+                corvette6script = Corvette6.GetComponent<CorvetteHEALTH>();
             }
 
             //Corvette3が死んだ地点でCorvette6を沸かせるため
@@ -79,7 +79,7 @@ public class Wave3 : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                 }
                 //Corvette6のHP取得用
-                corvette6script = Corvette6.GetComponent<Corvette>();
+                corvette6script = Corvette6.GetComponent<CorvetteHEALTH>();
             }
 
             if (currentWave == 2)

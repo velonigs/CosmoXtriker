@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Corvette : MonoBehaviour, ITakeDamage
+public class Corvette : MonoBehaviour 
 {
 
-  [SerializeField] CannonMovement laserCannon;
-    [SerializeField] GameObject explosion,Corvette6;
+    [SerializeField] CannonMovement laserCannon;
     
     //attackポジション
     [SerializeField] Transform[] missileSpawnpoints;
@@ -23,23 +22,18 @@ public class Corvette : MonoBehaviour, ITakeDamage
     public GameObject[] debridsToSpawn;//ゴミprefab
     
    Transform player;
-   
-    [SerializeField]
-     int health = 300;
-    public int currentHealth;
-    [SerializeField] float offset;
-    bool death;
-    public bool corvette1;
 
-    public enum attackType { missile, bullet}
+    [SerializeField] float offset;
+    
+   
+   public enum attackType { missile, bullet}
     public attackType attack;
     // Start is called before the first frame update
     void Start()
     {
        laserCannon = GameObject.Find("mobileCannoX").GetComponent<CannonMovement>();
-        currentHealth = health;
-       
-        if(PlayerController.instance!=null)
+        
+       if(PlayerController.instance!=null)
         player = PlayerController.instance.transform;
   
     }
@@ -90,41 +84,6 @@ public class Corvette : MonoBehaviour, ITakeDamage
         attack = type;
  }
 
-    public void takeDamage(int damageToTake)
-    {
-        
-        currentHealth -= damageToTake;
-        if (currentHealth == 500)
-        {
-            Instantiate(explosion, transform.position, transform.rotation);
-            //レーサー攻撃を使う
-            
-            
-        }
-        if (currentHealth == 250)
-        {
-            Instantiate(explosion, transform.position, transform.rotation);
-            
-
-        }
-        if (currentHealth <= 0)
-        {
-            if (!death)
-            {
-                death = true;
-                if (corvette1)
-                {
-                    
-                    Corvette6.SetActive(true);
-                }
-               
-                 GetComponent<Animator>().SetTrigger("end");
-
-            }
-               
-            }
-
-     }
     
     public void spawnDebrids(int num)
     {
@@ -137,27 +96,8 @@ public class Corvette : MonoBehaviour, ITakeDamage
             Instantiate(debridsToSpawn[rand_Sel], new Vector3(transform.position.x + randomPos, transform.position.y + randomPos, transform.position.z + randomPos), transform.rotation);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Bullet")
-        {
-            ushort _dmg = other.gameObject.GetComponent<_tmpBullet>().Damage;
-           
-            takeDamage(_dmg);
-        }
-        if (other.tag == "Player")
-        {
-            takeDamage(10);
-            other.GetComponent<HealthManager>().Takedamage(10);
-        }
-    }
 
- 
 
-    public void heal()
-    {
-        currentHealth = health;
-    }
     
     public void randomChange()
     {
