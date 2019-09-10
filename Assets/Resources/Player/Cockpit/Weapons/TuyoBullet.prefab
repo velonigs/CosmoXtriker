@@ -93,7 +93,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.61
+  m_Radius: 4.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2310653576152173071
 Rigidbody:
@@ -145,6 +145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2312945774184636644}
     m_Modifications:
+    - target: {fileID: 1452043023141516, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
+      propertyPath: m_Name
+      value: BulletBlueSparkleSFX
+      objectReference: {fileID: 0}
     - target: {fileID: 4466262414135954, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -201,50 +205,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 6.634
       objectReference: {fileID: 0}
-    - target: {fileID: 1452043023141516, guid: 059d840a0cb0d8f4b9d40e5e52a2d959, type: 3}
-      propertyPath: m_Name
-      value: BulletBlueSparkleSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: ShapeModule.type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114845138273840728, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
       propertyPath: velocity
@@ -259,6 +219,16 @@ PrefabInstance:
         type: 3}
       propertyPath: life
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108563856247409952, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 96046009712919600, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
@@ -303,6 +273,36 @@ PrefabInstance:
     - target: {fileID: 82455929951958654, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
         type: 3}
       propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199484769932815430, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198523175385329784, guid: 059d840a0cb0d8f4b9d40e5e52a2d959,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

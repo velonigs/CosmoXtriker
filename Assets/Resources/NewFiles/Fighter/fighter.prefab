@@ -175,7 +175,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 45, y: 30, z: 40}
+  m_Size: {x: 55, y: 45, z: 60}
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &7203706182363386478
 MonoBehaviour:
@@ -205,6 +205,7 @@ MonoBehaviour:
   minValue: -0.1
   MaxValue: 0.1
   moveZ: -0.2
+  attackdelay: 1
 --- !u!1 &7357327931569498950
 GameObject:
   m_ObjectHideFlags: 0

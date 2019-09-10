@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b2e3167e899ab4aab86877f24f2cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDelay: 0.5
   attackPoints:
   - {fileID: 5004308717064333451}
   - {fileID: 3734367538379411260}
@@ -161,7 +162,7 @@ MonoBehaviour:
   - {fileID: 6688642594866224271, guid: a2bbce967c7abcf4bba5741ece1c8a3b, type: 3}
   - {fileID: 2728130291642302206, guid: 8949986726f4c89429dadb1d14e75f90, type: 3}
   - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
-  HP: 20
+  HP: 100
 --- !u!54 &4073866767319225791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -189,8 +190,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3008388, y: 0.1608183, z: 0.3134558}
-  m_Center: {x: 0.00003193629, y: 0.003224851, z: 0.0350874}
+  m_Size: {x: 0.33, y: 0.22, z: 0.4}
+  m_Center: {x: 0.00003193629, y: 0.003224851, z: 0.01}
 --- !u!1 &1525848574248793462
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +349,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1129708765084359782}
     m_Modifications:
+    - target: {fileID: 6179728798580667596, guid: 28b1f049f2603374482e3b30ee815cfd,
+        type: 3}
+      propertyPath: m_Name
+      value: BLeaderAfterBurner
+      objectReference: {fileID: 0}
     - target: {fileID: 4903237996744953175, guid: 28b1f049f2603374482e3b30ee815cfd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -402,11 +408,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179728798580667596, guid: 28b1f049f2603374482e3b30ee815cfd,
-        type: 3}
-      propertyPath: m_Name
-      value: BLeaderAfterBurner
       objectReference: {fileID: 0}
     - target: {fileID: 895301318953841652, guid: 28b1f049f2603374482e3b30ee815cfd,
         type: 3}

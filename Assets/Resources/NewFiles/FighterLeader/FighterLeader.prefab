@@ -446,7 +446,7 @@ MonoBehaviour:
   - {fileID: 6688642594866224271, guid: a2bbce967c7abcf4bba5741ece1c8a3b, type: 3}
   - {fileID: 2728130291642302206, guid: 8949986726f4c89429dadb1d14e75f90, type: 3}
   - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
-  HP: 20
+  HP: 100
 --- !u!114 &1688004949946102157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  fireTime: 2
+  fireTime: 0.5
   Leaderfirepoint:
   - {fileID: 2404807954039571330}
   - {fileID: 7509039290636068862}
@@ -481,8 +481,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 20, z: 34.38799}
-  m_Center: {x: 0.765084, y: -0.3404002, z: -7.194}
+  m_Size: {x: 55, y: 40, z: 60}
+  m_Center: {x: 0.765084, y: -0.3404002, z: -3.4}
 --- !u!64 &485223259528945946
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -608,6 +608,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 133065971218229054}
     m_Modifications:
+    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
+        type: 3}
+      propertyPath: m_Name
+      value: FLeaderAfterBurner
+      objectReference: {fileID: 0}
     - target: {fileID: 1274553592090292271, guid: c1c817bb090d8d44aa90d42626a76093,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,11 +667,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 34091312394652084, guid: c1c817bb090d8d44aa90d42626a76093,
-        type: 3}
-      propertyPath: m_Name
-      value: FLeaderAfterBurner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c817bb090d8d44aa90d42626a76093, type: 3}
