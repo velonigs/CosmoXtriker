@@ -53,7 +53,11 @@ public class EventDirector : MonoBehaviour {
     [SerializeField]
     private GameObject _strikerHorogram;
 
+    private AudioSource audiosource3;
     void Start() {
+        
+        //Invokeする必要があるのでここで取得 @velonigs
+        audiosource3 = _dlCannonPos.GetComponent<AudioSource>();
 
     }
 
@@ -154,10 +158,16 @@ public class EventDirector : MonoBehaviour {
                 StartCoroutine(OpenHatch());
                 var audioSource2 = GameObject.Find("UpDoor").GetComponent<AudioSource>();
                 audioSource2.Play();
+                Invoke("voice2play", 2.5f);
             } else {
                 StartCoroutine(StartActionCoroutine());
             }
         }
+    }
+
+    //Invoke用 @velonigs
+    void voice2play(){
+        audiosource3.Play();
     }
 
    /*void EquipWeapon() {
