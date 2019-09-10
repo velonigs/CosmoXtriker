@@ -34,6 +34,9 @@ public class LeftCannonRotation : MonoBehaviour {
         _ray = new Ray(center.transform.position, _pos);
         foreach (RaycastHit _lhit in Physics.RaycastAll(_ray))
         {
+            if(_lhit.collider.gameObject.tag == "Corvette"){
+                _pos2 = _lhit.point;
+            }
             if (_lhit.collider.gameObject.tag == "Enemy")
             {
                 _pos2 = _lhit.point;
