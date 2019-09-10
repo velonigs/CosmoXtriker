@@ -2506,7 +2506,7 @@ PrefabInstance:
     - target: {fileID: 6319815172376572410, guid: 1c5ce80748b02494eb3d5f09b21c3997,
         type: 3}
       propertyPath: currentHealth
-      value: 750
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6319815172376572410, guid: 1c5ce80748b02494eb3d5f09b21c3997,
         type: 3}
@@ -6303,6 +6303,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8905626077761819766, guid: a6ec660f875be454780070bf8b46d5fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8905626077761819768, guid: a6ec660f875be454780070bf8b46d5fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8905626077761980502, guid: a6ec660f875be454780070bf8b46d5fe,
         type: 3}
@@ -10660,7 +10670,7 @@ PrefabInstance:
     - target: {fileID: 6319815172376572410, guid: 1c5ce80748b02494eb3d5f09b21c3997,
         type: 3}
       propertyPath: currentHealth
-      value: 750
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6319815172376572410, guid: 1c5ce80748b02494eb3d5f09b21c3997,
         type: 3}
@@ -10852,26 +10862,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponSelecter: {fileID: 0}
---- !u!1 &8397793712203893458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8397793712203893458, guid: 93a9fc0eabc16f54c8d53073e9a06d66,
-    type: 3}
-  m_PrefabInstance: {fileID: 934721014}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &8397793712203893510
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8397793712203893458}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300030, guid: 3b3c9a0503f6b5b44ae53f0624ac755b, type: 3}
 --- !u!1001 &8441471254771554659
 PrefabInstance:
   m_ObjectHideFlags: 0
