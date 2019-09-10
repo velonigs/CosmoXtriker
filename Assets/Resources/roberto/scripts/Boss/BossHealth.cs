@@ -91,4 +91,13 @@ public class BossHealth : MonoBehaviour, ITakeDamage
         
         gameObject.SetActive(false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet")
+        {
+            takeDamage(10);
+        }
+  
+    }
 }
