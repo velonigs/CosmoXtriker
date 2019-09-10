@@ -61,7 +61,7 @@ public class Wave3 : MonoBehaviour
             if (currentWave == 4){
                 //一機目のコルベット殺
                 if(corvette3script.currentHealth >= 0 && Corvette6.activeSelf == false){
-                corvette3script.currentHealth -= 751;
+                corvette3script.takeDamage(9999);
                 }
                 //退場するまで（意図として二機目が定位置に付くまで）Waveを止める
                 while(Corvette3.activeSelf == true){
@@ -125,7 +125,7 @@ public class Wave3 : MonoBehaviour
                 currentWave = 0;
             }*/
             if (currentWave == 10){
-                corvette6script.currentHealth -= 751;
+                corvette6script.takeDamage(9999);
                 break;
             }
 
