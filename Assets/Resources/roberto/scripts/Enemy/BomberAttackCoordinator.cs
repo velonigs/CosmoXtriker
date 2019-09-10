@@ -14,7 +14,7 @@ public class BomberAttackCoordinator : MonoBehaviour
     int missilenumbers = 0;
     int currentship = 0;
     
-    Corvette[] corvettes = null;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +22,7 @@ public class BomberAttackCoordinator : MonoBehaviour
         
         missilenumbers = 0;
         attackTimer = attackDelay;
-        //corvetteを探す
-        corvettes = FindObjectsOfType<Corvette>();
-        if (corvettes != null)
-        {
-            //corvetteの攻撃タイプを変更する
-            for (int i = 0; i < corvettes.Length; i++)
-            {
-                corvettes[i].changeFase("bullet");
-            }
-        }
+       
     }
 
     // Update is called once per frame

@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CorvetteLaser : MonoBehaviour
 {
+    public static Action afterLaser = delegate { };
     [SerializeField] GameObject charge, laser;
     public bool Shot;
     float chargeDealay=3;
@@ -33,7 +35,8 @@ public class CorvetteLaser : MonoBehaviour
                 {
                     laser.SetActive(false);
                     Shot = false;
-                    GetComponent<Corvette>().changeFase("bullet");
+                    if (afterLaser != null)
+                        afterLaser();
                 }
 
             }
@@ -41,7 +44,7 @@ public class CorvetteLaser : MonoBehaviour
     }
 
 
-
+   
     public void LaserActive()
     {
         shotTime = 5;

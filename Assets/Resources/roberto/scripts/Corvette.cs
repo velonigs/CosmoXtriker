@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Corvette : MonoBehaviour, ITakeDamage
 {
+
+   
+
     [SerializeField] CannonMovement laserCannon;
     [SerializeField] GameObject explosion,Corvette6;
     
@@ -53,6 +56,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
         player = PlayerController.instance.transform;
         changeFase("bullet");
         corvetteLaser = GetComponent<CorvetteLaser>();
+        CorvetteLaser.afterLaser += randomChange;
 
     }
 
@@ -109,17 +113,11 @@ public class Corvette : MonoBehaviour, ITakeDamage
     //攻撃タイプを変更する
     public void changeFase(string faseTochange)
     {
-        if (corvetteLaser != null)
-        {
-            if (!corvetteLaser.Shot)
-            {
+        
                 currentAttack = faseTochange;
                 attack = currentAttack;
-            }
-        }
-      
-        
-        if (attack == "laser")
+          
+       if (attack == "laser")
         {
             laserCannon.canMove = true;
             CorvetteLaser laser= GetComponent<CorvetteLaser>();
@@ -199,14 +197,26 @@ public class Corvette : MonoBehaviour, ITakeDamage
         }
     }
 
-    private void OnEnable()
-    {
-        changeFase("missile");
-    }
+ 
 
     public void heal()
     {
         currentHealth = health;
     }
     
+    public void randomChange()
+    {
+        int num = Random.Range(0, 10);
+        string _newAtk = "";
+        if (num >= 5)
+        {
+            _newAtk = "missile";
+        }
+        else
+        {
+            _newAtk = "bullet";
+        }
+        currentAttack = _newAtk;
+        attack = currentAttack;
+    }
 }

@@ -16,7 +16,7 @@ public class FighterAttackCoordinator : MonoBehaviour
     private int currentShip;
     [SerializeField]
     Transform[] Leaderfirepoint;
-    Corvette[] corvettes;
+    
     
 
     // Start is called before the first frame update
@@ -24,16 +24,7 @@ public class FighterAttackCoordinator : MonoBehaviour
     {
         fireRate = fireTime;
        
-        corvettes = FindObjectsOfType<Corvette>();
-        if (corvettes != null)
-        {
-            for (int i = 0; i < corvettes.Length; i++)
-            {
-                corvettes[i].changeFase("missile");
-            }
-        }
-
-    }
+   }
 
     // Update is called once per frame
     void Update()

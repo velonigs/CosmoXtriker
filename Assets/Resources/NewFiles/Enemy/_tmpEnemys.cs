@@ -27,7 +27,10 @@ public class _tmpEnemys : MonoBehaviour ,ITakeDamage {
         if (collision.gameObject.tag == "Bullet")
         {
             ushort _dmg = collision.gameObject.GetComponent<_tmpBullet>().Damage;
-            takeDamage(_dmg);
+            
+                takeDamage(_dmg);
+            
+            
 
         }
             if (collision.tag == "Player")
