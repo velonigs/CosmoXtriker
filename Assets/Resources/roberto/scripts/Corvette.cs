@@ -63,6 +63,24 @@ public class Corvette : MonoBehaviour, ITakeDamage
     // Update is called once per frame
     void Update()
     {
+        if (currentHealth <= 0)
+        {
+            if (!death)
+            {
+                death = true;
+                if (corvette1)
+                {
+                    
+                    Corvette6.SetActive(true);
+                }
+               
+                   
+                  
+                    GetComponent<Animator>().SetTrigger("end");
+
+            }
+               
+            }
 
         //攻撃タイプはレーサーじゃなければ
         if (attack != "laser")
@@ -147,28 +165,7 @@ public class Corvette : MonoBehaviour, ITakeDamage
             changeFase("laser");
 
         }
-        if (currentHealth <= 0)
-        {
-            if (!death)
-            {
-                death = true;
-                if (corvette1)
-                {
-                    
-                    Corvette6.SetActive(true);
-                }
-               
-                   
-                  
-                    GetComponent<Animator>().SetTrigger("end");
-
-            }
-               
-            }
-
-           
-          
-           
+      
         }
     
     public void spawnDebrids(int num)

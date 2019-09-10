@@ -58,15 +58,19 @@ public class Wave3 : MonoBehaviour
                     }
             }
 
-            if (currentWave == 6){
+            if (currentWave == 4){
                 //一機目のコルベット殺
                 if(corvette3script.currentHealth >= 0 && Corvette6.activeSelf == false){
-                corvette3script.currentHealth -= 750;
+                corvette3script.currentHealth -= 751;
                 }
                 //退場するまで（意図として二機目が定位置に付くまで）Waveを止める
                 while(Corvette3.activeSelf == true){
                     yield return new WaitForEndOfFrame();
                 }
+            }
+
+            if(currentWave == 5){
+                corvette6script = Corvette6.GetComponent<Corvette>();
             }
 
             //Corvette3が死んだ地点でCorvette6を沸かせるため
@@ -100,12 +104,10 @@ public class Wave3 : MonoBehaviour
                 Asteroid.GetComponent<Animator>().enabled = true;
             }
             //Waveが8になったらDebrisPopをオフに
-            if (currentWave == 7)
-            {
+            if (currentWave == 7){
                 this.Debri.GetComponent<DebrisPop>().enabled = false;
                // Corvette6.GetComponent<Animator>().SetTrigger("Stege out");
             }
-
 
             //Waveの子要素のEnemyがすべて消去されるまで待機する
             while (wave.activeSelf == true)
@@ -123,10 +125,7 @@ public class Wave3 : MonoBehaviour
                 currentWave = 0;
             }*/
             if (currentWave == 10){
-                //二機目のコルベット殺
-                if(Corvette6.activeSelf == true && corvette6script.currentHealth >= 0){
-                corvette6script.currentHealth -= 750;
-                }
+                corvette6script.currentHealth -= 751;
                 break;
             }
 
