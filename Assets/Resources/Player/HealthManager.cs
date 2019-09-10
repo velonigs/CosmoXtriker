@@ -12,7 +12,8 @@ public class HealthManager : MonoBehaviour
 
     public float health = 500;
     public float startingHealth = 500;
-
+    bool yellow = false;
+    bool red = false;
 
     void Start()
     {
@@ -41,11 +42,17 @@ public class HealthManager : MonoBehaviour
         }
         else if (health <= startingHealth / 2 && health > startingHealth / 5) 
         {
+            if(yellow == false){
             hcChanger.ColorChange_Yellow();
+            yellow = true;
+            }
         }
         else if (health <= startingHealth / 5)
         {
+            if(red == false){
             hcChanger.ColorChange_Red();
+            red = true;
+            }
         }
     }
 }

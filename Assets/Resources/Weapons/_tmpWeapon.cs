@@ -19,13 +19,13 @@ public class _tmpWeapon : MonoBehaviour{
     Vector3 _bulletvec;
 
     
-    void Start(){
+    public void Start(){
         _tmpfire = 60.0f / RPM; //RPM（分間連射速度）に変換
         
         Leftcannon = GameObject.Find("LeftJointPivot");
         cannonsc = Leftcannon.GetComponent<LeftCannonRotation>();
     }
-    void shot(){
+    public void shot(){
         Bullets = Instantiate(Bullet) as GameObject; // Bullet呼び出し
         _bulletvec = _poss - RightMuzzle.transform.position;
         force = _bulletvec.normalized * speed; // 銃口の正面に対してspeedをかけてforce
