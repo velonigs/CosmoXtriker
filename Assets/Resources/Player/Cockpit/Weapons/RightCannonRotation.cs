@@ -24,7 +24,7 @@ public class RightCannonRotation : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("a");
+
         _lmuzz = GameObject.Find("RightMuzzle");
         center = GameObject.Find("Crosshair");
         sight = GameObject.Find("Target");

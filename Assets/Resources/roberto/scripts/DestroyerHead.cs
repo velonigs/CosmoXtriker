@@ -18,7 +18,7 @@ public class DestroyerHead :MonoBehaviour
     int bulletCount,missileCount;
     float fireCounter;
     Corvette[] allcorvette;
-
+    GameObject planet;
     public enum attackType { bullet,missile}
     public attackType Type;
 
@@ -30,6 +30,7 @@ public class DestroyerHead :MonoBehaviour
 
     private void Start()
     {
+        planet = GameObject.Find("PlanetScalePivot").gameObject;
         fireCounter = fireRate;
         cannons = FindObjectsOfType<DestroyerCannonAttack>();
         allcorvette = FindObjectsOfType<Corvette>();
@@ -87,7 +88,7 @@ public class DestroyerHead :MonoBehaviour
 
     private void OnDisable()
     {
-        GameObject planet = GameObject.Find("PlanetScalePivot").gameObject;
+
         planet.GetComponent<AudioSource>().Play();
         planet.GetComponent<Animator>().SetBool("planettrigger",false);
     }

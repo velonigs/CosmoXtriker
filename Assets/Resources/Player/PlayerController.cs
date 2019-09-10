@@ -55,14 +55,18 @@ public class PlayerController : MonoBehaviour
         moveVector = Vector3.zero;
         moveVector.x = moveSpeed * _HorizontalInput;
         moveVector.y = moveSpeed * _VerticalInput;
-            if(LastBoss.transform.GetComponent<BossHealth>().enabled == true) //後で書き直し
+        if (LastBoss != null)
         {
-            transform.LookAt(LastBosspivot.transform);
-                if(transform.position.y <= -30 && transform.position.y >= 30)
+            if (LastBoss.transform.GetComponent<BossHealth>().enabled == true) //後で書き直し
             {
-                moveVector.y = -moveVector.y * 10;
+                transform.LookAt(LastBosspivot.transform);
+                if (transform.position.y <= -30 && transform.position.y >= 30)
+                {
+                    moveVector.y = -moveVector.y * 10;
+                }
             }
         }
+        
         _rb.AddForce(moveForceMultiplier * (moveVector - _rb.velocity));
         verticalFactor = moveVector.y;
 
