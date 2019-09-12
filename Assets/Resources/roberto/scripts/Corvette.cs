@@ -44,11 +44,12 @@ public class Corvette : MonoBehaviour
           attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
+            StopAllCoroutines();
                 randomChange(); 
                 attackTimer = attackdelay;
 
             switch (attack)
-            {   case attackType.missile: missileFire(); laserCannon.canMove = false; break;
+            {   case attackType.missile: StartCoroutine(missileFire()); laserCannon.canMove = false; break;
                 case attackType.bullet: StartCoroutine(bulletFire()); laserCannon.canMove = false; break;
             }
        }
@@ -70,10 +71,11 @@ public class Corvette : MonoBehaviour
 
     }
     //ミサイル攻撃
-    void missileFire() {
+    IEnumerator missileFire() {
         for (int i = 0; i < missileSpawnpoints.Length; i++)
         {
             Instantiate(missiles, missileSpawnpoints[i].position, missileSpawnpoints[i].rotation);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
