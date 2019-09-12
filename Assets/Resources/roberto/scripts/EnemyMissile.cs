@@ -20,7 +20,7 @@ public class EnemyMissile : MonoBehaviour,IMissile<Vector3>
     {
         followPlayer = true;
         if(PlayerController.instance!=null)
-        player = PlayerController.instance.transform;
+        player = PlayerController.instance.ship;
 
         
     }

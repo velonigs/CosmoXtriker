@@ -17,7 +17,7 @@ public class BossMissiles : MonoBehaviour,IMissile<Vector3>
     {
         
         if (PlayerController.instance != null)
-            player = PlayerController.instance.transform;
+            player = PlayerController.instance.ship;
         followPlayer = true;
         Destroy(gameObject, 5);
 

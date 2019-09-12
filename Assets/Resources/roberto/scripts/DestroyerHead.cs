@@ -91,6 +91,7 @@ public class DestroyerHead :MonoBehaviour
 
         planet.GetComponent<AudioSource>().Play();
         planet.GetComponent<Animator>().SetBool("planettrigger",false);
+        PlayerController.instance.Bossbattle = true;
     }
 
 }
