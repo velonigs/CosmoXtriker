@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
         }
         if (bossBattle)
         {
+            Debug.Log("boolon");
             transform.position = Vector3.MoveTowards(transform.position, startPos, moveSpeed * Time.deltaTime * 10);
             if (transform.position == startPos)
             {

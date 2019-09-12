@@ -4234,7 +4234,7 @@ Transform:
   m_GameObject: {fileID: 8905626077761819766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5000, y: 5000, z: 5000}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 8905626077761980504}
   m_Father: {fileID: 0}
@@ -4248,7 +4248,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8905626077761819766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9b024d79842237641bcce4820af7d33b, type: 2}
   m_CullingMode: 0
@@ -4275,7 +4275,7 @@ GameObject:
   - component: {fileID: 3821572259319681039}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4366,7 +4366,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8905626077761819768}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
@@ -4379,21 +4379,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8905626077761819768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c3309d4f7745d74a91c27fbb70c9970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Explode: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 3}
-  debritsNumberToSpawn: 10
-  debridsToSpawn:
-  - {fileID: 6688642594866224271, guid: a2bbce967c7abcf4bba5741ece1c8a3b, type: 3}
-  - {fileID: 2728130291642302206, guid: 8949986726f4c89429dadb1d14e75f90, type: 3}
-  - {fileID: 4815683300139775317, guid: 6d7c6256a5bddef4fa9b636353e34dc5, type: 3}
-  HP: 3000
   chageAttackTimer: 10
   changeAttackCounte: 0
-  fireRate: 2
+  fireRate: 0.66
   missiles: {fileID: 8655136498940538571, guid: 2c957e79edc74e84281682259ee4cea3,
     type: 3}
   missileSpawnPoints:
@@ -4435,7 +4428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50bedc48d5c02e46b5bfd1eb8bcacc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2000
   effect: {fileID: 662087442716015991, guid: 9eaeebfdc392c5345a712691072f8f6f, type: 3}
 --- !u!1 &8905626077761819770
 GameObject:
