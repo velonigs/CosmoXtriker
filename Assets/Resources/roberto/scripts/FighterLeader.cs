@@ -21,26 +21,7 @@ public class FighterLeader : _tmpEnemys
 
     public override void Movement()
     {
-      /*  if (hit)
-        {
-            if (hitTimer > 0)
-            {
-
-                foreach (var r in rends)
-                {
-                    r.enabled = false;
-                }
-                hitTimer -= Time.deltaTime;
-                if (hitTimer <= 0)
-                {
-                    hit = false;
-                    foreach (var r in rends)
-                    {
-                        r.enabled = true;
-                    }
-                }
-            }
-        }*/
+     
      
     }
     public override void OnTriggerEnter(Collider collision)
@@ -58,6 +39,10 @@ public class FighterLeader : _tmpEnemys
                 allEnemyes= FindObjectsOfType<fighter>();
                 for(int i = 0; i < allEnemyes.Length; i++)
                 {
+                    if (allEnemyes[i].randomMove)
+                    {
+                        allEnemyes[i].randomMove = false;
+                    }
                     allEnemyes[i].randomMove = true;
                 }
                 Instantiate(Explode, transform.position, transform.rotation); //現在位置にエフェクト生成

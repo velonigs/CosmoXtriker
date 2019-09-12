@@ -72,11 +72,15 @@ public class Corvette : MonoBehaviour
     }
     //ミサイル攻撃
     IEnumerator missileFire() {
-        for (int i = 0; i < missileSpawnpoints.Length; i++)
+        for(int j = 0; j < 8; j++)
         {
-            Instantiate(missiles, missileSpawnpoints[i].position, missileSpawnpoints[i].rotation);
-            yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < missileSpawnpoints.Length; i++)
+            {
+                Instantiate(missiles, missileSpawnpoints[i].position, missileSpawnpoints[i].rotation);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
+       
     }
 
 
