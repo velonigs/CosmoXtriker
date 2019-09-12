@@ -7253,16 +7253,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4791329386053043682, guid: 317837956b5a9764a80ad83f3e1c0b09,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4791329386053043682, guid: 317837956b5a9764a80ad83f3e1c0b09,
-        type: 3}
-      propertyPath: m_Name
-      value: body
-      objectReference: {fileID: 0}
     - target: {fileID: 4791329386052884928, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7333,10 +7323,15 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
+    - target: {fileID: 4791329386053043682, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791329386053043682, guid: 317837956b5a9764a80ad83f3e1c0b09,
+        type: 3}
+      propertyPath: m_Name
+      value: body
       objectReference: {fileID: 0}
     - target: {fileID: 4791329386053043684, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
@@ -7348,6 +7343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wing
       objectReference: {fileID: 0}
+    - target: {fileID: 4791329386053043696, guid: 317837956b5a9764a80ad83f3e1c0b09,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4791329386053043584, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7358,7 +7358,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thruster
       objectReference: {fileID: 0}
-    - target: {fileID: 4791329386053043696, guid: 317837956b5a9764a80ad83f3e1c0b09,
+    - target: {fileID: 2033544714337580062, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -7835,6 +7835,7 @@ GameObject:
   - component: {fileID: 1808163694}
   - component: {fileID: 1808163703}
   - component: {fileID: 1808163704}
+  - component: {fileID: 1808163705}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
@@ -8026,7 +8027,7 @@ MonoBehaviour:
   gameover: {fileID: 1703671967}
   hcChanger: {fileID: 39357415}
   health: 50000
-  startingHealth: 2000
+  startingHealth: 10000
 --- !u!65 &1808163703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8054,6 +8055,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTarget: {fileID: 943353343}
   speed: 15
+--- !u!65 &1808163705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808163693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 37.928917, y: 24.476538, z: 49.203575}
+  m_Center: {x: 0.038348828, y: 4.7287054, z: -6.6800537}
 --- !u!1 &1811781191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1059868969510113605, guid: 1a924b25653c80940a9a57fa800716ff,
@@ -12576,6 +12590,11 @@ PrefabInstance:
       propertyPath: flayerDealay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4791329386043569696, guid: 317837956b5a9764a80ad83f3e1c0b09,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: abdebb6ba5ec95f47b1d079817a514a6, type: 2}
     - target: {fileID: 7922658247707486642, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_IsActive
@@ -12586,11 +12605,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4791329386043569696, guid: 317837956b5a9764a80ad83f3e1c0b09,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: abdebb6ba5ec95f47b1d079817a514a6, type: 2}
     m_RemovedComponents:
     - {fileID: 4791329386043569696, guid: 317837956b5a9764a80ad83f3e1c0b09, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 317837956b5a9764a80ad83f3e1c0b09, type: 3}
@@ -12780,6 +12794,11 @@ PrefabInstance:
       propertyPath: flayerDealay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4791329386043569696, guid: 317837956b5a9764a80ad83f3e1c0b09,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: abdebb6ba5ec95f47b1d079817a514a6, type: 2}
     - target: {fileID: 7922658247707486642, guid: 317837956b5a9764a80ad83f3e1c0b09,
         type: 3}
       propertyPath: m_IsActive
@@ -12790,11 +12809,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4791329386043569696, guid: 317837956b5a9764a80ad83f3e1c0b09,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: abdebb6ba5ec95f47b1d079817a514a6, type: 2}
     m_RemovedComponents:
     - {fileID: 4791329386043569696, guid: 317837956b5a9764a80ad83f3e1c0b09, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 317837956b5a9764a80ad83f3e1c0b09, type: 3}
