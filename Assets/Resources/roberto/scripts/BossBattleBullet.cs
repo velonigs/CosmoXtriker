@@ -22,7 +22,7 @@ public class BossBattleBullet : EnemyBullet
             return;
         }
 
-        player = PlayerController.instance.transform;
+        player = PlayerController.instance.ship;
        
         target = player.position - transform.position;
         Vector3 dir = player.position - transform.position;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform ship;
     Rigidbody _rb;
     public float moveSpeed = 11;
     public float moveForceMultiplier;
@@ -16,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public static float verticalFactor;
     private float _time;
     Vector3 moveVector = Vector3.zero;
+    Vector3 startPos = new Vector3(0, 0, 170);
+    Quaternion startRot = new Quaternion(0, 0, 0, 0);
+    //new entry
+   bool bossBattle;
+   public bool Bossbattle { get { return bossBattle; } set { bossBattle = value; } }
     /// <summary>
     /// missile no tame
     /// </summary>
@@ -119,5 +125,16 @@ public class PlayerController : MonoBehaviour
            
 
         }
+        if (bossBattle)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPos, moveSpeed * Time.deltaTime * 10);
+            if (transform.position == startPos)
+            {
+                bossBattle = false;
+                
+                transform.rotation = startRot;
+            }
+        }
+            
     }
 }

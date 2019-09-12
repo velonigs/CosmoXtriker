@@ -66,7 +66,7 @@ public class EnemyBullet : MonoBehaviour
             return;
         }
 
-        player = PlayerController.instance.transform;
+        player = PlayerController.instance.ship;
         if (player.position.z > transform.position.z)
         {
             quitBattle = true;
