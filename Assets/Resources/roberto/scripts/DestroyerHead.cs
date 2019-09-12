@@ -94,4 +94,8 @@ public class DestroyerHead :MonoBehaviour
         PlayerController.instance.Bossbattle = true;
     }
 
+    private void OnEnable()
+    {
+        PlayerController.instance.Bossbattle = true;
+    }
 }
